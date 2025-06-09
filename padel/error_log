@@ -1,0 +1,95 @@
+[04-Jun-2025 14:14:10 Asia/Jakarta] PHP Warning:  A non-numeric value encountered in /home/adip1300/public_html/oljen.my.id/padel/index.php on line 19
+[05-Jun-2025 12:19:51 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 12:19:51 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 12:20:03 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 12:20:03 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 12:20:07 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 12:20:07 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 12:20:09 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 12:20:09 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 12:20:13 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 12:20:13 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 13:05:33 Asia/Jakarta] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/adip1300/public_html/oljen.my.id/padel/login.php on line 8
+[05-Jun-2025 13:05:33 Asia/Jakarta] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home/adip1300/public_html/oljen.my.id/padel/login.php on line 8
+[05-Jun-2025 13:06:19 Asia/Jakarta] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/adip1300/public_html/oljen.my.id/padel/login.php on line 8
+[05-Jun-2025 13:06:19 Asia/Jakarta] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home/adip1300/public_html/oljen.my.id/padel/login.php on line 8
+[05-Jun-2025 16:11:29 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 16:11:29 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 16:45:31 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 16:45:31 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 16:45:54 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 16:45:54 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 17:17:57 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 17:17:57 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 18:03:08 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 18:03:08 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 18:06:36 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 18:06:36 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 18:06:36 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 18:06:36 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 18:06:53 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 18:06:53 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 18:12:43 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 18:12:43 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 18:12:52 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 18:12:52 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 18:13:03 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 18:13:03 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 18:14:12 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 18:14:12 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 18:14:14 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 18:14:14 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 18:14:25 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 18:14:25 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[05-Jun-2025 18:15:19 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[05-Jun-2025 18:15:19 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 03:28:45 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 03:28:45 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 03:29:19 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 03:29:19 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 08:18:06 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 08:18:06 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 08:18:14 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 08:18:14 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 08:18:27 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 08:18:27 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 08:18:28 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 08:18:28 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 08:18:30 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 08:18:30 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 08:18:39 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 08:18:39 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 08:19:13 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 08:19:13 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 08:19:34 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 08:19:34 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 08:39:25 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 08:39:25 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 08:39:27 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 08:39:27 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 11:03:46 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 11:03:46 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 11:03:52 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 11:03:52 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 11:04:08 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 11:04:08 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 11:04:59 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 11:04:59 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 11:06:11 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 11:06:11 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 11:06:17 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 11:06:17 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 11:06:23 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 11:06:23 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 11:06:43 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 11:06:43 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 11:06:53 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 11:06:53 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 11:07:09 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 11:07:09 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 11:41:54 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 11:41:54 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 11:41:54 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 11:41:54 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
+[06-Jun-2025 11:42:00 Asia/Jakarta] PHP Warning:  uasort() expects parameter 1 to be array, null given in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 50
+[06-Jun-2025 11:42:00 Asia/Jakarta] PHP Warning:  Invalid argument supplied for foreach() in /home/adip1300/public_html/oljen.my.id/padel/klasemen.php on line 73
