@@ -2,6 +2,9 @@
 $count = 0;
 $query = "SELECT * FROM pmatch WHERE lapangan = '$lapangan' ORDER BY id ASC";
 $q = mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+$headToHead = [];
+
 while ($qq = mysqli_fetch_array($q)) {
     $idmatch = $qq['id'];
     $pa1 = $qq['pa1'];
@@ -9,48 +12,79 @@ while ($qq = mysqli_fetch_array($q)) {
     $pb1 = $qq['pb1'];
     $pb2 = $qq['pb2'];
 
+    $teamA = $team[$pa1];
+    $teamB = $team[$pb1];
+
+    // Add points for each player
     $point[$pa1] += $qq['score_a'];
     $point[$pa2] += $qq['score_a'];
     $point[$pb1] += $qq['score_b'];
     $point[$pb2] += $qq['score_b'];
 
+    // Count matches played
     if ($qq['score_a'] != 0 && $qq['score_b'] != 0) {
-        $play[$team[$pa1]]++;
-        $play[$team[$pb1]]++;
+        $play[$teamA]++;
+        $play[$teamB]++;
     }
 
-    $skor[$team[$pa1]] += $qq['score_a'];
-    $skor[$team[$pb1]] += $qq['score_b'];
+    // Team score
+    $skor[$teamA] += $qq['score_a'];
+    $skor[$teamB] += $qq['score_b'];
 
-    $tpoint[$team[$pa1]]['score'] = $skor[$team[$pa1]];
-    $tpoint[$team[$pb1]]['score'] = $skor[$team[$pb1]];
+    $tpoint[$teamA]['score'] = $skor[$teamA];
+    $tpoint[$teamB]['score'] = $skor[$teamB];
 
+    // Head-to-head score difference
+    $headToHead[$teamA][$teamB] += $qq['score_a'] - $qq['score_b'];
+    $headToHead[$teamB][$teamA] += $qq['score_b'] - $qq['score_a'];
+
+    // Win / lose / draw + points
     if ($qq['score_a'] > $qq['score_b']) {
-        $tpoint[$team[$pa1]]['point'] += 3;
-        $win[$team[$pa1]]++;
-        $lose[$team[$pb1]]++;
+        $tpoint[$teamA]['point'] += 3;
+        $win[$teamA]++;
+        $lose[$teamB]++;
     } else if ($qq['score_a'] < $qq['score_b']) {
-        $tpoint[$team[$pb1]]['point'] += 3;
-        $win[$team[$pb1]]++;
-        $lose[$team[$pa1]]++;
+        $tpoint[$teamB]['point'] += 3;
+        $win[$teamB]++;
+        $lose[$teamA]++;
     } else {
         if ($qq['score_a'] != 0 && $qq['score_b'] != 0) {
-            $tpoint[$team[$pa1]]['point'] += 1;
-            $tpoint[$team[$pb1]]['point'] += 1;
-            $draw[$team[$pa1]]++;
-            $draw[$team[$pb1]]++;
+            $tpoint[$teamA]['point'] += 1;
+            $tpoint[$teamB]['point'] += 1;
+            $draw[$teamA]++;
+            $draw[$teamB]++;
         }
     }
 }
+
 arsort($point);
 
-uasort($tpoint, function ($a, $b) {
+// Sort teams by points → wins → head-to-head → score
+uasort($tpoint, function ($a, $b) use ($win, $headToHead, $tpoint) {
+    $teamA = array_search($a, $tpoint);
+    $teamB = array_search($b, $tpoint);
+
+    // 1️⃣ Points
     if ($a['point'] != $b['point']) {
         return $b['point'] - $a['point'];
     }
+
+    // 2️⃣ Wins
+    if ($win[$teamA] != $win[$teamB]) {
+        return $win[$teamB] - $win[$teamA];
+    }
+
+    // 3️⃣ Head-to-head
+    if (isset($headToHead[$teamA][$teamB]) && isset($headToHead[$teamB][$teamA])) {
+        $diff = $headToHead[$teamA][$teamB] - $headToHead[$teamB][$teamA];
+        if ($diff != 0) {
+            return $diff > 0 ? -1 : 1; // higher diff wins
+        }
+    }
+
+    // 4️⃣ Score
     return $b['score'] - $a['score'];
 });
-
 
 ?>
 

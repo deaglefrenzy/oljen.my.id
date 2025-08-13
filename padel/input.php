@@ -28,9 +28,10 @@
 
                             // value could be "id1,id2" or something else depending on your needs
                             $value = $id1 . ',' . $id2;
+                            $timm = $teamName . " - ";
                 ?>
                             <option value="<?= $value ?>">
-                                <?= $teamName . " - " . $name1 . " & " . $name2 ?>
+                                <?= $timm . $name1 . " & " . $name2 ?>
                             </option>
                 <?php
                         }
@@ -55,9 +56,10 @@
 
                             // value could be "id1,id2" or something else depending on your needs
                             $value = $id1 . ',' . $id2;
+                            $timm = $teamName . " - ";
                 ?>
                             <option value="<?= $value ?>">
-                                <?= $teamName . " - " . $name1 . " & " . $name2 ?>
+                                <?= $timm . $name1 . " & " . $name2 ?>
                             </option>
                 <?php
                         }

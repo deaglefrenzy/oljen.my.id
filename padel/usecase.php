@@ -27,10 +27,13 @@ if ($action == "resetskor") {
 }
 
 if ($action == "tambah match") {
-    $pa1 = $_POST['pa1'];
-    $pa2 = $_POST['pa2'];
-    $pb1 = $_POST['pb1'];
-    $pb2 = $_POST['pb2'];
+    $pa = $_POST['pa'];
+    $pb = $_POST['pb'];
+
+    $pa1 = explode(',', $pa)[0];
+    $pa2 = explode(',', $pa)[1];
+    $pb1 = explode(',', $pb)[0];
+    $pb2 = explode(',', $pb)[1];
 
     if ($page == "men") $lapangan = "Merah";
     else $lapangan = "Biru";
