@@ -57,7 +57,8 @@
 
                             // value could be "id1,id2" or something else depending on your needs
                             $value = $id1 . ',' . $id2;
-                            $timm = $teamName . " - ";
+                            $timm = "";
+                            if ($jk == "L") $timm = $teamName . " - ";
                 ?>
                             <option value="<?= $value ?>">
                                 <?= $timm . $name1 . " & " . $name2 ?>
