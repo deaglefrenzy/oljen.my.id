@@ -13,7 +13,7 @@
             }
             ?>
             <select name="pa1" class="w3-select w3-border w3-round" style="width: 90%; display: inline-block;">
-                <option value="">Player1 kiri...</option>
+                <option value="" selected>Player1 kiri...</option>
                 <?php foreach ($players as $p) { ?>
                     <option value="<?= $p['id'] ?>" <?php if ($p['id'] == $pa1) echo "selected"; ?>>
                         <?= $p['team'] . " - " . $p['name'] ?>
@@ -22,7 +22,7 @@
             </select>
             <br>
             <select name="pa2" class="w3-select w3-border w3-round" style="width: 90%; display: inline-block;">
-                <option value="">Player2 kiri...</option>
+                <option value="" selected>Player2 kiri...</option>
                 <?php foreach ($players as $p) { ?>
                     <option value="<?= $p['id'] ?>" <?php if ($p['id'] == $pa1) echo "selected"; ?>>
                         <?= $p['team'] . " - " . $p['name'] ?>
@@ -33,7 +33,7 @@
             vs
             <br>
             <select name="pb1" class="w3-select w3-border w3-round" style="width: 90%; display: inline-block;">
-                <option value="">Player1 kanan...</option>
+                <option value="" selected>Player1 kanan...</option>
                 <?php foreach ($players as $p) { ?>
                     <option value="<?= $p['id'] ?>" <?php if ($p['id'] == $pa1) echo "selected"; ?>>
                         <?= $p['team'] . " - " . $p['name'] ?>
@@ -42,7 +42,7 @@
             </select>
             <br>
             <select name="pb2" class="w3-select w3-border w3-round" style="width: 90%; display: inline-block;">
-                <option value="">Player2 kanan...</option>
+                <option value="" selected>Player2 kanan...</option>
                 <?php foreach ($players as $p) { ?>
                     <option value="<?= $p['id'] ?>" <?php if ($p['id'] == $pa1) echo "selected"; ?>>
                         <?= $p['team'] . " - " . $p['name'] ?>

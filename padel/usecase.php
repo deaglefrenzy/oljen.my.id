@@ -31,13 +31,28 @@ if ($action == "tambah match") {
     $pa2 = $_POST['pa2'];
     $pb1 = $_POST['pb1'];
     $pb2 = $_POST['pb2'];
+
     if ($page == "men") $lapangan = "Merah";
     else $lapangan = "Biru";
+
     if ($pa1 && $pa2 && $pb1 && $pb2) {
-        $query = "INSERT INTO pmatch (pa1, pa2, pb1, pb2, lapangan) VALUES ('$pa1', '$pa2', '$pb1', '$pb2', '$lapangan')";
-        mysqli_query($conn, $query) or die(mysqli_error($conn));
-        pesan("Match berhasil ditambahkan.");
+
+        // Check if all player IDs are unique
+        $players = [$pa1, $pa2, $pb1, $pb2];
+        if (count($players) !== count(array_unique($players))) {
+            pesan("Pemain tidak boleh sama.");
+        } else {
+            $query = "INSERT INTO pmatch (pa1, pa2, pb1, pb2, lapangan) VALUES ('$pa1', '$pa2', '$pb1', '$pb2', '$lapangan')";
+            mysqli_query($conn, $query) or die(mysqli_error($conn));
+            pesan("Match berhasil ditambahkan.");
+        }
     } else {
         pesan("Semua pemain harus dipilih.");
     }
+}
+if ($action == "hapus match") {
+    $idmatch = $_POST['idmatch'];
+    $query = "DELETE FROM pmatch WHERE id='$idmatch'";
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
+    pesan("Match berhasil dihapus.");
 }

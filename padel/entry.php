@@ -100,7 +100,7 @@ while ($qq = mysqli_fetch_array($q)) {
                 </div>
             </form>
             <br>
-            <!-- <form action="https://oljen.my.id/padel/?page=<?= $page ?>#row<?= $order ?>" method="post">
+            <form action="https://oljen.my.id/padel/?page=<?= $page ?>#row<?= $order ?>" method="post">
                 <input type="hidden" name="idmatch" value="<?= $idmatch ?>">
                 <div>
                     <input type="tel" class="w3-xlarge" name="order" <?php echo $dis; ?> size="2" maxlength="2" value="<?= $order ?>" style="text-align: center; width: 50px;" id="inputSelect">
@@ -109,12 +109,21 @@ while ($qq = mysqli_fetch_array($q)) {
                     </button>
                 </div>
             </form>
-            <br> -->
+            <br>
             <form action="https://oljen.my.id/padel/?page=<?= $page ?>#row<?= $order ?>" method="post" onsubmit="return confirm('Yakin ingin reset skor?');">
                 <input type="hidden" name="idmatch" value="<?= $idmatch ?>">
                 <div>
                     <button type="submit" name="action" value="resetskor" <?php echo $dis; ?> class="w3-small w3-button w3-red">
                         <i class="fa-solid fa-arrows-spin"></i> Reset Skor
+                    </button>
+                </div>
+            </form>
+            <br>
+            <form action="https://oljen.my.id/padel/?page=<?= $page ?>#row<?= $order ?>" method="post" onsubmit="return confirm('Yakin hapus match?');">
+                <input type="hidden" name="idmatch" value="<?= $idmatch ?>">
+                <div>
+                    <button type="submit" name="action" value="hapus match" <?php echo $dis; ?> class="w3-small w3-button w3-red">
+                        <i class="fa-solid fa-trash-can"></i> Hapus Match
                     </button>
                 </div>
             </form>

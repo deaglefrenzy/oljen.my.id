@@ -224,6 +224,7 @@ if (mysqli_num_rows($qq) != 0) {
                     </div>
                 </div>
             </div>
+            <br>
             <!-- End Middle Column -->
 
             <!-- Right Column -->
