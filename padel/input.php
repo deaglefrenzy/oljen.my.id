@@ -2,10 +2,17 @@
     <form action="https://oljen.my.id/padel/?page=<?= $page ?>#inputMatch" method="post">
         New Match
         <div>
-            <select name="pa1" class="w3-select w3-border w3-round" required>
-                <?php foreach ($nama as $id => $name) { ?>
-                    <option value="<?= $id ?>" <?php if ($id == $pa1) echo "selected"; ?>>
-                        <?= $name . " (" . $team[$id] . ")" ?>
+            <?php
+            $q = mysqli_query($conn, "SELECT * FROM padelist ORDER BY team, name ASC");
+            $players = [];
+            while ($gg = mysqli_fetch_array($q)) {
+                $players[] = $gg;
+            }
+            ?>
+            <select name="player">
+                <?php foreach ($players as $p) { ?>
+                    <option value="<?= $p['id'] ?>" <?php if ($p['id'] == $pa1) echo "selected"; ?>>
+                        <?= $p['name'] . " (" . $p['team'] . ")" ?>
                     </option>
                 <?php } ?>
             </select>
