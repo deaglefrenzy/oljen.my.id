@@ -25,7 +25,7 @@ while ($gg = mysqli_fetch_array($q)) {
     $jk[$gg['id']] = $gg['jk'];
 }
 
-$query = "SELECT * FROM pmatch WHERE lapangan = '$lapangan' AND score_a='0' AND score_b='0' ORDER BY `order` ASC LIMIT 1";
+$query = "SELECT * FROM pmatch WHERE lapangan = '$lapangan' AND score_a='0' AND score_b='0' ORDER BY `id` ASC LIMIT 1";
 $qq = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($qq) != 0) {
     $q = mysqli_fetch_array($qq);
