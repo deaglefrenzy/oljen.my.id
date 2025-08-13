@@ -1,6 +1,6 @@
 <?php
 $count = 0;
-$query = "SELECT * FROM `pmatch` WHERE `lapangan` = '$lapangan' ORDER BY `order` ASC";
+$query = "SELECT * FROM `pmatch` WHERE `lapangan` = '$lapangan' ORDER BY `id` ASC";
 $q = mysqli_query($conn, $query) or die(mysqli_error($conn));
 while ($qq = mysqli_fetch_array($q)) {
     $idmatch = $qq['id'];
@@ -48,7 +48,7 @@ while ($qq = mysqli_fetch_array($q)) {
     if ($team[$pb1] == "D") $warnab = "w3-text-orange";
     $count++;
 ?>
-    <div class="w3-card w3-round" id="<?= "row" . $order ?>">
+    <div class="w3-card w3-round" id="<?= "row" . $count ?>">
         <div id="<?php echo $idmatch; ?>"></div>
         <button onclick="myFunction('Demo<?php echo $idmatch; ?>')"
             class="w3-button w3-block w3-left-align entry" style="
@@ -89,7 +89,7 @@ while ($qq = mysqli_fetch_array($q)) {
         <div id="Demo<?php echo $idmatch; ?>" class="w3-hide w3-container w3-padding-16" style="box-shadow:
             inset -10px 5px 6px -5px rgba(0, 0, 0, 0.7),
             inset 10px 5px 6px -5px rgba(0, 0, 0, 0.7);">
-            <form action="https://oljen.my.id/padel/?page=<?= $page ?>#row<?= $order ?>" method="post">
+            <form action="https://oljen.my.id/padel/?page=<?= $page ?>#row<?= $count ?>" method="post">
                 <input type="hidden" name="idmatch" value="<?= $idmatch ?>">
                 Input Skor <?= $nama[$pa1] . " & " . $nama[$pa2] ?>
                 <div>
@@ -110,7 +110,7 @@ while ($qq = mysqli_fetch_array($q)) {
                 </div>
             </form>
             <br> -->
-            <form action="https://oljen.my.id/padel/?page=<?= $page ?>#row<?= $order ?>" method="post" onsubmit="return confirm('Yakin ingin reset skor?');">
+            <form action="https://oljen.my.id/padel/?page=<?= $page ?>#row<?= $count ?>" method="post" onsubmit="return confirm('Yakin ingin reset skor?');">
                 <input type="hidden" name="idmatch" value="<?= $idmatch ?>">
                 <div>
                     <button type="submit" name="action" value="resetskor" <?php echo $dis; ?> class="w3-small w3-button w3-red">
@@ -119,7 +119,7 @@ while ($qq = mysqli_fetch_array($q)) {
                 </div>
             </form>
             <br>
-            <form action="https://oljen.my.id/padel/?page=<?= $page ?>#row<?= $order ?>" method="post" onsubmit="return confirm('Yakin hapus match?');">
+            <form action="https://oljen.my.id/padel/?page=<?= $page ?>#row<?= $count ?>" method="post" onsubmit="return confirm('Yakin hapus match?');">
                 <input type="hidden" name="idmatch" value="<?= $idmatch ?>">
                 <div>
                     <button type="submit" name="action" value="hapus match" <?php echo $dis; ?> class="w3-small w3-button w3-red">
