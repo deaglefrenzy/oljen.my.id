@@ -228,18 +228,16 @@ if (mysqli_num_rows($qq) != 0) {
             <!-- End Middle Column -->
 
             <!-- Right Column -->
-            <div class="w3-col m6 w3-center">
+            <aside class="w3-col m6 w3-center">
                 <div class="w3-row-padding">
-                    <div class="w3-col m7">
-                        <div class="w3-card w3-round w3-white">
-                            <?php
-                            include("input.php");
-                            ?>
-                        </div>
+                    <div class="w3-card w3-round w3-white">
+                        <?php
+                        include("input.php");
+                        ?>
                     </div>
                 </div>
                 <br>
-            </div>
+            </aside>
 
             <!-- End Right Column -->
             <br>
