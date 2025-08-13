@@ -25,3 +25,19 @@ if ($action == "resetskor") {
     $query = "UPDATE pmatch SET score_a='0', score_b='0' WHERE id='$idmatch'";
     mysqli_query($conn, $query) or die(mysqli_error($conn));
 }
+
+if ($action == "tambah match") {
+    $pa1 = $_POST['pa1'];
+    $pa2 = $_POST['pa2'];
+    $pb1 = $_POST['pb1'];
+    $pb2 = $_POST['pb2'];
+    if ($page == "men") $lapangan = "Merah";
+    else $lapangan = "Biru";
+    if ($pa1 && $pa2 && $pb1 && $pb2) {
+        $query = "INSERT INTO pmatch (pa1, pa2, pb1, pb2, lapangan) VALUES ('$pa1', '$pa2', '$pb1', '$pb2', '$lapangan')";
+        mysqli_query($conn, $query) or die(mysqli_error($conn));
+        pesan("Match berhasil ditambahkan.");
+    } else {
+        pesan("Semua pemain harus dipilih.");
+    }
+}
