@@ -224,20 +224,17 @@ if (mysqli_num_rows($qq) != 0) {
                     </div>
                 </div>
                 <br>
-            </div>
-            <!-- End Middle Column -->
-
-            <!-- Right Column -->
-            <aside class="w3-col m6 w3-center">
-                <div class="w3-row-padding">
+                <div class="w3-col m12">
                     <div class="w3-card w3-round w3-white">
                         <?php
                         include("input.php");
                         ?>
                     </div>
                 </div>
-                <br>
-            </aside>
+            </div>
+            <!-- End Middle Column -->
+
+            <!-- Right Column -->
 
             <!-- End Right Column -->
             <br>
