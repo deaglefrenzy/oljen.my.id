@@ -221,18 +221,22 @@ if (mysqli_num_rows($qq) != 0) {
                             include("entry.php");
                             ?>
                         </div>
-                        <br>
-                        <div class="w3-card w3-round w3-white">
-                            <?php
-                            include("input.php");
-                            ?>
-                        </div>
                     </div>
                 </div>
             </div>
             <!-- End Middle Column -->
 
             <!-- Right Column -->
+
+            <div class="w3-col m3 w3-center">
+                <div class="w3-row-padding">
+                    <div class="w3-card w3-round w3-white">
+                        <?php
+                        include("input.php");
+                        ?>
+                    </div>
+                </div>
+            </div>
 
             <!-- End Right Column -->
             <br>
