@@ -29,6 +29,7 @@ if ($action == "resetskor") {
 if ($action == "tambah match") {
     $pa = $_POST['pa'];
     $pb = $_POST['pb'];
+    $round = $_POST['round'];
 
     $pa1 = explode(',', $pa)[0];
     $pa2 = explode(',', $pa)[1];
@@ -45,7 +46,7 @@ if ($action == "tambah match") {
         if (count($players) !== count(array_unique($players))) {
             pesan("Pemain tidak boleh sama.");
         } else {
-            $query = "INSERT INTO pmatch (pa1, pa2, pb1, pb2, lapangan) VALUES ('$pa1', '$pa2', '$pb1', '$pb2', '$lapangan')";
+            $query = "INSERT INTO pmatch (pa1, pa2, pb1, pb2, lapangan, round) VALUES ('$pa1', '$pa2', '$pb1', '$pb2', '$lapangan', '$round')";
             mysqli_query($conn, $query) or die(mysqli_error($conn));
             pesan("Match berhasil ditambahkan.");
         }

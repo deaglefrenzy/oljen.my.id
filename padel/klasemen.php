@@ -1,6 +1,6 @@
 <?php
 $count = 0;
-$query = "SELECT * FROM pmatch WHERE lapangan = '$lapangan' ORDER BY id ASC";
+$query = "SELECT * FROM pmatch WHERE lapangan = '$lapangan' AND round = '1' ORDER BY id ASC";
 $q = mysqli_query($conn, $query) or die(mysqli_error($conn));
 
 $headToHead = [];
@@ -91,7 +91,7 @@ uasort($tpoint, function ($a, $b) use ($win, $headToHead, $tpoint) {
 <div class="w3-card w3-round w3-padding-16 w3-white" style="margin-bottom: 48px; border-radius: 20px;">
     <div class="w3-container w3-center">
         <h3 class="judul">
-            <i class="fa-solid fa-people-group icon"></i> TEAMS
+            GROUP STAGE
         </h3>
         <table width=90% align="center" style="border-collapse: collapse;">
             <tr>
