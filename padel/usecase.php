@@ -2,8 +2,8 @@
 if ($action == "updateskor") {
     $idmatch = $_POST['idmatch'];
     $score_a = $_POST['score_a'];
-    $score_b = 16 - $score_a;
-    if (is_numeric($score_a) && $score_a >= 0 && $score_a <= 16) {
+    $score_b = 24 - $score_a;
+    if (is_numeric($score_a) && $score_a >= 0 && $score_a <= 24) {
         $query = "UPDATE pmatch SET score_a='$score_a', score_b='$score_b' WHERE id='$idmatch'";
         mysqli_query($conn, $query) or die(mysqli_error($conn));
     } else pesan("Skor tidak valid. Harus berupa angka antara 0 dan 16.");
