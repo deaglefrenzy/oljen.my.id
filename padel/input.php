@@ -1,6 +1,4 @@
-<div id="inputMatch" class="w3-hide w3-container w3-padding-16" style="box-shadow:
-            inset -10px 5px 6px -5px rgba(0, 0, 0, 0.7),
-            inset 10px 5px 6px -5px rgba(0, 0, 0, 0.7);">
+<div id="inputMatch">
     <form action="https://oljen.my.id/padel/?page=<?= $page ?>#inputMatch" method="post">
         New Match
         <div>
