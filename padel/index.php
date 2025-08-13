@@ -224,14 +224,12 @@ if (mysqli_num_rows($qq) != 0) {
                     </div>
                 </div>
             </div>
-            <br>
             <!-- End Middle Column -->
 
             <!-- Right Column -->
             <?php if ($admin == "ok") {
             ?>
-                <br>
-                <div class="w3-col m3 w3-center">
+                <div class="w3-col m3 w3-center" style="margin-top: 20px;">
                     <div class="w3-row-padding">
                         <div class="w3-card w3-round w3-white">
                             <?php

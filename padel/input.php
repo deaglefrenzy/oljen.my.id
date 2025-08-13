@@ -15,7 +15,7 @@
             <select name="pa1" class="w3-select w3-border w3-round" style="width: 90%; display: inline-block;">
                 <option value="" selected>Player1 kiri...</option>
                 <?php foreach ($players as $p) { ?>
-                    <option value="<?= $p['id'] ?>" <?php if ($p['id'] == $pa1) echo "selected"; ?>>
+                    <option value="<?= $p['id'] ?>">
                         <?= $p['team'] . " - " . $p['name'] ?>
                     </option>
                 <?php } ?>
@@ -24,7 +24,7 @@
             <select name="pa2" class="w3-select w3-border w3-round" style="width: 90%; display: inline-block;">
                 <option value="" selected>Player2 kiri...</option>
                 <?php foreach ($players as $p) { ?>
-                    <option value="<?= $p['id'] ?>" <?php if ($p['id'] == $pa1) echo "selected"; ?>>
+                    <option value="<?= $p['id'] ?>">
                         <?= $p['team'] . " - " . $p['name'] ?>
                     </option>
                 <?php } ?>
@@ -35,7 +35,7 @@
             <select name="pb1" class="w3-select w3-border w3-round" style="width: 90%; display: inline-block;">
                 <option value="" selected>Player1 kanan...</option>
                 <?php foreach ($players as $p) { ?>
-                    <option value="<?= $p['id'] ?>" <?php if ($p['id'] == $pa1) echo "selected"; ?>>
+                    <option value="<?= $p['id'] ?>">
                         <?= $p['team'] . " - " . $p['name'] ?>
                     </option>
                 <?php } ?>
@@ -44,7 +44,7 @@
             <select name="pb2" class="w3-select w3-border w3-round" style="width: 90%; display: inline-block;">
                 <option value="" selected>Player2 kanan...</option>
                 <?php foreach ($players as $p) { ?>
-                    <option value="<?= $p['id'] ?>" <?php if ($p['id'] == $pa1) echo "selected"; ?>>
+                    <option value="<?= $p['id'] ?>">
                         <?= $p['team'] . " - " . $p['name'] ?>
                     </option>
                 <?php } ?>

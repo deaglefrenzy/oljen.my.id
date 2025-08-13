@@ -85,7 +85,7 @@ uasort($tpoint, function ($a, $b) {
                         <?= $count ?>
                     </td>
                     <td align="left" class="<?= $warna ?>">
-                        Team <?= $tim ?>
+                        <?= $tim ?>
                     </td>
                     <td class="nomor">
                         <?php
@@ -128,7 +128,7 @@ uasort($tpoint, function ($a, $b) {
     <br>
 </div>
 
-<div class="w3-card w3-round w3-padding-16 w3-white" style="margin-bottom: 48px; border-radius: 20px;">
+<!-- <div class="w3-card w3-round w3-padding-16 w3-white" style="margin-bottom: 48px; border-radius: 20px;">
     <div class="w3-container w3-center">
         <h3 class="judul">
             <i class="fa-solid fa-user icon"></i> PLAYERS
@@ -187,4 +187,4 @@ uasort($tpoint, function ($a, $b) {
         </table>
     </div>
     <br>
-</div>
+</div> -->
