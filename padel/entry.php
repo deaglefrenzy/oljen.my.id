@@ -58,7 +58,7 @@ while ($qq = mysqli_fetch_array($q)) {
             <table width="100%" align="center" class="w3-large">
                 <tr valign="middle">
                     <td width=10% align="left" class="w3-xlarge">
-                        <?= $order; ?>
+                        <?= $count; ?>
                     </td>
                     <td class="<?= $warnaa ?>" align="left" width="25%">
                         <?= $nama[$pa1] ?><br><?= $nama[$pa2] ?>
