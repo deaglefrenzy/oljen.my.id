@@ -13,40 +13,8 @@ if ($page == "men") {
     $lapangan = "merah";
 } else $lapangan = "biru";
 
-$que = "SELECT * FROM padelist ORDER BY name ASC";
-$q = mysqli_query($conn, $que) or die(mysqli_error($conn));
-while ($qq = mysqli_fetch_array($q)) {
-    $nama[$qq['id']] = $qq['name'];
-    $team[$qq['id']] = $qq['team'];
-}
-
 $action = @$_POST['action'];
-if ($action == "updateskor") {
-    $idmatch = $_POST['idmatch'];
-    $score_a = $_POST['score_a'];
-    $score_b = 16 - $score_a;
-    if (is_numeric($score_a) && $score_a >= 0 && $score_a <= 16) {
-        $query = "UPDATE pmatch SET score_a='$score_a', score_b='$score_b' WHERE id='$idmatch'";
-        mysqli_query($conn, $query) or die(mysqli_error($conn));
-    } else pesan("Skor tidak valid. Harus berupa angka antara 0 dan 16.");
-}
-
-if ($action == "urutanmatch") {
-    $idmatch = $_POST['idmatch'];
-    $order = $_POST['order'];
-    if (is_numeric($order) && $order > 0) {
-        $query = "UPDATE pmatch SET `order`='$order' WHERE `id`='$idmatch'";
-        mysqli_query($conn, $query) or die(mysqli_error($conn));
-    } else {
-        pesan("Urutan tidak valid. Harus berupa angka positif.");
-    }
-}
-
-if ($action == "resetskor") {
-    $idmatch = $_POST['idmatch'];
-    $query = "UPDATE pmatch SET score_a='0', score_b='0' WHERE id='$idmatch'";
-    mysqli_query($conn, $query) or die(mysqli_error($conn));
-}
+include("usecase.php");
 
 $dis = "";
 
@@ -63,7 +31,7 @@ if (mysqli_num_rows($qq) != 0) {
     $q = mysqli_fetch_array($qq);
     $runningText = "NEXT MATCH • " . $nama[$q['pa1']] . " & " . $nama[$q['pa2']] . " vs " . $nama[$q['pb1']] . " & " . $nama[$q['pb2']];
 } else {
-    $runningText = "TERIMA KASIH TELAH BERPARTISIPASI DI FUN TOURNAMENT PADEL OLJEN!";
+    $runningText = "TERIMA KASIH TELAH BERPARTISIPASI DI MERDEKA TOURNAMENT PADEL OLJEN!";
 }
 ?>
 <html>
@@ -207,7 +175,7 @@ if (mysqli_num_rows($qq) != 0) {
                     </div>
                     <div class="w3-large" align="center" style="color: #fff;
                     text-shadow: 2px 2px 4px #000000, 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;">
-                        Minggu, 8 Juni 2025
+                        Minggu, 17 Agustus 2025
                     </div>
                 </div>
 
