@@ -1,6 +1,6 @@
 <div id="inputMatch">
     <form action="https://oljen.my.id/padel/?page=<?= $page ?>#inputMatch" method="post">
-        New Match
+        <h3>New Match</h3>
         <div>
             <?php
             if ($page == "men") $jk = "L";
@@ -32,7 +32,7 @@
             <br>
             vs
             <br>
-            <select name="pb2" class="w3-select w3-border w3-round" style="width: 48%; display: inline-block; margin-right: 4px;">
+            <select name="pb1" class="w3-select w3-border w3-round" style="width: 48%; display: inline-block; margin-right: 4px;">
                 <option value="">Player1 kanan...</option>
                 <?php foreach ($players as $p) { ?>
                     <option value="<?= $p['id'] ?>" <?php if ($p['id'] == $pa1) echo "selected"; ?>>

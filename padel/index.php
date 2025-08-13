@@ -227,17 +227,18 @@ if (mysqli_num_rows($qq) != 0) {
             <!-- End Middle Column -->
 
             <!-- Right Column -->
-
-            <div class="w3-col m3 w3-center">
-                <div class="w3-row-padding">
-                    <div class="w3-card w3-round w3-white">
-                        <?php
-                        include("input.php");
-                        ?>
+            <?php if ($admin == "ok") {
+            ?>
+                <div class="w3-col m3 w3-center">
+                    <div class="w3-row-padding">
+                        <div class="w3-card w3-round w3-white">
+                            <?php
+                            include("input.php");
+                            ?>
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            <?php } ?>
             <!-- End Right Column -->
             <br>
         </div>
