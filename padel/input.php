@@ -2,11 +2,11 @@
     <form action="https://oljen.my.id/padel/?page=<?= $page ?>#inputMatch" method="post">
         <h3>New Match</h3>
         <div>
-            <?php renderTeamSelect($conn, "L", "pa", "Tim 1"); ?>
+            <?php renderTeamSelect($conn, $page, "pa", "Tim 1"); ?>
             <br>
             vs
             <br>
-            <?php renderTeamSelect($conn, "L", "pb", "Tim 2"); ?>
+            <?php renderTeamSelect($conn, $page, "pb", "Tim 2"); ?>
             <br>
             Round
             <select name="round" class="w3-select w3-border w3-round" style="width: 90%; display: inline-block;">
@@ -24,8 +24,10 @@
 
 <?php
 
-function renderTeamSelect($conn, $jk, $selectName, $label = "Pilih Tim")
+function renderTeamSelect($conn, $page, $selectName, $label = "Pilih Tim")
 {
+    if ($page == "men") $jk = "L";
+    else $jk = "P";
     // Get player list grouped by team
     $query = "SELECT * FROM padelist WHERE jk='$jk' ORDER BY team, name ASC";
     $q = mysqli_query($conn, $query) or die(mysqli_error($conn));
