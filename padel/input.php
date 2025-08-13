@@ -2,13 +2,22 @@
     <form action="https://oljen.my.id/padel/?page=<?= $page ?>#inputMatch" method="post">
         <h3>New Match</h3>
         <div>
-            <?php
-            renderTeamSelect($conn, "L", "pa", "Tim 1");
-            ?>
+            <?php renderTeamSelect($conn, "L", "pa", "Tim 1"); ?>
             <br>
             vs
             <br>
             <?php renderTeamSelect($conn, "L", "pb", "Tim 2"); ?>
+            <br>
+            Round
+            <select name="round" class="w3-select w3-border w3-round" style="width: 90%; display: inline-block;">
+                <option value="1" selected>Penyisihan</option>
+                <option value="2">Semifinal</option>
+                <option value="3">Final</option>
+            </select>
+            <br><br>
+            <button type="submit" name="action" value="tambah match" <?php echo $dis; ?> class="w3-button w3-green" style="margin-bottom: 10px;">
+                <i class="fa-solid fa-plus-circle"></i> Tambah Match
+            </button>
         </div>
     </form>
 </div>
