@@ -46,6 +46,12 @@ while ($qq = mysqli_fetch_array($q)) {
     if ($team[$pb1] == "B") $warnab = "w3-text-blue-grey";
     if ($team[$pb1] == "C") $warnab = "w3-text-green";
     if ($team[$pb1] == "D") $warnab = "w3-text-orange";
+
+    $round = $qq['round'];
+    if ($round == 1) $roundText = "GS";
+    else if ($round == 2) $roundText = "SF1";
+    else if ($round == 3) $roundText = "SF2";
+    else if ($round == 4) $roundText = "F";
     $count++;
 ?>
     <div class="w3-card w3-round" id="<?= "row" . $count ?>">
@@ -83,6 +89,13 @@ while ($qq = mysqli_fetch_array($q)) {
                     <?php
                     }
                     ?>
+                </tr>
+                <tr class="w3-small">
+                    <td class="w3-text-green" align="left"><?= $roundText ?></td>
+                    <td align="left" class="w3-text-red"><?= $team[$pa1] ?></td>
+                    <td colspan="3"></td>
+                    <td align="right" class="w3-text-blue"><?= $team[$pb1] ?></td>
+                    <td></td>
                 </tr>
             </table>
         </button>

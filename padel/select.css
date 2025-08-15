@@ -192,7 +192,7 @@ textarea:focus {
 body {
   margin: 0;
   padding: 0;
-  background-color: #FF0000;
+  background-color: #FF4D4D;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -215,7 +215,7 @@ body {
   position: absolute;
   top: 3%;
   left: 10%;
-  background: #FF0000;
+  background: #5E0B15;
   width: 1500px;
   height: 1300px;
   margin-left: -150px;
@@ -234,7 +234,7 @@ body {
 .wave.-two {
   animation: drift 13000ms infinite linear;
   opacity: .1;
-  background: #FF0000;
+  background: #5E0B15;
   position: fixed;
 }
 

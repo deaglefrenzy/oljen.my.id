@@ -171,7 +171,7 @@ if (mysqli_num_rows($qq) != 0) {
             <aside class="w3-col m3">
                 <div class="w3-center" style="margin-bottom: 32px;">
                     <div align="center">
-                        <img src="../images/padel.png" width="300">
+                        <img src="../images/padellogo.png" width="300">
                     </div>
                     <div class="w3-large" align="center" style="color: #fff;
                     text-shadow: 2px 2px 4px #000000, 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;">
@@ -243,7 +243,9 @@ if (mysqli_num_rows($qq) != 0) {
             <br>
         </div>
         <div align=center>
-            <img src="../images/oljenpadellogo.png" style="width: 100%; height:300px; object-fit: cover; object-position: 0 40px; position:relative;">
+            <?php if ($page == "men") $footerImage = "../images/padelmen.png";
+            else $footerImage = "../images/padelwomen.png"; ?>
+            <img src="<?= $footerImage ?>" style="width: 100%; height:300px; object-fit: cover; object-position: 0 40px; position:relative;">
         </div>
         <!-- End Grid -->
         <div id="myModal" class="modal">
