@@ -1,0 +1,33 @@
+# 1. SECURITY & PRIVACY
+Options -Indexes
+Header set X-Frame-Options "SAMEORIGIN"
+
+# Protect .htaccess
+<Files ".htaccess">
+    Require all denied
+</Files>
+
+# Block access to backup and source files
+<FilesMatch "(\.(bak|config|sql|ini|log|sh|inc|swp|dist)|~)$">
+    Require all denied
+</FilesMatch>
+
+# 2. REDIRECTS & URL CLEANUP
+RewriteEngine on
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 3. HOTLINK PROTECTION
+# Allows: Empty referrers, your site, and search engines
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?rmlpadelseries\.my\.id [NC]
+RewriteCond %{HTTP_HOST} !localhost
+RewriteCond %{HTTP_REFERER} !google [NC]
+RewriteCond %{HTTP_REFERER} !bing [NC]
+RewriteRule \.(jpg|jpeg|png|gif|svg)$ - [F]
+
+# 4. CUSTOM ERROR PAGES
+ErrorDocument 404 /errors/404.html
+ErrorDocument 403 /errors/403.html

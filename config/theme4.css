@@ -1,0 +1,359 @@
+:root {
+    --c1: #ff4757;
+    --c2: #1e90ff;
+    --c3: #2ed573;
+    --c4: #ffa502;
+    --c5: #a55eea;
+    --c6: #153f33;
+}
+
+/* text colors */
+.font1 {
+    color: var(--c1);
+}
+
+.font2 {
+    color: var(--c2);
+}
+
+.font3 {
+    color: var(--c3);
+}
+
+.font4 {
+    color: var(--c4);
+}
+
+.font5 {
+    color: var(--c5);
+}
+
+.font5 {
+    color: var(--c6);
+}
+
+/* background colors */
+.bg1 {
+    background-color: var(--c1);
+}
+
+.bg2 {
+    background-color: var(--c2);
+}
+
+.bg3 {
+    background-color: var(--c3);
+}
+
+.bg4 {
+    background-color: var(--c4);
+}
+
+.bg5 {
+    background-color: var(--c5);
+}
+
+.bg5 {
+    background-color: var(--c6);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'Return Space';
+    src: url('../assets/Return Space.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.spacefont {
+    font-family: 'Return Space', sans-serif;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+    background: url('../images/main_bg.jpg') center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.glass-card {
+    width: 90%;
+    max-width: 420px;
+    /* mobile-friendly */
+    margin: 16px auto;
+    padding: 20px 18px;
+
+    background: rgba(255, 255, 255, 0.08);
+    /* transparent */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 28px;
+    /* large curve */
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.25);
+
+    color: #ffffff;
+}
+
+.glass-card-header {
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-card-footer {
+    padding-top: 12px;
+    margin-top: 16px;
+
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-card-body {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.glass-card.standby {
+    background: rgba(255, 200, 100, 0.25);
+    border-color: rgba(255, 200, 100, 0.6);
+}
+
+.glass-card.oncourt {
+    background: rgba(0, 200, 180, 0.25);
+    border-color: rgba(0, 200, 180, 0.6);
+}
+
+.pill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    /* center pills */
+}
+
+.pill {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    border-radius: 999px;
+    /* pill shape */
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    color: #ffffff;
+    white-space: nowrap;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+.pill.bronze {
+    background: linear-gradient(135deg,
+            rgba(205, 127, 50, 0.45),
+            rgba(205, 127, 50, 0.25));
+    border-color: rgba(205, 127, 50, 0.6);
+    box-shadow: 0 0 10px rgba(205, 127, 50, 0.35);
+}
+
+.pill.silver {
+    background: linear-gradient(135deg,
+            rgba(220, 220, 220, 0.45),
+            rgba(192, 192, 192, 0.25));
+    border-color: rgba(192, 192, 192, 0.6);
+    box-shadow: 0 0 10px rgba(192, 192, 192, 0.35);
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.row-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.row-left {
+    display: flex;
+    justify-content: left;
+    align-items: start;
+    width: 100%;
+}
+
+/* Horizontal scroll */
+.bracket-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Main table */
+.bracket-table {
+    border-collapse: collapse;
+    min-width: max-content;
+}
+
+/* Round column */
+.round {
+    vertical-align: top;
+}
+
+/* Round title */
+.round-title {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Match wrapper table */
+.match-table {
+    border-collapse: collapse;
+    margin-bottom: 5px;
+}
+
+/* Match card */
+.match {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 10px;
+    width: 270px;
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+    .match {
+        min-width: 150px;
+    }
+}
+
+.empty {
+    font-size: 30px;
+    color: #fff;
+}
+
+.monospace {
+    font-family: "Inconsolata", monospace;
+}
+
+.filter-row {
+    display: flex;
+    /* Align children in a row */
+    flex-wrap: nowrap;
+    /* Keep them on one line */
+    justify-content: center;
+    /* Center the whole group */
+    gap: 10px;
+    /* Space between the selectors */
+    margin: 20px auto;
+    /* Spacing above/below the row */
+    width: 100%;
+}
+
+.glass-select-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.glass-select {
+    width: 100%;
+    padding: 8px 32px 8px 12px;
+    font-size: 14px;
+    color: #f5f5f5;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.35),
+        inset 0 0 12px rgba(255, 255, 255, 0.08);
+
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.glass-select:hover {
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+.glass-select:focus {
+    outline: none;
+    border-color: #ffe678;
+    box-shadow:
+        0 0 0 2px rgba(255, 230, 120, 0.35),
+        0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* dropdown arrow */
+.glass-select-wrap::after {
+    content: "▾";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.65);
+    pointer-events: none;
+}
+
+/* option styling (limited by browser) */
+.glass-select option {
+    background: #fff;
+    color: #222;
+}
+
+.metal-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    /* Metallic White/Silver Gradient Effect */
+    background: linear-gradient(to bottom,
+            #ffffff 0%,
+            /* Pure White highlight */
+            #e0e0e0 45%,
+            /* Light Silver */
+            #bebebe 55%,
+            /* Medium Silver for depth */
+            #f5f5f5 100%
+            /* Soft white base */
+        );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Sharper shadow for the lighter text */
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
+}
