@@ -31,9 +31,7 @@ $category = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 1;
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="stylesheet" href="config/theme1.css?v=<?= filemtime('config/theme1.css') ?>">
-    <link rel="stylesheet" href="config/theme4.css?v=<?= filemtime('config/theme4.css') ?>">
-    <link rel="stylesheet" href="config/theme3.css?v=<?= filemtime('config/theme3.css') ?>">
+    <link rel="stylesheet" href="config/main.css?v=<?= filemtime('config/main.css') ?>">
     <style>
         :root {
             --c1: <?= $color1 ?>;
@@ -42,18 +40,6 @@ $category = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 1;
             --c4: <?= $color4 ?>;
             --c5: <?= $color5 ?>;
             --c6: <?= $color6 ?>;
-        }
-
-        .reddit {
-            font-family: 'Reddit Sans Condensed', sans-serif;
-        }
-
-        .disabled-link {
-            pointer-events: none;
-        }
-
-        a {
-            text-decoration: none;
         }
     </style>
 </head>

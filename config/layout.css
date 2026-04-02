@@ -1,0 +1,37 @@
+/* Horizontal scroll */
+.bracket-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Main table */
+.bracket-table {
+    border-collapse: collapse;
+    min-width: max-content;
+}
+
+/* Round column */
+.round {
+    vertical-align: top;
+}
+
+/* Round title */
+.round-title {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Match wrapper table */
+.match-table {
+    border-collapse: collapse;
+    margin-bottom: 5px;
+}
+
+/* Match card */
+.match {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 10px;
+    width: 270px;
+}
