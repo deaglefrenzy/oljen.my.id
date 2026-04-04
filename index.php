@@ -15,7 +15,7 @@ $category = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 1;
     <meta property="og:title" content="<?= $website_name ?>" />
     <meta property="og:description" content="<?= $description ?>" />
     <meta property="og:url" content="https://<?= $urlwebsite ?>" />
-    <meta property="og:image" itemprop="image" content="https://<?= $urlwebsite ?>/images/thumbnail.jpg" />
+    <meta property="og:image" itemprop="image" content="https://<?= $urlwebsite ?>/images/thumbnail.png" />
     <meta property="og:type" content="website" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
@@ -32,6 +32,7 @@ $category = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 1;
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="config/main.css?v=<?= filemtime('config/main.css') ?>">
+    <link rel="stylesheet" href="config/select.css?v=<?= filemtime('config/select.css') ?>">
     <style>
         :root {
             --c1: <?= $color1 ?>;
@@ -50,6 +51,12 @@ $category = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 1;
     <div style="height: 50px;"></div>
     <?php
     $page = $_GET['page'] ?? 'home';
+
+    $currentDate = date('Y-m-d');
+    $startDate = '2026-04-12';
+    $endDate   = '2026-04-26';
+
+    $is_available = ($currentDate >= $startDate && $currentDate <= $endDate);
 
     switch ($page) {
         case 'klasemen':
@@ -77,6 +84,24 @@ $category = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 1;
     </footer>
 
     <script src="config/scripts.js"></script>
+    <script src="config/select.js"></script>
+
+    <script>
+        // Store scroll position before form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function() {
+                localStorage.setItem('scrollPos', window.scrollY);
+            });
+
+            // Restore scroll position after page reload
+            const scrollPos = localStorage.getItem('scrollPos');
+            if (scrollPos) {
+                window.scrollTo(0, scrollPos);
+                localStorage.removeItem('scrollPos');
+            }
+        });
+    </script>
 </body>
 
 

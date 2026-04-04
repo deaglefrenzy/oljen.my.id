@@ -27,3 +27,14 @@ if ($action == "edit note") {
     $query = "UPDATE rides SET pesan='$pesan', link='$link' WHERE id='$ride_id'";
     mysqli_query($conn, $query) or die(mysqli_error($conn));
 }
+
+if ($action == "activate orang") {
+    $id = $_POST['id'];
+    $active = $_POST['active'];
+    if ($active) {
+        $query = "UPDATE orang SET active=0 WHERE id='$id'";
+    } else {
+        $query = "UPDATE orang SET active=1 WHERE id='$id'";
+    }
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
+}

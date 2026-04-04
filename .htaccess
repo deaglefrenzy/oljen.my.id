@@ -22,7 +22,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 # 3. HOTLINK PROTECTION
 # Allows: Empty referrers, your site, and search engines
 RewriteCond %{HTTP_REFERER} !^$
-RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?rmlpadelseries\.my\.id [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?oljen\.my\.id [NC]
 RewriteCond %{HTTP_HOST} !localhost
 RewriteCond %{HTTP_REFERER} !google [NC]
 RewriteCond %{HTTP_REFERER} !bing [NC]
