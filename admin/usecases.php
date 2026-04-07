@@ -3,7 +3,8 @@ $action = $_POST['action'] ?? '';
 
 if ($action == "add orang") {
     $name = $_POST['name'];
-    $query = "INSERT INTO orang (name) VALUES ('$name')";
+    $profile = $_POST['profile'];
+    $query = "INSERT INTO orang (name, profile, active) VALUES ('$name', '$profile', 1)";
     mysqli_query($conn, $query) or die(mysqli_error($conn));
 }
 

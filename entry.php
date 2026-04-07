@@ -50,7 +50,7 @@ foreach ($entries as $qq) {
     $shortestDistance = $qq['min_distance'];
     $rataRata = ($qq['ride_count'] > 0) ? ($qq['total_distance'] / $qq['ride_count']) : 0;
     if ($total < 500) {
-        $diskon = "(Min. 500km)";
+        $diskon = "Min.500km";
     } else {
         $calc_dist = min($dist, 1000);
         $diskon = floor(($calc_dist - 500) / 2) * 1000;
@@ -93,20 +93,25 @@ foreach ($entries as $qq) {
                 </div>
             </div>
             <table align="center" style="width: 90%; margin-top:10px; padding-left:15px;">
-                <tr class="w3-small" align="left">
+                <tr class="w3-small" align="left" valign="bottom">
                     <td width="33%">
                         <font class="w3-xlarge monospace"><?= $jumlahRide ?></font>
-                        <br>
-                        <font class="w3-opacity">Ride<?= ($jumlahRide > 1) ? "s" : "" ?></font>
                     </td>
                     <td>
                         <font class="w3-xlarge monospace"><?= $total ?></font> km
-                        <br>
+                    </td>
+                    <td width="33%">
+                        <font class="w3-medium w3-text-green monospace"><?= $diskon ?></font>
+                    </td>
+                </tr>
+                <tr class="w3-small" align="left">
+                    <td width="33%">
+                        <font class="w3-opacity">Ride<?= ($jumlahRide > 1) ? "s" : "" ?></font>
+                    </td>
+                    <td>
                         <font class="w3-opacity">Ditempuh</font>
                     </td>
                     <td width="33%">
-                        <font class="w3-large w3-text-green monospace"><?= $diskon ?></font>
-                        <br>
                         <font class="w3-opacity">Diskon</font>
                     </td>
                 </tr>

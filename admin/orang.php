@@ -14,6 +14,8 @@ if ($success): ?>
         <input type="hidden" name="action" value="add orang">
         <label>Nama:</label>
         <input type="text" name="name" required>
+        <label>Profile:</label>
+        <input type="text" name="profile">
         <br>
         <button type="submit" class="button">Add Orang</button>
     </form>
