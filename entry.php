@@ -9,7 +9,6 @@ SELECT
     latest_ride.distance AS last_ride_distance,
     latest_ride.input_time AS last_ride_time
 FROM orang
--- 1. Use LEFT JOIN to keep all people even with 0 rides
 LEFT JOIN (
     SELECT
         orang_id,
@@ -22,12 +21,11 @@ LEFT JOIN (
     WHERE deleted_at IS NULL
     GROUP BY orang_id
 ) AS stats ON orang.id = stats.orang_id
--- 2. Use LEFT JOIN here as well
 LEFT JOIN rides AS latest_ride ON latest_ride.orang_id = stats.orang_id
     AND latest_ride.input_time = stats.max_time
     AND latest_ride.deleted_at IS NULL
 WHERE orang.active = 1
-ORDER BY total_distance DESC;
+ORDER BY total_distance DESC, orang.name ASC;
 ";
 
 $result = mysqli_query($conn, $query);

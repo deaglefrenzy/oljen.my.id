@@ -1,8 +1,11 @@
 /* Styling for Select Element */
 select {
-  appearance: none; /* Remove default browser styling */
-  -webkit-appearance: none; /* For Safari */
-  -moz-appearance: none; /* For Firefox */
+  appearance: none;
+  /* Remove default browser styling */
+  -webkit-appearance: none;
+  /* For Safari */
+  -moz-appearance: none;
+  /* For Firefox */
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -10,8 +13,10 @@ select {
   font-size: 16px;
   color: #333;
   cursor: pointer;
-  width: 250px; /* Adjust width as needed */
-  background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); /* Custom arrow */
+  width: 250px;
+  /* Adjust width as needed */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  /* Custom arrow */
   background-repeat: no-repeat;
   background-position: right 10px top 50%;
   transition: border-color 0.3s ease;
@@ -19,8 +24,10 @@ select {
 
 select:hover,
 select:focus {
-  border-color: #007bff; /* Change border color on hover/focus */
-  outline: none; /* Remove default focus outline */
+  border-color: #007bff;
+  /* Change border color on hover/focus */
+  outline: none;
+  /* Remove default focus outline */
 }
 
 /* Styling for Textarea Element */
@@ -31,12 +38,16 @@ textarea {
   padding: 12px;
   font-size: 16px;
   color: #333;
-  width: 350px; /* Adjust width as needed */
-  height: 100px; /* Adjust height as needed */
-  resize: vertical; /* Allow vertical resizing */
+  width: 350px;
+  /* Adjust width as needed */
+  height: 100px;
+  /* Adjust height as needed */
+  resize: vertical;
+  /* Allow vertical resizing */
   line-height: 1.6;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  font-family: 'Open Sans Condensed', sans-serif; /* or your preferred font */
+  font-family: 'Open Sans Condensed', sans-serif;
+  /* or your preferred font */
 }
 
 textarea:hover,
@@ -54,11 +65,14 @@ input {
   padding: 12px;
   font-size: 16px;
   color: #333;
-  width: 90%; /* Adjust width as needed */
-  height: 40px; /* Adjust height as needed */
+  width: 90%;
+  /* Adjust width as needed */
+  height: 40px;
+  /* Adjust height as needed */
   line-height: 1.6;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  font-family: 'Open Sans Condensed', sans-serif; /* or your preferred font */
+  font-family: 'Open Sans Condensed', sans-serif;
+  /* or your preferred font */
 }
 
 textarea:hover,
@@ -75,30 +89,40 @@ textarea:focus {
   text-align: center;
   text-decoration: none;
   color: #fff;
-  background: linear-gradient(45deg, #3498db, #2980b9); /* Gradient background */
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  /* Gradient background */
   border: none;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* Smooth transitions */
   cursor: pointer;
-  position: relative; /* For pseudo-element positioning */
-  overflow: hidden; /* Clip the pseudo-element */
+  position: relative;
+  /* For pseudo-element positioning */
+  overflow: hidden;
+  /* Clip the pseudo-element */
 }
 
-.cool-button2{
+.cool-button2 {
   display: inline-block;
   padding: 8px 20px;
   text-align: center;
   text-decoration: none;
   color: #fff;
-  background: linear-gradient(45deg, #3498db, #2980b9); /* Gradient background */
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  /* Gradient background */
   border: none;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* Smooth transitions */
   cursor: pointer;
-  position: relative; /* For pseudo-element positioning */
-  overflow: hidden; /* Clip the pseudo-element */
+  position: relative;
+  /* For pseudo-element positioning */
+  overflow: hidden;
+  /* Clip the pseudo-element */
 }
 
 .cool-button::before {
@@ -108,22 +132,24 @@ textarea:focus {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0)
-  ); /* Light streak effect */
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0));
+  /* Light streak effect */
   transition: left 0.4s ease;
 }
 
 .cool-button:hover::before {
-  left: 100%; /* Move the streak across the button */
+  left: 100%;
+  /* Move the streak across the button */
 }
 
 .cool-button:active {
-  transform: translateY(1px); /* Push the button down slightly */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow on active */
+  transform: translateY(1px);
+  /* Push the button down slightly */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Reduced shadow on active */
 }
 
 .thumbnail {
@@ -155,8 +181,13 @@ textarea:focus {
 }
 
 @keyframes zoom {
-  from {transform:scale(0)}
-  to {transform:scale(1)}
+  from {
+    transform: scale(0)
+  }
+
+  to {
+    transform: scale(1)
+  }
 }
 
 .close {
@@ -176,28 +207,28 @@ textarea:focus {
   cursor: pointer;
 }
 
-body{
-	margin: 0;
-	padding: 0;
-	background-color: #0e6cc4;
-	overflow-x:hidden;
-	overflow-y:hidden;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0e6cc4;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 /*waves****************************/
 
 
 .box {
-	position: fixed;
-	top: 0;
-	transform: rotate(80deg);
-	left: -200px;
+  position: fixed;
+  top: 0;
+  transform: rotate(80deg);
+  left: -200px;
 }
 
 .wave {
-	position: fixed;
-	top: 0;
-	left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
   opacity: .4;
   position: absolute;
   top: 3%;
@@ -214,15 +245,15 @@ body{
 
 .wave.-three {
   animation: drift 17500ms infinite linear;
-	position: fixed;
-	background-color: #77daff;
+  position: fixed;
+  background-color: #77daff;
 }
 
 .wave.-two {
   animation: drift 13000ms infinite linear;
   opacity: .1;
   background: black;
-	position: fixed;
+  position: fixed;
 }
 
 .box:after {
@@ -237,20 +268,25 @@ body{
 }
 
 @keyframes drift {
-  from { transform: rotate(0deg); }
-  from { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  from {
+    transform: rotate(360deg);
+  }
 }
 
 /*LOADING SPACE*/
 
 .contain {
-	animation-delay: 4s;
-	z-index: 1000;
-	position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
+  animation-delay: 4s;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -275,72 +311,110 @@ body{
 }
 
 /*Animation*/
-.icon:nth-child(2) img {-webkit-animation-delay: 0.2s;animation-delay: 0.2s}
-.icon:nth-child(3) img {-webkit-animation-delay: 0.3s;animation-delay: 0.3s}
-.icon:nth-child(4) img {-webkit-animation-delay: 0.4s;animation-delay: 0.4s}
+.icon:nth-child(2) img {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s
+}
+
+.icon:nth-child(3) img {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s
+}
+
+.icon:nth-child(4) img {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s
+}
 
 .icon img {
   -webkit-animation: anim 2s ease infinite;
   animation: anim 2s ease infinite;
-  -webkit-transform: scale(0,0) rotateZ(180deg);
-  transform: scale(0,0) rotateZ(180deg);
+  -webkit-transform: scale(0, 0) rotateZ(180deg);
+  transform: scale(0, 0) rotateZ(180deg);
 }
 
-@-webkit-keyframes anim{
+@-webkit-keyframes anim {
   0% {
-    -webkit-transform: scale(0,0) rotateZ(-90deg);
-    transform: scale(0,0) rotateZ(-90deg);opacity:0
+    -webkit-transform: scale(0, 0) rotateZ(-90deg);
+    transform: scale(0, 0) rotateZ(-90deg);
+    opacity: 0
   }
+
   30% {
-    -webkit-transform: scale(1,1) rotateZ(0deg);
-    transform: scale(1,1) rotateZ(0deg);opacity:1
+    -webkit-transform: scale(1, 1) rotateZ(0deg);
+    transform: scale(1, 1) rotateZ(0deg);
+    opacity: 1
   }
+
   50% {
-    -webkit-transform: scale(1,1) rotateZ(0deg);
-    transform: scale(1,1) rotateZ(0deg);opacity:1
+    -webkit-transform: scale(1, 1) rotateZ(0deg);
+    transform: scale(1, 1) rotateZ(0deg);
+    opacity: 1
   }
+
   80% {
-    -webkit-transform: scale(0,0) rotateZ(90deg);
-    transform: scale(0,0) rotateZ(90deg);opacity:0
+    -webkit-transform: scale(0, 0) rotateZ(90deg);
+    transform: scale(0, 0) rotateZ(90deg);
+    opacity: 0
   }
 }
 
-@keyframes anim{
+@keyframes anim {
   0% {
-    -webkit-transform: scale(0,0) rotateZ(-90deg);
-    transform: scale(0,0) rotateZ(-90deg);opacity:0
+    -webkit-transform: scale(0, 0) rotateZ(-90deg);
+    transform: scale(0, 0) rotateZ(-90deg);
+    opacity: 0
   }
+
   30% {
-    -webkit-transform: scale(1,1) rotateZ(0deg);transform: scale(1,1) rotateZ(0deg);opacity:1
+    -webkit-transform: scale(1, 1) rotateZ(0deg);
+    transform: scale(1, 1) rotateZ(0deg);
+    opacity: 1
   }
+
   50% {
-    -webkit-transform: scale(1,1) rotateZ(0deg);
-    transform: scale(1,1) rotateZ(0deg);opacity:1
+    -webkit-transform: scale(1, 1) rotateZ(0deg);
+    transform: scale(1, 1) rotateZ(0deg);
+    opacity: 1
   }
+
   80% {
-    -webkit-transform: scale(0,0) rotateZ(90deg);
-    transform: scale(0,0) rotateZ(90deg);opacity:0
+    -webkit-transform: scale(0, 0) rotateZ(90deg);
+    transform: scale(0, 0) rotateZ(90deg);
+    opacity: 0
   }
 }
 
+/* "Desert Haze" Theme for .entry */
 .entry {
   display: inline-block;
   padding: 15px 15px;
   font-size: 18px;
+  font-weight: 600;
+  /* Made slightly bolder for sign-like appearance */
   text-align: center;
   text-decoration: none;
-  color: #fff;
-  background: linear-gradient(45deg, #fff, #87CEEB, #3498db); /* Gradient background */
-  border: 1px solid #555;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+  /* Dark text color for contrast on the warm background */
+  color: #4a3e2e;
+  /* A blend of dusty sepia and warm ochre, mimicking the haze and sun */
+  background: linear-gradient(135deg, #d2b48c 0%, #e0c9a0 50%, #c19a6b 100%);
+  /* Weathered border color */
+  border: 2px solid #6b5a41;
+  /* Softer shadow, like a weathered object */
+  box-shadow: 0 3px 6px rgba(74, 62, 46, 0.3);
+  transition: all 0.3s ease;
+  /* Unified transition */
   cursor: pointer;
-  position: relative; /* For pseudo-element positioning */
-  overflow: hidden; /* Clip the pseudo-element */
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  /* Slight rounding, like an older sign */
 }
 
 .entry:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+  /* Enhanced shadow and color shift on hover */
+  box-shadow: 0 5px 10px rgba(74, 62, 46, 0.5);
+  background: linear-gradient(135deg, #e0c9a0 0%, #d2b48c 50%, #e0c9a0 100%);
 }
 
 .entry::before {
@@ -350,32 +424,47 @@ body{
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0)
-  ); /* Light streak effect */
+  /* Dust-streak effect instead of a pure light beam */
+  background: linear-gradient(120deg,
+      rgba(210, 180, 140, 0),
+      rgba(255, 248, 220, 0.4),
+      /* A very warm, pale cream */
+      rgba(210, 180, 140, 0));
+  transition: left 0.4s ease-in-out;
+  /* Control the speed */
 }
 
 .entry:hover::before {
-  left: 100%; /* Move the streak across the button */
+  left: 100%;
 }
 
+
+/* "Golden Hour" Theme for .finish */
 .finish {
   display: inline-block;
   padding: 15px 15px;
   font-size: 18px;
+  font-weight: 600;
   text-align: center;
   text-decoration: none;
-  color: #fff;
-  background: linear-gradient(45deg, #fff, #FFFD82, #FF9F1C); /* Gradient background */
-  border: 1px solid #555;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+  /* Darker text color on the warmer finish button */
+  color: #3e2e1e;
+  /* A rich blend of gold, ochre, and warm amber, like a physical sun icon */
+  background: linear-gradient(135deg, #fcd036 0%, #ff9f1c 50%, #d67a1a 100%);
+  /* Matching border */
+  border: 2px solid #8c5a21;
+  box-shadow: 0 3px 6px rgba(74, 62, 46, 0.3);
+  transition: all 0.3s ease;
   cursor: pointer;
-  position: relative; /* For pseudo-element positioning */
-  overflow: hidden; /* Clip the pseudo-element */
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.finish:hover {
+  /* More intense shadow and reverse gradient on hover */
+  box-shadow: 0 5px 10px rgba(74, 62, 46, 0.5);
+  background: linear-gradient(135deg, #ff9f1c 0%, #fcd036 50%, #ff9f1c 100%);
 }
 
 .finish::before {
@@ -385,41 +474,54 @@ body{
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0)
-  ); /* Light streak effect */
+  /* A brilliant, golden beam effect */
+  background: linear-gradient(120deg,
+      rgba(252, 208, 54, 0),
+      rgba(255, 253, 130, 0.5),
+      /* A bright, pure yellow light */
+      rgba(252, 208, 54, 0));
+  transition: left 0.4s ease-in-out;
+}
+
+.finish:hover::before {
+  left: 100%;
 }
 
 progress {
   /* Common styles */
   width: 90%;
   height: 10px;
-  border: 1px solid #ccc; /* Optional border */
-  border-radius: 5px; /* Optional rounded corners */
+  border: 1px solid #ccc;
+  /* Optional border */
+  border-radius: 5px;
+  /* Optional rounded corners */
 }
 
 /* Styling the value part (the filled portion) */
-progress::-webkit-progress-value { /* For Chrome, Safari, Opera */
+progress::-webkit-progress-value {
+  /* For Chrome, Safari, Opera */
   background-image: linear-gradient(to right, #25a7d7, #2962FF);
   border-radius: 5px;
 }
 
-progress::-moz-progress-bar { /* For Firefox */
+progress::-moz-progress-bar {
+  /* For Firefox */
   background-image: linear-gradient(to right, #25a7d7, #2962FF);
   border-radius: 5px;
 }
 
 /* Styling the background track (the empty portion) */
-progress::-webkit-progress-bar { /* For Chrome, Safari, Opera */
-  background-color: #ddd; /* Example light gray color */
+progress::-webkit-progress-bar {
+  /* For Chrome, Safari, Opera */
+  background-color: #ddd;
+  /* Example light gray color */
   border-radius: 5px;
 }
 
-progress { /* For Firefox (older versions might need this too) */
-  background-color: #ddd; /* Fallback background color */
+progress {
+  /* For Firefox (older versions might need this too) */
+  background-color: #ddd;
+  /* Fallback background color */
   border-radius: 5px;
 }
 
@@ -429,18 +531,23 @@ dialog {
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Optional shadow */
   z-index: 9999;
 }
 
 dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-  backdrop-filter: blur(5px); /* Optional blur effect */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent black */
+  backdrop-filter: blur(5px);
+  /* Optional blur effect */
 }
 
 dialog {
-  position: fixed; /* Or absolute, depending on your needs */
+  position: fixed;
+  /* Or absolute, depending on your needs */
   top: 20%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Center the dialog */
+  transform: translate(-50%, -50%);
+  /* Center the dialog */
 }
