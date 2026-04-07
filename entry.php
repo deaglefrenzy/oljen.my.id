@@ -52,7 +52,7 @@ foreach ($entries as $qq) {
     if ($total < 500) {
         $diskon = "Min.500km";
     } else {
-        $calc_dist = min($dist, 1000);
+        $calc_dist = min($total, 1000);
         $diskon = floor(($calc_dist - 500) / 2) * 1000;
     }
 ?>
@@ -60,9 +60,17 @@ foreach ($entries as $qq) {
         <div id="<?php echo $idorang; ?>"></div>
         <button onclick="myFunction('Demo<?php echo $idorang; ?>')"
             class="w3-button w3-block w3-left-align
-            <?php if ($total < 1000) echo "entry";
-            else echo "finish"; ?>">
-            <table width="100%" align="center">
+            <?php
+            if ($total < 1000) {
+                echo "entry";
+                $textColor = "#e8f5e9";
+            } else {
+                echo "finish";
+                $textColor = "#101010";
+            }
+            ?>
+            ">
+            <table width="100%" align="center" style="color: <?= $textColor ?>">
                 <tr>
                     <td align="left" style="padding-left: 10px; line-height:10px;">
                         <span class="monospace w3-large"><?= $count . $space; ?></span>
@@ -80,19 +88,23 @@ foreach ($entries as $qq) {
     </div>
     <div id="Demo<?php echo $idorang; ?>" class="w3-hide w3-container w3-padding-16 w3-white w3-card" style="margin-top: -10px; margin-bottom: 10px;">
         <div class="w3-padding-small">
-            <div style="display: flex; align-items: center; padding-left:15px;">
-                <div class="w3-center w3-padding-tiny w3-xlarge" style="color: #2c3e50; flex-grow: 1; display: flex; justify-content: center;">
-                    <img src="images/olo full.png" style="height: 25px; margin-top:3px;">
-                    &nbsp;
+            <div style="display: flex; align-items: left; padding-left:25px; padding-top:10px;">
+                <div class="w3-left w3-padding-tiny" style="font-size:20px;">
+                    <img src="images/olo full.png" style="height: 20px; margin-top:-8px;">
                     <?= $name ?>
                 </div>
-                <div>
-                    <a href="<?= $qq['profile'] ?>" target="_blank" style="text-decoration:none;">
-                        <img src="images/strava.svg" style="width: 25px; margin-bottom:5px;" alt="Profil Strava">
-                    </a>
-                </div>
+                <?php
+                if ($qq['profile'] != null || $qq['profile'] != "") {
+                ?>
+                    &nbsp;&nbsp;&nbsp;
+                    <div style="margin-top:1px;">
+                        <a href="<?= $qq['profile'] ?>" target="_blank" style="text-decoration:none;">
+                            <img src="images/strava.svg" style="width: 25px;" alt="Profil Strava">
+                        </a>
+                    </div>
+                <?php } ?>
             </div>
-            <table align="center" style="width: 90%; margin-top:10px; padding-left:15px;">
+            <table align="center" style="width: 95%; margin-top:10px; padding-left:15px;">
                 <tr class="w3-small" align="left" valign="bottom">
                     <td width="33%">
                         <font class="w3-xlarge monospace"><?= $jumlahRide ?></font>

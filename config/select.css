@@ -385,38 +385,42 @@ body {
   }
 }
 
-/* "Desert Haze" Theme for .entry */
+/* "Reptile Scale" Theme for .entry */
+
 .entry {
   display: inline-block;
   padding: 15px 15px;
   font-size: 18px;
   font-weight: 600;
-  /* Made slightly bolder for sign-like appearance */
   text-align: center;
   text-decoration: none;
-  /* Dark text color for contrast on the warm background */
-  color: #4a3e2e;
-  /* A blend of dusty sepia and warm ochre, mimicking the haze and sun */
-  background: linear-gradient(135deg, #d2b48c 0%, #e0c9a0 50%, #c19a6b 100%);
-  /* Weathered border color */
-  border: 2px solid #6b5a41;
-  /* Softer shadow, like a weathered object */
-  box-shadow: 0 3px 6px rgba(74, 62, 46, 0.3);
+
+  /* Light text for dark background */
+  color: #e8f5e9;
+
+  /* Green + red scale-inspired gradient */
+  background: linear-gradient(135deg, #0f3d1e 0%, #1f7a3a 40%, #7a1f1f 100%);
+
+  /* Dark border */
+  border: 2px solid #0a0a0a;
+
+  /* Subtle glow shadow */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+
   transition: all 0.3s ease;
-  /* Unified transition */
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  border-radius: 4px;
-  /* Slight rounding, like an older sign */
+  border-radius: 6px;
 }
 
 .entry:hover {
-  /* Enhanced shadow and color shift on hover */
-  box-shadow: 0 5px 10px rgba(74, 62, 46, 0.5);
-  background: linear-gradient(135deg, #e0c9a0 0%, #d2b48c 50%, #e0c9a0 100%);
+  /* Slight brighter green/red shift */
+  background: linear-gradient(135deg, #145c2c 0%, #2aa14a 40%, #a12a2a 100%);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.8);
 }
 
+/* Scale shine effect */
 .entry::before {
   content: "";
   position: absolute;
@@ -424,14 +428,14 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  /* Dust-streak effect instead of a pure light beam */
+
+  /* Green highlight sweep */
   background: linear-gradient(120deg,
-      rgba(210, 180, 140, 0),
-      rgba(255, 248, 220, 0.4),
-      /* A very warm, pale cream */
-      rgba(210, 180, 140, 0));
+      rgba(0, 255, 100, 0),
+      rgba(120, 255, 120, 0.35),
+      rgba(0, 255, 100, 0));
+
   transition: left 0.4s ease-in-out;
-  /* Control the speed */
 }
 
 .entry:hover::before {
@@ -439,7 +443,8 @@ body {
 }
 
 
-/* "Golden Hour" Theme for .finish */
+/* "Venom Highlight" Theme for .finish */
+
 .finish {
   display: inline-block;
   padding: 15px 15px;
@@ -447,26 +452,31 @@ body {
   font-weight: 600;
   text-align: center;
   text-decoration: none;
-  /* Darker text color on the warmer finish button */
-  color: #3e2e1e;
-  /* A rich blend of gold, ochre, and warm amber, like a physical sun icon */
-  background: linear-gradient(135deg, #fcd036 0%, #ff9f1c 50%, #d67a1a 100%);
-  /* Matching border */
-  border: 2px solid #8c5a21;
-  box-shadow: 0 3px 6px rgba(74, 62, 46, 0.3);
+
+  /* Dark text like jersey accents */
+  color: #101010;
+
+  /* Neon yellow-green accent (like "CHALLENGE" text) */
+  background: linear-gradient(135deg, #d4ff00 0%, #a6ff00 50%, #5cff00 100%);
+
+  border: 2px solid #1a1a1a;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+
   transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .finish:hover {
-  /* More intense shadow and reverse gradient on hover */
-  box-shadow: 0 5px 10px rgba(74, 62, 46, 0.5);
-  background: linear-gradient(135deg, #ff9f1c 0%, #fcd036 50%, #ff9f1c 100%);
+  /* Stronger neon glow */
+  background: linear-gradient(135deg, #a6ff00 0%, #d4ff00 50%, #a6ff00 100%);
+  box-shadow: 0 5px 15px rgba(100, 255, 0, 0.6);
 }
 
+/* Neon swipe effect */
 .finish::before {
   content: "";
   position: absolute;
@@ -474,12 +484,12 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  /* A brilliant, golden beam effect */
+
   background: linear-gradient(120deg,
-      rgba(252, 208, 54, 0),
-      rgba(255, 253, 130, 0.5),
-      /* A bright, pure yellow light */
-      rgba(252, 208, 54, 0));
+      rgba(212, 255, 0, 0),
+      rgba(255, 255, 150, 0.6),
+      rgba(212, 255, 0, 0));
+
   transition: left 0.4s ease-in-out;
 }
 
