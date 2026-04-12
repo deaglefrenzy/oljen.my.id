@@ -7,7 +7,8 @@ session_start();
 
 if ($action == "logadmin") {
 
-	$username = $_POST['username'];
+	// $username = $_POST['username'];
+	$username = "admin";
 	$pass     = $_POST['password'];
 
 	$stmt = mysqli_prepare($conn, "

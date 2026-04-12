@@ -73,7 +73,7 @@ $category = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 1;
     ?>
 
     <!-- End Page Container -->
-    <footer style="margin-top: 50px;">
+    <footer style="margin-top: 50px; margin-bottom: 10px;">
         <div class="w3-center w3-text-light-grey w3-small">
             2026
             &nbsp;

@@ -4,4 +4,8 @@
         <img src="images/brosur.png" style="max-width: 340px; border-radius: 10px;">
     </div>
     <div class="w3-padding"></div>
+    <div class="w3-center w3-padding">
+        <img src="images/jersey.jpeg" style="max-width: 340px; border-radius: 10px;">
+    </div>
+    <div class="w3-padding"></div>
 </div>

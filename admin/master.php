@@ -23,7 +23,7 @@ $error = @$_GET['error'];
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="../config/w3v4.css">
-    <link rel="stylesheet" href="../config/style.css">
+    <link rel="stylesheet" href="../config/style.css?v=<?= filemtime('../config/style.css') ?>">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
 </head>

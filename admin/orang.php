@@ -1,4 +1,11 @@
 <?php
+$q = mysqli_query($conn, "SELECT * FROM orang ORDER BY active DESC, name ASC");
+$allOrang = [];
+while ($row = mysqli_fetch_assoc($q)) {
+    $allOrang[$row['id']] = $row;
+}
+
+
 if ($success): ?>
     <div class="success">Data saved successfully</div>
 <?php endif; ?>
@@ -18,10 +25,10 @@ if ($success): ?>
     <h3>Existing Orang</h3>
     <table>
         <?php
-        if (empty($orang) || !is_array($orang)) {
+        if (empty($allOrang) || !is_array($allOrang)) {
             echo "<tr><td colspan='2'>No orang found.</td></tr>";
         } else {
-            foreach ($orang as $o): ?>
+            foreach ($allOrang as $o): ?>
                 <tr>
                     <td><?= htmlspecialchars($o['name']) ?></td>
                     <td>

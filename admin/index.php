@@ -23,9 +23,9 @@ include '../config/website.php';
                 <h1 class="w3-center"><?= $admin_page_title ?></h1>
                 <div class="card">
                     <form action="login.php" method="post">
-                        <div>
+                        <!-- <div>
                             <input type="text" name="username" size="12" style="border:2px solid #000;" class="w3-xxlarge" placeholder="Username" />
-                        </div>
+                        </div> -->
                         <div>
                             <input type="password" name="password" size="12" style="border:2px solid #000;" class="w3-xxlarge" placeholder="Password" />
                         </div>

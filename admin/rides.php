@@ -5,7 +5,7 @@ SELECT r.*, o.name
 FROM rides r
 JOIN orang o ON r.orang_id = o.id
 WHERE DATE(r.input_time)='$tanggal'
-ORDER BY r.input_time ASC";
+ORDER BY r.id DESC, r.input_time DESC";
 $q = mysqli_query($conn, $query);
 $ridesByDate = [];
 while ($row = mysqli_fetch_assoc($q)) {
@@ -34,7 +34,7 @@ while ($row = mysqli_fetch_assoc($q)) {
                     </tr>
                     <tr>
                         <td width=25><?= $count ?></td>
-                        <form action="post">
+                        <form method="post">
                             <td class="w3-small">
                                 <?= $r['input_time'] ?>
                                 <input type="hidden" name="ride_id" value="<?= $r['id'] ?>">
@@ -47,14 +47,23 @@ while ($row = mysqli_fetch_assoc($q)) {
                                 <a href="<?= $r['link'] ?>" target="_blank"><i class="fa fa-link"></i> <?= $r['link'] ?></a>
                             </td>
                         </form>
-                        <form action="post">
+                        <form method="post">
                             <input type="hidden" name="ride_id" value="<?= $r['id'] ?>">
                             <input type="hidden" name="action" value="edit distance">
-                            <td><input type="text" name="distance" value="<?= $r['distance'] ?>"></td>
+                            <td>
+                                <input
+                                    type="text"
+                                    name="distance"
+                                    value="<?= $r['distance'] ?>"
+                                    inputmode="numeric"
+                                    style="text-align:right;"
+                                    onfocus="this.select();"
+                                    onclick="this.select();">
+                            </td>
                         </form>
                     </tr>
                     <tr>
-                        <form action="post">
+                        <form method="post">
                             <input type="hidden" name="ride_id" value="<?= $r['id'] ?>">
                             <input type="hidden" name="action" value="edit note">
                             <td colspan="2" class="w3-small">
@@ -62,7 +71,6 @@ while ($row = mysqli_fetch_assoc($q)) {
                             </td>
                             <td><input type="text" name="pesan" placeholder="pesan" value="<?= $r['pesan'] ?>"></td>
                         </form>
-
                     </tr>
                 <?php endforeach; ?>
                 <tr>
