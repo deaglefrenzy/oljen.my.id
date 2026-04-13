@@ -22,8 +22,8 @@ include_once 'setor_data.php';
                     </select>
                 </div>
             </div>
-            <label class="w3-text-black">Link STRAVA</label>
-            <input type="text" name="link" placeholder="Contoh: https://strava.app.link/YH8fP9vSnSb" class="w3-input w3-center w3-border w3-margin-bottom" required>
+            <label class="w3-text-white">Link STRAVA</label>
+            <input type="text" name="link" placeholder="Contoh: https://strava.app.link/YH8fP9vSnSb" class="w3-input w3-left-align w3-border w3-margin-bottom" required>
             <?php if ($is_available): ?>
                 <button type="submit" name="action" value="setor ride" class="w3-button w3-green w3-margin-bottom w3-round w3-xlarge">
                     <i class="fa-regular fa-floppy-disk"></i> SETOR
@@ -43,7 +43,12 @@ include_once 'setor_data.php';
     </div>
     <div class="glass-card w3-padding w3-center">
         <?php
-        $query = "SELECT r.*, o.name FROM rides r JOIN orang o ON r.orang_id = o.id ORDER BY r.id DESC, r.input_time DESC LIMIT 10";
+        $query = "
+        SELECT r.*, o.name
+        FROM rides r
+        JOIN orang o ON r.orang_id = o.id
+        WHERE deleted_at IS NULL
+        ORDER BY r.id DESC, r.input_time DESC LIMIT 10";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) == 0) {

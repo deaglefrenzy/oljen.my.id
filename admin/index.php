@@ -27,7 +27,7 @@ include '../config/website.php';
                             <input type="text" name="username" size="12" style="border:2px solid #000;" class="w3-xxlarge" placeholder="Username" />
                         </div> -->
                         <div>
-                            <input type="password" name="password" size="12" style="border:2px solid #000;" class="w3-xxlarge" placeholder="Password" />
+                            <input type="password" name="password" size="12" style="border:2px solid #000;" class="w3-xxlarge" placeholder="Password" onfocus="this.select();" onclick="this.select();" />
                         </div>
                         <div>
                             <button type="submit" name="action" value="logadmin" class="button w3-xlarge">Login Admin</button>

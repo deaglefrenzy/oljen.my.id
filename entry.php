@@ -168,11 +168,6 @@ foreach ($entries as $qq) {
                         </td>
                         <td align="left">
                             <a href="<?= $rr['link'] ?>" target="_blank">
-                                <img src="images/strava.svg" style="width: 15px;">
-                            </a>
-                        </td>
-                        <td align="left">
-                            <a href="<?= $rr['link'] ?>" target="_blank">
                                 <?php
                                 $time = $rr['input_time'];
                                 $hari = array("", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu");
@@ -206,6 +201,11 @@ foreach ($entries as $qq) {
                             <?php
                             }
                             ?>
+                        </td>
+                        <td align="left">
+                            <a href="<?= $rr['link'] ?>" target="_blank">
+                                <img src="images/strava.svg" style="width: 15px;">
+                            </a>
                         </td>
                     </tr>
                 <?php } ?>

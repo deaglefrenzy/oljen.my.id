@@ -30,39 +30,43 @@ while ($row = mysqli_fetch_assoc($q)) {
                     $count++;
                 ?>
                     <tr>
-                        <td colspan="3" style="background:#999; height:1px;"></td>
+                        <td colspan="4" style="background:#999; height:1px;"></td>
                     </tr>
                     <tr>
                         <td width=25><?= $count ?></td>
-                        <form method="post">
+                        <td class="w3-small">
+                            <?= $r['input_time'] ?>
+                            <br>
+                            <?= $r['name'] ?>
+                        </td>
+                        <form method="post" onsubmit="return confirm('Hapus ride?');">
                             <td class="w3-small">
-                                <?= $r['input_time'] ?>
-                                <input type="hidden" name="ride_id" value="<?= $r['id'] ?>">
                                 <?php if (empty($r['deleted_at'])): ?>
                                     <button type="submit" name="action" value="delete ride" class="w3-tiny w3-red w3-button w3-round">🗑️</button>
                                 <?php endif; ?>
-                                <br>
-                                <?= $r['name'] ?> <a href="<?= $r['raw'] ?>" target="_blank"><i class="fa fa-drumstick-bite"></i></a>
-                                <br>
-                                <a href="<?= $r['link'] ?>" target="_blank"><i class="fa fa-link"></i> <?= $r['link'] ?></a>
                             </td>
                         </form>
                         <form method="post">
                             <input type="hidden" name="ride_id" value="<?= $r['id'] ?>">
                             <input type="hidden" name="action" value="edit distance">
-                            <td>
+                            <td align="right">
                                 <input
                                     type="text"
                                     name="distance"
                                     value="<?= $r['distance'] ?>"
                                     inputmode="numeric"
-                                    style="text-align:right;"
+                                    style="text-align:right; width: 60px;"
                                     onfocus="this.select();"
                                     onclick="this.select();">
                             </td>
                         </form>
                     </tr>
                     <tr>
+                        <td colspan="4" class="w3-small">
+                            <a href="<?= $r['link'] ?>" target="_blank"><i class="fa fa-link"></i> <?= $r['link'] ?></a>
+                        </td>
+                    </tr>
+                    <!-- <tr>
                         <form method="post">
                             <input type="hidden" name="ride_id" value="<?= $r['id'] ?>">
                             <input type="hidden" name="action" value="edit note">
@@ -71,10 +75,10 @@ while ($row = mysqli_fetch_assoc($q)) {
                             </td>
                             <td><input type="text" name="pesan" placeholder="pesan" value="<?= $r['pesan'] ?>"></td>
                         </form>
-                    </tr>
+                    </tr> -->
                 <?php endforeach; ?>
                 <tr>
-                    <td colspan="3" style="background:#999; height:1px;"></td>
+                    <td colspan="4" style="background:#999; height:1px;"></td>
                 </tr>
             </tbody>
         </table>

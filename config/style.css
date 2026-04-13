@@ -1,506 +1,506 @@
-/* Reset & base */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html,
-body {
-    height: 100%;
-}
-
-body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    background-color: #f5f6f8;
-    color: #222;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-/* Main container */
-.main-container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Navigation */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background-color: #333;
-    color: white;
-}
-
-/* Hide the checkbox */
-#menu-toggle {
-    display: none;
-}
-
-/* Styling the Hamburger Icon */
-.hamburger {
-    font-size: 24px;
-    cursor: pointer;
-    display: block;
-    /* Visible on mobile */
-}
-
-/* Nav Links - Hidden by default on mobile */
-.nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: #444;
-    position: absolute;
-    top: 60px;
-    /* Height of navbar */
-    left: 0;
-    list-style: none;
-}
-
-.nav-links li {
-    text-align: center;
-}
-
-.nav-links a {
-    display: block;
-    padding: 15px;
-    color: white;
-    text-decoration: none;
-    border-bottom: 1px solid #555;
-}
-
-/* Toggle Logic: When checkbox is checked, show the list */
-#menu-toggle:checked~.nav-links {
-    display: flex;
-}
-
-/* Desktop Responsiveness */
-@media (min-width: 768px) {
-    .hamburger {
-        display: none;
-    }
-
-    .nav-links {
-        display: flex !important;
-        /* Force show on desktop */
-        flex-direction: row;
-        position: static;
-        width: auto;
-        background: transparent;
-    }
-
-    .nav-links a {
-        border: none;
-    }
-}
-
-/* Content area */
-.content {
-    flex: 1;
-    padding: 1rem;
-}
-
-.content-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Simple card look (optional but useful) */
-.card {
-    background: #fff;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-}
-
-/* Responsive enhancement for larger screens */
-@media (min-width: 768px) {
-    nav {
-        padding: 1rem 1.5rem;
-    }
-
-    .content {
-        padding: 2rem 1.5rem;
-    }
-}
-
-/* =====================
-   FORM ELEMENTS
-===================== */
-label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 6px;
-    /* better touch spacing */
-    font-size: 14px;
-}
-
-/* Inputs */
-input,
-select,
-textarea {
-    width: 100%;
-    min-height: 48px;
-    /* touch-friendly */
-    padding: 12px 14px;
-    margin-bottom: 12px;
-    /* more vertical space on mobile */
-    font-size: 16px;
-    /* prevents iOS zoom */
-    border-radius: 8px;
-    border: 1px solid #ccd2dd;
-    background: #fff;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Textarea tweak */
-textarea {
-    min-height: 96px;
-    resize: vertical;
-}
-
-/* Focus states */
-input:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    border-color: #2c6bed;
-    box-shadow: 0 0 0 3px rgba(44, 107, 237, 0.15);
-}
-
-/* Placeholder */
-::placeholder {
-    color: #9aa3b2;
-}
-
-/* Disabled */
-input:disabled,
-select:disabled,
-textarea:disabled {
-    background: #f3f4f6;
-    color: #9ca3af;
-    cursor: not-allowed;
-}
-
-/* Desktop enhancement */
-@media (min-width: 768px) {
-    label {
-        font-size: 15px;
-    }
-
-    input,
-    select,
-    textarea {
-        font-size: 15px;
-        margin-bottom: 10px;
-    }
-}
-
-
-/* =====================
-   ROW LAYOUTS
-===================== */
-.row {
-    display: flex;
-    gap: 12px;
-}
-
-.row>div {
-    flex: 1;
-}
-
-/* code select + new code */
-.code-row {
-    display: flex;
-    gap: 12px;
-}
-
-/* grade / weight / count */
-.inline-row {
-    display: flex;
-    gap: 12px;
-    align-items: flex-end;
-}
-
-.inline-row .field {
-    flex: 1;
-}
-
-/* =====================
-   BUTTON
-===================== */
-.button {
-    margin-top: 24px;
-    padding: 14px 16px;
-    min-height: 48px;
-    background: #4f8fe3;
-    border: none;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    width: 100%;
-    transition: background 0.2s ease, transform 0.1s ease;
-}
-
-.button.secondary {
-    background: #e5e7eb;
-    color: #1f2933;
-}
-
-@media (hover: hover) {
-    button.secondary:hover {
-        background: #d1d5db;
-    }
-}
-
-.button.secondary:focus-visible {
-    outline: 3px solid rgba(107, 114, 128, 0.4);
-}
-
-.button.danger {
-    background: #dc2626;
-}
-
-@media (hover: hover) {
-    .button.danger:hover {
-        background: #b91c1c;
-    }
-}
-
-.button.danger:focus-visible {
-    outline: 3px solid rgba(220, 38, 38, 0.4);
-}
-
-.button:active {
-    transform: scale(0.98);
-}
-
-
-/* =====================
-   SUCCESS MESSAGE
-===================== */
-.success {
-    background: #e7f4e4;
-    color: #256029;
-    padding: 10px 14px;
-    border-radius: 8px;
-    margin-bottom: 16px;
-    font-weight: 600;
-}
-
-.error {
-    background: #e7f4e4;
-    color: #dc2626;
-    padding: 10px 14px;
-    border-radius: 8px;
-    margin-bottom: 16px;
-    font-weight: 600;
-}
-
-/* PAGE WRAPPER */
-.page {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
-}
-
-/* PAGE DATE */
-.page-date {
-    margin-bottom: 16px;
-}
-
-.page-date input {
-    width: 180px;
-}
-
-/* TWO COLUMN */
-.two-col {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-}
-
-/* LEFT / RIGHT BOXES */
-.left,
-.right {
-    background: #fff;
-    border-radius: 14px;
-    padding: 22px;
-    box-shadow: 0 10px 26px rgba(0, 0, 0, .08);
-}
-
-.left {
-    width: 420px;
-}
-
-.right {
-    flex: 1;
-}
-
-.vs-row {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 12px;
-}
-
-.team {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-}
-
-.vs-row .team:first-child {
-    text-align: right;
-}
-
-.vs-row .team:last-child {
-    text-align: left;
-}
-
-.vs {
-    font-weight: 700;
-    opacity: 0.7;
-}
-
-.tiebreak {
-    font-size: 0.6em;
-    vertical-align: super;
-}
-
-.winner {
-    color: #256029;
-}
-
-.score-table {
-    border-collapse: collapse;
-}
-
-.score-table td.score {
-    width: 34px;
-    /* SAME SPACE for every set */
-    text-align: center;
-    font-weight: 700;
-    position: relative;
-    /* anchor for superscript */
-    padding: 4px 6px;
-}
-
-/* Superscript tuning */
-.score-table td.score sup {
-    position: absolute;
-    top: 0px;
-    /* closer to main score */
-    right: 2px;
-    /* tighter spacing */
-    font-size: 0.65em;
-    /* more visible */
-    font-weight: 600;
-    line-height: 1;
-    color: #999;
-}
-
-.popup-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, .5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-}
-
-.popup-box {
-    background: #fff;
-    padding: 20px 22px;
-    border-radius: 10px;
-    max-width: 360px;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, .25);
-}
-
-.popup-box p {
-    margin-bottom: 16px;
-    font-size: 15px;
-    color: #333;
-}
-
-.popup-box button {
-    border: none;
-    background: #2563eb;
-    color: #fff;
-    padding: 8px 18px;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-/* =====================
-   RADIO PILL GROUP
-===================== */
-.radio-pill-group {
-    display: flex;
-    gap: 12px;
-}
-
-/* pill container */
-.radio-pill {
-    display: inline-flex;
-    align-items: center;
-    height: 48px;
-    padding: 0 18px;
-    border: 1px solid #ccd2dd;
-    border-radius: 10px;
-    cursor: pointer;
-    user-select: none;
-    font-weight: 600;
-    gap: 10px;
-    background: #fff;
-    transition: all .15s ease;
-}
-
-/* hide native radio */
-.radio-pill input {
-    display: none;
-}
-
-/* label text */
-.radio-pill span {
-    color: #444;
-    white-space: nowrap;
-}
-
-/* hover */
-.radio-pill:hover {
-    border-color: #2c6bed;
-}
-
-/* checked state */
-.radio-pill input:checked+span {
-    color: #fff;
-}
-
-/* checked visual */
-.radio-pill input:checked~span::before {
-    content: "✓";
-    display: inline-block;
-    margin-right: 8px;
-    font-weight: 800;
-}
-
-/* background when checked */
-.radio-pill:has(input:checked) {
-    background: #2c6bed;
-    border-color: #2c6bed;
-}
+/* Reset & base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #f5f6f8;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Main container */
+.main-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #333;
+    color: white;
+}
+
+/* Hide the checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* Styling the Hamburger Icon */
+.hamburger {
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+    /* Visible on mobile */
+}
+
+/* Nav Links - Hidden by default on mobile */
+.nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #444;
+    position: absolute;
+    top: 60px;
+    /* Height of navbar */
+    left: 0;
+    list-style: none;
+}
+
+.nav-links li {
+    text-align: center;
+}
+
+.nav-links a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #555;
+}
+
+/* Toggle Logic: When checkbox is checked, show the list */
+#menu-toggle:checked~.nav-links {
+    display: flex;
+}
+
+/* Desktop Responsiveness */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex !important;
+        /* Force show on desktop */
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background: transparent;
+    }
+
+    .nav-links a {
+        border: none;
+    }
+}
+
+/* Content area */
+.content {
+    flex: 1;
+    padding: 1rem;
+}
+
+.content-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Simple card look (optional but useful) */
+.card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive enhancement for larger screens */
+@media (min-width: 768px) {
+    nav {
+        padding: 1rem 1.5rem;
+    }
+
+    .content {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* =====================
+   FORM ELEMENTS
+===================== */
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    /* better touch spacing */
+    font-size: 14px;
+}
+
+/* Inputs */
+input,
+select,
+textarea {
+    width: 100%;
+    min-height: 48px;
+    /* touch-friendly */
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    /* more vertical space on mobile */
+    font-size: 16px;
+    /* prevents iOS zoom */
+    border-radius: 8px;
+    border: 1px solid #ccd2dd;
+    background: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Textarea tweak */
+textarea {
+    min-height: 96px;
+    resize: vertical;
+}
+
+/* Focus states */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #2c6bed;
+    box-shadow: 0 0 0 3px rgba(44, 107, 237, 0.15);
+}
+
+/* Placeholder */
+::placeholder {
+    color: #9aa3b2;
+}
+
+/* Disabled */
+input:disabled,
+select:disabled,
+textarea:disabled {
+    background: #f3f4f6;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* Desktop enhancement */
+@media (min-width: 768px) {
+    label {
+        font-size: 15px;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+}
+
+
+/* =====================
+   ROW LAYOUTS
+===================== */
+.row {
+    display: flex;
+    gap: 12px;
+}
+
+.row>div {
+    flex: 1;
+}
+
+/* code select + new code */
+.code-row {
+    display: flex;
+    gap: 12px;
+}
+
+/* grade / weight / count */
+.inline-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+.inline-row .field {
+    flex: 1;
+}
+
+/* =====================
+   BUTTON
+===================== */
+.button {
+    margin-top: 24px;
+    padding: 14px 16px;
+    min-height: 48px;
+    background: #4f8fe3;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.button.secondary {
+    background: #e5e7eb;
+    color: #1f2933;
+}
+
+@media (hover: hover) {
+    button.secondary:hover {
+        background: #d1d5db;
+    }
+}
+
+.button.secondary:focus-visible {
+    outline: 3px solid rgba(107, 114, 128, 0.4);
+}
+
+.button.danger {
+    background: #dc2626;
+}
+
+@media (hover: hover) {
+    .button.danger:hover {
+        background: #b91c1c;
+    }
+}
+
+.button.danger:focus-visible {
+    outline: 3px solid rgba(220, 38, 38, 0.4);
+}
+
+.button:active {
+    transform: scale(0.98);
+}
+
+
+/* =====================
+   SUCCESS MESSAGE
+===================== */
+.success {
+    background: #e7f4e4;
+    color: #256029;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.error {
+    background: #e7f4e4;
+    color: #dc2626;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+/* PAGE WRAPPER */
+.page {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* PAGE DATE */
+.page-date {
+    margin-bottom: 16px;
+}
+
+.page-date input {
+    width: 180px;
+}
+
+/* TWO COLUMN */
+.two-col {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* LEFT / RIGHT BOXES */
+.left,
+.right {
+    background: #fff;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, .08);
+}
+
+.left {
+    width: 420px;
+}
+
+.right {
+    flex: 1;
+}
+
+.vs-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 12px;
+}
+
+.team {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.vs-row .team:first-child {
+    text-align: right;
+}
+
+.vs-row .team:last-child {
+    text-align: left;
+}
+
+.vs {
+    font-weight: 700;
+    opacity: 0.7;
+}
+
+.tiebreak {
+    font-size: 0.6em;
+    vertical-align: super;
+}
+
+.winner {
+    color: #256029;
+}
+
+.score-table {
+    border-collapse: collapse;
+}
+
+.score-table td.score {
+    width: 34px;
+    /* SAME SPACE for every set */
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    /* anchor for superscript */
+    padding: 4px 6px;
+}
+
+/* Superscript tuning */
+.score-table td.score sup {
+    position: absolute;
+    top: 0px;
+    /* closer to main score */
+    right: 2px;
+    /* tighter spacing */
+    font-size: 0.65em;
+    /* more visible */
+    font-weight: 600;
+    line-height: 1;
+    color: #999;
+}
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.popup-box {
+    background: #fff;
+    padding: 20px 22px;
+    border-radius: 10px;
+    max-width: 360px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .25);
+}
+
+.popup-box p {
+    margin-bottom: 16px;
+    font-size: 15px;
+    color: #333;
+}
+
+.popup-box button {
+    border: none;
+    background: #2563eb;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* =====================
+   RADIO PILL GROUP
+===================== */
+.radio-pill-group {
+    display: flex;
+    gap: 12px;
+}
+
+/* pill container */
+.radio-pill {
+    display: inline-flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 18px;
+    border: 1px solid #ccd2dd;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 600;
+    gap: 10px;
+    background: #fff;
+    transition: all .15s ease;
+}
+
+/* hide native radio */
+.radio-pill input {
+    display: none;
+}
+
+/* label text */
+.radio-pill span {
+    color: #444;
+    white-space: nowrap;
+}
+
+/* hover */
+.radio-pill:hover {
+    border-color: #2c6bed;
+}
+
+/* checked state */
+.radio-pill input:checked+span {
+    color: #fff;
+}
+
+/* checked visual */
+.radio-pill input:checked~span::before {
+    content: "✓";
+    display: inline-block;
+    margin-right: 8px;
+    font-weight: 800;
+}
+
+/* background when checked */
+.radio-pill:has(input:checked) {
+    background: #2c6bed;
+    border-color: #2c6bed;
+}

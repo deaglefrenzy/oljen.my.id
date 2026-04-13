@@ -29,7 +29,6 @@ if ($success): ?>
             echo "<tr><td colspan='2'>No orang found.</td></tr>";
         } else {
             foreach ($allOrang as $o): ?>
-                foreach ($allOrang as $o): ?>
                 <tr>
                     <td><?= htmlspecialchars($o['name']) ?></td>
                     <td>
