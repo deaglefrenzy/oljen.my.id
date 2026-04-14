@@ -22,65 +22,68 @@ while ($row = mysqli_fetch_assoc($q)) {
     <?php if (!$ridesByDate): ?>
         <div class="empty">No data</div>
     <?php else: ?>
-        <table align="center" width="100%">
-            <tbody>
-                <?php
-                $count = 0;
-                foreach ($ridesByDate[$tanggal] as $r):
-                    $count++;
-                ?>
-                    <tr>
-                        <td colspan="4" style="background:#999; height:1px;"></td>
-                    </tr>
-                    <tr>
-                        <td width=25><?= $count ?></td>
-                        <td class="w3-small">
-                            <?= $r['input_time'] ?>
-                            <br>
-                            <?= $r['name'] ?>
-                        </td>
+        <div class="rides">
+            <?php
+            $count = 0;
+            foreach ($ridesByDate[$tanggal] as $r):
+                $count++;
+            ?>
+                <div class="ride-card">
+
+                    <!-- Header -->
+                    <div class="ride-header">
+                        <span class="ride-number"><?= $count ?></span>
+                        <div>
+                            <div class="ride-time"><?= $r['input_time'] ?></div>
+                            <div class="ride-name"><?= $r['name'] ?></div>
+                        </div>
+                    </div>
+
+                    <!-- Actions Row -->
+                    <div class="ride-actions">
+
+                        <!-- Delete -->
                         <form method="post" onsubmit="return confirm('Hapus ride?');">
-                            <td class="w3-small">
-                                <?php if (empty($r['deleted_at'])): ?>
-                                    <button type="submit" name="action" value="delete ride" class="w3-tiny w3-red w3-button w3-round">🗑️</button>
-                                <?php endif; ?>
-                            </td>
+                            <input type="hidden" name="ride_id" value="<?= $r['id'] ?>">
+                            <?php if (empty($r['deleted_at'])): ?>
+                                <button type="submit" name="action" value="delete ride" style="width: 40px; height:45px;">❌</button>
+                            <?php else: ?>
+                                <span class="deleted">Deleted</span>
+                            <?php endif; ?>
                         </form>
+
+                        <!-- Date -->
                         <form method="post">
                             <input type="hidden" name="ride_id" value="<?= $r['id'] ?>">
-                            <input type="hidden" name="action" value="edit distance">
-                            <td align="right">
-                                <input
-                                    type="text"
-                                    name="distance"
-                                    value="<?= $r['distance'] ?>"
-                                    inputmode="numeric"
-                                    style="text-align:right; width: 60px;"
-                                    onfocus="this.select();"
-                                    onclick="this.select();">
-                            </td>
+                            <input type="hidden" name="action" value="edit tanggal">
+                            <input type="date"
+                                name="tanggal"
+                                value="<?= date('Y-m-d', strtotime($r['input_time'])) ?>"
+                                onchange="this.form.submit();">
                         </form>
-                    </tr>
-                    <tr>
-                        <td colspan="4" class="w3-small">
-                            <a href="<?= $r['link'] ?>" target="_blank"><i class="fa fa-link"></i> <?= $r['link'] ?></a>
-                        </td>
-                    </tr>
-                    <!-- <tr>
-                        <form method="post">
-                            <input type="hidden" name="ride_id" value="<?= $r['id'] ?>">
-                            <input type="hidden" name="action" value="edit note">
-                            <td colspan="2" class="w3-small">
-                                <input type="text" name="link" value="<?= $r['link'] ?>">
-                            </td>
-                            <td><input type="text" name="pesan" placeholder="pesan" value="<?= $r['pesan'] ?>"></td>
-                        </form>
-                    </tr> -->
-                <?php endforeach; ?>
-                <tr>
-                    <td colspan="4" style="background:#999; height:1px;"></td>
-                </tr>
-            </tbody>
-        </table>
+
+                        <!-- Distance -->
+                        <input
+                            type="text"
+                            name="distance"
+                            value="<?= $r['distance'] ?>"
+                            inputmode="numeric"
+                            class="<?= ($r['distance'] == 0 ? 'distance-zero' : '') ?>"
+                            style="text-align:right; width: 60px;"
+                            onfocus="this.select();"
+                            onclick="this.select();">
+
+                    </div>
+
+                    <!-- Link -->
+                    <div class="ride-link">
+                        <a href="<?= $r['link'] ?>" target="_blank">
+                            🔗 <?= $r['link'] ?>
+                        </a>
+                    </div>
+
+                </div>
+            <?php endforeach; ?>
+        </div>
     <?php endif; ?>
 </div>

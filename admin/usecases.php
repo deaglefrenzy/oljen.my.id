@@ -21,6 +21,13 @@ if ($action == "edit distance") {
     mysqli_query($conn, $query) or die(mysqli_error($conn));
 }
 
+if ($action == "edit tanggal") {
+    $ride_id = $_POST['ride_id'];
+    $tanggal = $_POST['tanggal'];
+    $query = "UPDATE rides SET input_time='$tanggal' WHERE id='$ride_id'";
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
+}
+
 if ($action == "edit note") {
     $ride_id = $_POST['ride_id'];
     $pesan = $_POST['pesan'];
