@@ -385,116 +385,73 @@ body {
   }
 }
 
-/* "Reptile Scale" Theme for .entry */
-
 .entry {
   display: inline-block;
-  padding: 15px 15px;
-  font-size: 18px;
+  padding: 14px 14px;
+  font-size: 16px;
   font-weight: 600;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
 
-  /* Light text for dark background */
   color: #e8f5e9;
 
-  /* Green + red scale-inspired gradient */
-  background: linear-gradient(135deg, #0f3d1e 0%, #1f7a3a 40%, #7a1f1f 100%);
+  /* Much softer gradient */
+  background: linear-gradient(135deg, #1b4332, #2d6a4f);
 
-  /* Dark border */
-  border: 2px solid #0a0a0a;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 
-  /* Subtle glow shadow */
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+  /* Softer shadow */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 
-  transition: all 0.3s ease;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  border-radius: 6px;
+  border-radius: 8px;
+
+  transition: all 0.2s ease;
 }
 
 .entry:hover {
-  /* Slight brighter green/red shift */
-  background: linear-gradient(135deg, #145c2c 0%, #2aa14a 40%, #a12a2a 100%);
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(135deg, #2d6a4f, #40916c);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
 }
-
-/* Scale shine effect */
-.entry::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-
-  /* Green highlight sweep */
-  background: linear-gradient(120deg,
-      rgba(0, 255, 100, 0),
-      rgba(120, 255, 120, 0.35),
-      rgba(0, 255, 100, 0));
-
-  transition: left 0.4s ease-in-out;
-}
-
-.entry:hover::before {
-  left: 100%;
-}
-
-
-/* "Venom Highlight" Theme for .finish */
 
 .finish {
   display: inline-block;
-  padding: 15px 15px;
-  font-size: 18px;
+  padding: 14px 14px;
+  font-size: 16px;
   font-weight: 600;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
 
-  /* Dark text like jersey accents */
-  color: #101010;
+  color: #1b1b1b;
 
-  /* Neon yellow-green accent (like "CHALLENGE" text) */
-  background: linear-gradient(135deg, #d4ff00 0%, #a6ff00 50%, #5cff00 100%);
+  /* Muted highlight instead of neon */
+  background: linear-gradient(135deg, #d9f99d, #a3e635);
 
-  border: 2px solid #1a1a1a;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 
-  transition: all 0.3s ease;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  border-radius: 6px;
+  border-radius: 8px;
+
+  transition: all 0.2s ease;
 }
 
 .finish:hover {
-  /* Stronger neon glow */
-  background: linear-gradient(135deg, #a6ff00 0%, #d4ff00 50%, #a6ff00 100%);
-  box-shadow: 0 5px 15px rgba(100, 255, 0, 0.6);
+  background: linear-gradient(135deg, #bef264, #84cc16);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
 }
 
-/* Neon swipe effect */
-.finish::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-
-  background: linear-gradient(120deg,
-      rgba(212, 255, 0, 0),
-      rgba(255, 255, 150, 0.6),
-      rgba(212, 255, 0, 0));
-
-  transition: left 0.4s ease-in-out;
+.entry:focus,
+.finish:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8);
 }
 
-.finish:hover::before {
-  left: 100%;
+button.entry:focus {
+  color: #e8f5e9 !important;
+}
+
+button.finish:focus {
+  color: #1b1b1b !important;
 }
 
 progress {

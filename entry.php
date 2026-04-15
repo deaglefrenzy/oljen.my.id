@@ -50,166 +50,182 @@ foreach ($entries as $qq) {
     $shortestDistance = $qq['min_distance'];
     $rataRata = ($qq['ride_count'] > 0) ? ($qq['total_distance'] / $qq['ride_count']) : 0;
     if ($total < 500) {
-        $diskon = "Min.500km";
+        $menujuDiskon = 500 - $total;
+        $diskon = "<span class='w3-text-red w3-opacity'>-" . $menujuDiskon . "<span class='w3-small'>km</span></span>";
     } else {
         $calc_dist = min($total, 1000);
         $diskon_value = floor(($calc_dist - 500) / 2);
         $diskon = "Rp" . number_format($diskon_value, 0, ',', '.') . "rb";
     }
 ?>
-    <div class="w3-card w3-round reddit" id="<?= "row" . $count ?>">
+    <div class="w3-card w3-round" id="<?= "row" . $count ?>">
+
         <div id="<?php echo $idorang; ?>"></div>
-        <button onclick="myFunction('Demo<?php echo $idorang; ?>')"
-            class="w3-button w3-block w3-left-align
-            <?php
-            if ($total < 1000) {
-                echo "entry";
-                $textColor = "#e8f5e9";
-            } else {
-                echo "finish";
-                $textColor = "#101010";
-            }
-            ?>
-            ">
-            <table width="100%" align="center" style="color: <?= $textColor ?>">
-                <tr>
-                    <td align="left" style="padding-left: 10px; line-height:10px;">
-                        <span class="monospace w3-large"><?= $count . $space; ?></span>
+
+        <button
+            onclick="myFunction('Demo<?php echo $idorang; ?>')"
+            class="w3-button w3-block w3-left-align w3-padding
+        <?php
+        if ($total < 1000) {
+            echo "entry";
+        } else {
+            echo "finish";
+        }
+        ?>">
+
+            <div class="w3-row w3-align-middle">
+
+                <!-- Left: Rank + Name -->
+                <div class="w3-col s7">
+                    <div class="w3-large reddit" style="padding-top:5px;">
+                        <?= $count . $space; ?>
                         <?= $name ?>
-                    </td>
-                    <td width=100 align="right" class="w3-xlarge">
-                        <span class="monospace"><?= $total ?></span><span class="w3-small"> km</span>
-                    </td>
-                    <td width=25 align="center" id="caret-<?php echo $idorang; ?>">
-                        <i class="fa-solid fa-caret-down w3-small"></i>
-                    </td>
-                </tr>
-            </table>
+                    </div>
+                </div>
+
+                <!-- Right: Distance -->
+                <div class="w3-col s4 w3-right-align">
+                    <div class="w3-xlarge monospace">
+                        <?= $total ?><span class="w3-small">km</span>
+                    </div>
+                </div>
+
+                <!-- Caret -->
+                <div class="w3-col s1 w3-center" id="caret-<?php echo $idorang; ?>" style="padding-top:10px;">
+                    <i class="fa-solid fa-caret-down w3-small"></i>
+                </div>
+
+            </div>
+
         </button>
     </div>
     <div id="Demo<?php echo $idorang; ?>" class="w3-hide w3-container w3-padding-16 w3-white w3-card" style="margin-top: -10px; margin-bottom: 10px;">
         <div class="w3-padding-small">
-            <div style="display: flex; align-items: left; padding-left:25px; padding-top:10px;">
-                <div class="w3-left w3-padding-tiny" style="font-size:20px;">
-                    <img src="images/olo full.png" style="height: 20px; margin-top:-8px;">
-                    <?= $name ?>
-                </div>
-                <?php
-                if ($qq['profile'] != null || $qq['profile'] != "") {
-                ?>
-                    &nbsp;&nbsp;&nbsp;
-                    <div style="margin-top:1px;">
-                        <a href="<?= $qq['profile'] ?>" target="_blank" style="text-decoration:none;">
-                            <img src="images/strava.svg" style="width: 25px;" alt="Profil Strava">
-                        </a>
+            <div class="w3-padding">
+
+                <!-- Header (Name + Strava) -->
+                <div class="w3-row w3-margin-bottom" style="align-items:center;">
+
+                    <div class="w3-col s9 font2" style="font-size:20px; font-weight:600;">
+                        <img src="images/olo full.png" style="height:20px; margin-right:6px; margin-top:-3px; vertical-align:middle;">
+                        <?= $name ?>
                     </div>
-                <?php } ?>
+
+                    <?php if ($qq['profile']) { ?>
+                        <div class="w3-col s3 w3-right-align">
+                            <a href="<?= $qq['profile'] ?>" target="_blank" style="text-decoration:none;">
+                                <img src="images/strava.svg" style="width:22px;" alt="Profil Strava">
+                            </a>
+                        </div>
+                    <?php } ?>
+
+                </div>
+
+                <!-- Main Stats -->
+                <div class="w3-row w3-center w3-margin-bottom">
+
+                    <div class="w3-col s4">
+                        <div class="w3-xlarge monospace"><?= $jumlahRide ?></div>
+                        <div class="w3-small w3-opacity">
+                            Ride<?= ($jumlahRide > 1) ? "s" : "" ?>
+                        </div>
+                    </div>
+
+                    <div class="w3-col s4">
+                        <div class="w3-xlarge monospace"><?= $total ?><span class="w3-small">km</span></div>
+                        <div class="w3-small w3-opacity">Ditempuh</div>
+                    </div>
+
+                    <div class="w3-col s4">
+                        <div class="w3-xlarge monospace w3-text-green"><?= $diskon ?></div>
+                        <div class="w3-small w3-opacity">Diskon</div>
+                    </div>
+
+                </div>
+
+                <!-- Divider -->
+                <div class="w3-border-top w3-margin bottom" style="opacity:0.5;"></div>
+
+                <!-- Secondary Stats -->
+                <div class="w3-row w3-center">
+
+                    <div class="w3-col s4">
+                        <div class="w3-large monospace"><?= $furthestDistance ?><span class="w3-small">km</span></div>
+                        <div class="w3-small w3-opacity">Terjauh</div>
+                    </div>
+
+                    <div class="w3-col s4">
+                        <div class="w3-large monospace"><?= $shortestDistance ?><span class="w3-small">km</span></div>
+                        <div class="w3-small w3-opacity">Terdekat</div>
+                    </div>
+
+                    <div class="w3-col s4">
+                        <div class="w3-large monospace"><?= round($rataRata) ?><span class="w3-small">km</span></div>
+                        <div class="w3-small w3-opacity">Rata-Rata</div>
+                    </div>
+
+                </div>
+
             </div>
-            <table align="center" style="width: 95%; margin-top:10px; padding-left:15px;">
-                <tr class="w3-small" align="left" valign="bottom">
-                    <td width="33%">
-                        <font class="w3-xlarge monospace"><?= $jumlahRide ?></font>
-                    </td>
-                    <td>
-                        <font class="w3-xlarge monospace"><?= $total ?></font> km
-                    </td>
-                    <td width="33%">
-                        <font class="w3-medium w3-text-green monospace"><?= $diskon ?></font>
-                    </td>
-                </tr>
-                <tr class="w3-small" align="left">
-                    <td width="33%">
-                        <font class="w3-opacity">Ride<?= ($jumlahRide > 1) ? "s" : "" ?></font>
-                    </td>
-                    <td>
-                        <font class="w3-opacity">Ditempuh</font>
-                    </td>
-                    <td width="33%">
-                        <font class="w3-opacity">Diskon</font>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="height: 10px;"></td>
-                </tr>
-                <tr class="w3-small" align="left">
-                    <td width="33%">
-                        <font class="w3-xlarge monospace"><?= $furthestDistance ?></font> km
-                        <br>
-                        <font class="w3-opacity">Terjauh</font>
-                    </td>
-                    <td>
-                        <font class="w3-xlarge monospace"><?= $shortestDistance ?></font> km
-                        <br>
-                        <font class="w3-opacity">Terdekat</font>
-                    </td>
-                    <td width="33%">
-                        <font class="w3-xlarge monospace"><?= round($rataRata) ?></font> km
-                        <br>
-                        <font class="w3-opacity">Rata-Rata</font>
-                    </td>
-                </tr>
-            </table>
             <br>
-            <table width=90% align="center" style="border-collapse: collapse;">
+            <table class="w3-table w3-small" style="width:95%; margin:auto;">
+
                 <?php
                 $que = "SELECT * FROM rides WHERE orang_id='$idorang' AND deleted_at IS NULL ORDER BY input_time ASC";
                 $r = mysqli_query($conn, $que) or die(mysqli_error($conn));
                 $rcount = 0;
-                $rawData = [];
+
                 while ($rr = mysqli_fetch_array($r)) {
-                    $date = date('Y-m-d', strtotime($rr['input_time']));
-                    $rawData[] = array($date, $rr['distance']);
+
+                    $time = $rr['input_time'];
+                    $date = date('Y-m-d', strtotime($time));
+
                     $rcount++;
-                    if ($rcount < 10) $rcounts = "0" . $rcount;
-                    else $rcounts = $rcount;
+                    $rcounts = str_pad($rcount, 2, "0", STR_PAD_LEFT);
+
+                    $hari = ["", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
                 ?>
-                    <tr>
-                        <td align="left" class="monospace">
+
+                    <tr class="w3-border-bottom">
+
+                        <!-- No -->
+                        <td class="monospace" style="width:35px;">
                             <?= $rcounts ?>
                         </td>
-                        <td align="left">
-                            <a href="<?= $rr['link'] ?>" target="_blank">
-                                <?php
-                                $time = $rr['input_time'];
-                                $hari = array("", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu");
-                                $ha = $hari[date("N", strtotime($time))];
-                                echo "<span class='w3-small'>" . $hari[date("N", strtotime($time))] . "</span> ";
-                                ?>
-                            </a>
+
+                        <!-- Day + Date -->
+                        <td style="width:140px;">
+                            <div class="w3-small">
+                                <?= $hari[date("N", strtotime($time))] ?>,
+                                <span class="w3-text-grey">
+                                    <?= date("d M Y", strtotime($time)) ?>
+                                </span>
+                            </div>
                         </td>
-                        <td>
-                            <?php
-                            echo date("d", strtotime($time));
-                            echo " <font class=w3-small>" . date("M Y", strtotime($time)) . "</font>";
-                            ?>
-                        </td>
-                        <td align="right">
-                            <?php
-                            if ($rr['distance'] == 0) {
-                            ?>
-                                <div style="display: flex; font-family:monospace; line-height:8px; justify-content:flex-end;">
-                                    <div style="margin-top:2px; margin-right:3px;"><i class='fa-solid fa-circle-pause'></i></div>
-                                    <div style="display: flex; flex-direction:column; text-align:left;" class="w3-tiny">
-                                        <div>ADMIN&#10003;</div>
-                                        <div>REVIEW</div>
-                                    </div>
+
+                        <!-- Distance -->
+                        <td class="w3-right-align" style="width:80px;">
+                            <?php if ($rr['distance'] == 0) { ?>
+                                <div class="w3-text-grey w3-small">
+                                    <i class='fa-solid fa-circle-pause'></i> review
                                 </div>
-                            <?php
-                            } else {
-                            ?>
-                                <font class="w3-large monospace"><?= $rr['distance'] ?></font>
-                                <font class="w3-small">km</font>
-                            <?php
-                            }
-                            ?>
+                            <?php } else { ?>
+                                <span class="w3-large monospace"><?= $rr['distance'] ?></span>
+                                <span class="w3-small">km</span>
+                            <?php } ?>
                         </td>
-                        <td align="left">
+
+                        <!-- Link -->
+                        <td style="width:30px;" class="w3-center">
                             <a href="<?= $rr['link'] ?>" target="_blank">
-                                <img src="images/strava.svg" style="width: 15px;">
+                                <img src="images/strava.svg" style="width:16px;">
                             </a>
                         </td>
+
                     </tr>
+
                 <?php } ?>
+
             </table>
         </div>
     </div>

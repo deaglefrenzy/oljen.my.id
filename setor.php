@@ -3,13 +3,10 @@ include_once 'setor_data.php';
 ?>
 <div class="w3-content w3-center" style="width: 90%; max-width: 480px; text-align: center; margin-top:10px;">
     <div class="w3-card w3-white w3-padding-large w3-round-large" style="max-width:500px; margin:auto; margin-top:30px;">
-
         <form method="post" onsubmit="return confirm('Setor ride ini?');">
-
             <h3 class="w3-center w3-margin-bottom" style="font-weight:600;">
                 <i class="fa-solid fa-bicycle"></i> Setor Ride
             </h3>
-
             <!-- Rider -->
             <div class="w3-margin-bottom">
                 <select
@@ -20,7 +17,6 @@ include_once 'setor_data.php';
                     <option value="" disabled <?= empty($orang_id) ? 'selected' : '' ?>>
                         -- 👤 Pilih Oljener --
                     </option>
-
                     <?php
                     if (is_array($orang)) {
                         foreach ($orang as $o) {
@@ -31,30 +27,23 @@ include_once 'setor_data.php';
                     ?>
                 </select>
             </div>
-
             <!-- Strava Link -->
             <div class="w3-margin-bottom">
-
                 <input
-                    type="url"
+                    type="text"
                     name="link"
                     placeholder="https://strava.app.link/xxxx"
                     class="w3-input w3-border w3-round-large w3-padding"
                     style="font-size:16px;"
                     required
                     autocomplete="off">
-
                 <div class="w3-right w3-small w3-text-grey">
                     <i class="fa-brands fa-strava"></i> Link Ride
                 </div>
-
             </div>
-
             <br>
-
             <!-- Action -->
             <div class="w3-center w3-margin-top">
-
                 <?php if ($is_available): ?>
                     <button
                         type="submit"
@@ -78,19 +67,14 @@ include_once 'setor_data.php';
                         disabled>
                         <i class="fa-solid fa-lock"></i> CLOSED
                     </button>
-
                     <p class="w3-small w3-text-grey w3-margin-top">
                         Penyetoran dibuka 12 - 26 April 2026
                     </p>
                 <?php endif; ?>
-
             </div>
-
         </form>
     </div>
-
     <div style="height: 50px;"></div>
-
     <?php
     $query = "
     SELECT r.*, o.name
@@ -103,39 +87,29 @@ include_once 'setor_data.php';
     <div class="w3-large w3-margin-bottom w3-text-white" style="font-weight:600;">
         <i class="fa-solid fa-clock-rotate-left"></i> Setoran Terakhir
     </div>
-
     <div class="w3-white w3-border w3-round">
         <?php
         if (mysqli_num_rows($result) == 0) {
             echo "<div class='w3-padding w3-text-grey'>Belum ada ride yang disetor.</div>";
         } else {
             echo "<ul class='w3-ul w3-small'>";
-
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<li style='padding:8px 12px;'>";
-
                 // Single compact line
                 echo "<div class='w3-left-align'>";
-
                 echo "<strong>{$row['name']}</strong>";
                 echo " <span class='w3-text-grey' style='font-size:11px;'>";
                 echo date('d M H:i', strtotime($row['input_time']));
                 echo "</span>";
-
                 echo "<br>";
-
                 echo "<a href=\"{$row['link']}\" target=\"_blank\" class='w3-text-blue' style='text-decoration:none; font-size:12px;'>";
                 echo "<i class='fa-brands fa-strava'></i> {$row['link']}";
                 echo "</a>";
-
                 echo "</div>";
-
                 echo "</li>";
             }
-
             echo "</ul>";
         }
         ?>
-
     </div>
 </div>
