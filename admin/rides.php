@@ -63,16 +63,19 @@ while ($row = mysqli_fetch_assoc($q)) {
                         </form>
 
                         <!-- Distance -->
-                        <input
-                            type="text"
-                            name="distance"
-                            value="<?= $r['distance'] ?>"
-                            inputmode="numeric"
-                            class="<?= ($r['distance'] == 0 ? 'distance-zero' : '') ?>"
-                            style="text-align:right; width: 60px;"
-                            onfocus="this.select();"
-                            onclick="this.select();">
-
+                        <form method="post">
+                            <input type="hidden" name="ride_id" value="<?= $r['id'] ?>">
+                            <input type="hidden" name="action" value="edit distance">
+                            <input
+                                type="text"
+                                name="distance"
+                                value="<?= $r['distance'] ?>"
+                                inputmode="numeric"
+                                class="<?= ($r['distance'] == 0 ? 'distance-zero' : '') ?>"
+                                style="text-align:right;"
+                                onfocus="this.select();"
+                                onclick="this.select();">
+                        </form>
                     </div>
 
                     <!-- Link -->

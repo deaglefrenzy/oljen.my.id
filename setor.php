@@ -23,7 +23,7 @@ include_once 'setor_data.php';
                 </div>
             </div>
             <label class="w3-text-white">Link STRAVA</label>
-            <input type="text" name="link" placeholder="Contoh: https://strava.app.link/YH8fP9vSnSb" class="w3-input w3-left-align w3-border w3-margin-bottom" required>
+            <input type="text" name="link" placeholder="Contoh: https://strava.app.link/YH8fP9vSnSb" class="w3-input w3-left-align w3-border w3-margin-bottom" required autocomplete="off">
             <?php if ($is_available): ?>
                 <button type="submit" name="action" value="setor ride" class="w3-button w3-green w3-margin-bottom w3-round w3-xlarge">
                     <i class="fa-regular fa-floppy-disk"></i> SETOR

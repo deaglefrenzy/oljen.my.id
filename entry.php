@@ -53,7 +53,8 @@ foreach ($entries as $qq) {
         $diskon = "Min.500km";
     } else {
         $calc_dist = min($total, 1000);
-        $diskon = floor(($calc_dist - 500) / 2) * 1000;
+        $diskon_value = floor(($calc_dist - 500) / 2);
+        $diskon = "Rp" . number_format($diskon_value, 0, ',', '.') . "rb";
     }
 ?>
     <div class="w3-card w3-round reddit" id="<?= "row" . $count ?>">
