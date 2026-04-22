@@ -65,6 +65,7 @@ while ($row = mysqli_fetch_assoc($q)) {
                         <!-- Distance -->
                         <form method="post">
                             <input type="hidden" name="ride_id" value="<?= $r['id'] ?>">
+                            <input type="hidden" name="orang_id" value="<?= $r['orang_id'] ?>">
                             <input type="hidden" name="action" value="edit distance">
                             <input
                                 type="text"

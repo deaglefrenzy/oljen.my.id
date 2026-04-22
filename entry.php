@@ -25,7 +25,7 @@ LEFT JOIN rides AS latest_ride ON latest_ride.orang_id = stats.orang_id
     AND latest_ride.input_time = stats.max_time
     AND latest_ride.deleted_at IS NULL
 WHERE orang.active = 1
-ORDER BY total_distance DESC, orang.name ASC;
+ORDER BY orang.finish IS NULL, orang.finish ASC, total_distance DESC, orang.name ASC;
 ";
 
 $result = mysqli_query($conn, $query);
@@ -55,7 +55,7 @@ foreach ($entries as $qq) {
     } else {
         $calc_dist = min($total, 1000);
         $diskon_value = floor(($calc_dist - 500) / 2);
-        $diskon = "Rp" . number_format($diskon_value, 0, ',', '.') . "rb";
+        $diskon = "<span class='w3-small'>Rp</span>" . number_format($diskon_value, 0, ',', '.') . "<span class='w3-small'>rb</span>";
     }
 ?>
     <div class="w3-card w3-round" id="<?= "row" . $count ?>">

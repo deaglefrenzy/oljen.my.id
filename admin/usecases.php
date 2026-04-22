@@ -17,8 +17,20 @@ if ($action == "delete ride") {
 if ($action == "edit distance") {
     $ride_id = $_POST['ride_id'];
     $distance = $_POST['distance'];
+    $orang_id = $_POST['orang_id'];
     $query = "UPDATE rides SET distance='$distance' WHERE id='$ride_id'";
     mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+    $query = "SELECT SUM(distance) AS total_distance, input_time FROM rides WHERE orang_id='$orang_id'";
+    $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+    $row = mysqli_fetch_assoc($result);
+
+    $total_distance = $row['total_distance'];
+    $input_time = $row['input_time'];
+    if ($total_distance >= 1000) {
+        $query = "UPDATE orang SET finish = '$input_time' WHERE id='$orang_id'";
+        mysqli_query($conn, $query) or die(mysqli_error($conn));
+    }
 }
 
 if ($action == "edit tanggal") {
