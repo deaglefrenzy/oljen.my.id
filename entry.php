@@ -78,7 +78,7 @@ foreach ($entries as $qq) {
                 <!-- Left: Rank + Name -->
                 <div class="w3-col s7">
                     <div class="w3-large reddit" style="padding-top:5px;">
-                        <?= $count . $space; ?>
+                        <span class="monospace"><?= $count . $space; ?></span>
                         <?= $name ?>
                     </div>
                 </div>
