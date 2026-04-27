@@ -28,11 +28,13 @@ $category = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 1;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="config/main.css?v=<?= filemtime('config/main.css') ?>">
     <link rel="stylesheet" href="config/select.css?v=<?= filemtime('config/select.css') ?>">
+
     <style>
         :root {
             --c1: <?= $color1 ?>;
@@ -48,7 +50,7 @@ $category = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 1;
 <body class="bg1">
     <label id="top"></label>
     <?php include('nav.php') ?>
-    <div style="height: 50px;"></div>
+    <div style="height: 10px;"></div>
     <?php
     $page = $_GET['page'] ?? 'home';
 
@@ -82,6 +84,8 @@ $category = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 1;
             </a>
         </div>
     </footer>
+
+    <?php include('nav_bottom.php') ?>
 
     <script src="config/scripts.js"></script>
     <script src="config/select.js"></script>

@@ -1,35 +1,164 @@
-<div class="w3-top" style="z-index: 9999 !important;">
-    <div class="w3-bar w3-left-align bg2">
-        <div style="display: flex; justify-content: space-between;">
-            <div class="w3-bar-item w3-padding">
-                <div style="display: flex; justify-content:flex-end;">
+<div class="topbar">
+    <div class="topbar-inner">
 
-                    <div>
-                        <a href="https://<?= $urlwebsite ?>" title="Home">
-                            <img src="images/KMC.png" style="height: 30px; margin-top: 5px;">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div style="display: flex; justify-content:flex-end; margin-top:7px;">
-                <div>
-                    <a href="?page=klasemen" class="w3-bar-item w3-button w3-center w3-hover-black w3-text-white reddit" title="Klasemen">
-                        <div style="display: flex; flex-direction:column; align-items:center; width:30px;">
-                            <div><i class="fa-solid fa-list-ol"></i></div>
-                            <div class="w3-tiny">KLASEMEN</div>
-                        </div>
-                    </a>
-                </div>
-                <div>
-                    <a href="?page=setor" class="w3-bar-item w3-button w3-center w3-hover-black w3-text-white reddit" title="Setor">
-                        <div style="display: flex; flex-direction:column; align-items:center; width:30px;">
-                            <div><i class="fa-regular fa-floppy-disk"></i></div>
-                            <div class="w3-tiny">SETOR</div>
-                        </div>
-                    </a>
-                </div>
-                <div style="width:10px;"></div>
-            </div>
+        <!-- LEFT (logo) -->
+        <div class="topbar-left">
+            <a href="https://<?= $urlwebsite ?>">
+                <img src="images/KMC.png" class="topbar-logo" alt="Logo">
+            </a>
         </div>
+
+        <!-- CENTER (title) -->
+        <div class="topbar-center w3-text-black">
+            OLJEN KILOMETER CHALLENGE 2026
+        </div>
+
+        <!-- RIGHT (actions) -->
+        <div class="topbar-right">
+            <button id="refreshBtn" aria-label="Refresh">
+                <i class="fa-solid fa-rotate"></i>
+            </button>
+        </div>
+
     </div>
 </div>
+
+<style>
+    /* DEFAULT (expanded) */
+    .topbar-inner {
+        position: relative;
+        height: 56px;
+        max-width: 520px;
+        margin: 0 auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 0 12px;
+        transition: height 0.25s ease;
+    }
+
+    /* SHRUNK STATE */
+
+    .topbar.shrink {
+        background: color-mix(in srgb, var(--nav-bg) 92%, transparent);
+    }
+
+    .topbar.shrink .topbar-inner {
+        height: 44px;
+    }
+
+    /* logo animation */
+    .topbar-logo {
+        height: 28px;
+        border-radius: 6px;
+        transition: height 0.25s ease;
+    }
+
+    .topbar.shrink .topbar-logo {
+        height: 22px;
+    }
+
+    /* title animation */
+    .topbar-center {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+
+        color: var(--nav-accent);
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 70%;
+        text-align: center;
+
+        transition: all 0.25s ease;
+    }
+
+    .topbar.shrink .topbar-center {
+        font-size: 13px;
+        opacity: 0.9;
+    }
+
+    /* optional: tighten right icons */
+    .topbar-right a {
+        font-size: 18px;
+        transition: transform 0.25s ease;
+    }
+
+    .topbar.shrink .topbar-right a {
+        transform: scale(0.9);
+    }
+
+    /* reset button style */
+    #refreshBtn {
+        background: none;
+        border: none;
+        padding: 6px;
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* icon style */
+    #refreshBtn i {
+        font-size: 18px;
+        color: var(--nav-accent);
+        transition: transform 0.4s ease;
+    }
+
+    /* spin animation */
+    #refreshBtn.spin i {
+        transform: rotate(360deg);
+    }
+
+    /* tap feedback */
+    #refreshBtn:active {
+        transform: scale(0.85);
+    }
+</style>
+
+<script>
+    const topbar = document.querySelector('.topbar');
+
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.scrollY;
+
+        if (currentScroll > 20) {
+            topbar.classList.add('shrink');
+        } else {
+            topbar.classList.remove('shrink');
+        }
+
+        lastScroll = currentScroll;
+    });
+</script>
+
+<script>
+    const refreshBtn = document.getElementById('refreshBtn');
+
+    refreshBtn.addEventListener('click', () => {
+        // trigger spin
+        refreshBtn.classList.add('spin');
+
+        // remove class after animation (so it can replay)
+        setTimeout(() => {
+            refreshBtn.classList.remove('spin');
+        }, 400);
+
+        // refresh page (slight delay for UX)
+        setTimeout(() => {
+            location.reload();
+        }, 300);
+    });
+</script>

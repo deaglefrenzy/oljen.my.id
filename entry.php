@@ -54,7 +54,7 @@ foreach ($entries as $qq) {
         $diskon = "<span class='w3-text-red w3-opacity'>-" . $menujuDiskon . "<span class='w3-small'>km</span></span>";
     } else {
         $calc_dist = min($total, 1000);
-        $diskon_value = floor(($calc_dist - 500) / 2);
+        $diskon_value = floor($calc_dist - 500);
         $diskon = "<span class='w3-small'>Rp</span>" . number_format($diskon_value, 0, ',', '.') . "<span class='w3-small'>rb</span>";
     }
 ?>
@@ -124,12 +124,12 @@ foreach ($entries as $qq) {
                 <!-- Main Stats -->
                 <div class="w3-row w3-center w3-margin-bottom">
 
-                    <div class="w3-col s4">
+                    <!-- <div class="w3-col s4">
                         <div class="w3-xlarge monospace"><?= $jumlahRide ?></div>
                         <div class="w3-small w3-opacity">
                             Ride<?= ($jumlahRide > 1) ? "s" : "" ?>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="w3-col s4">
                         <div class="w3-xlarge monospace"><?= $total ?><span class="w3-small">km</span></div>
@@ -137,10 +137,21 @@ foreach ($entries as $qq) {
                     </div>
 
                     <div class="w3-col s4">
-                        <div class="w3-xlarge monospace w3-text-green"><?= $diskon ?></div>
+                        <div class="w3-xlarge monospace w3-text-red"><?= $diskon ?></div>
                         <div class="w3-small w3-opacity">Diskon</div>
                     </div>
 
+                    <div class="w3-col s4">
+
+                        <div class="w3-xlarge monospace w3-text-green">
+                            <?php
+                            if ($total >= 500) {
+                                echo "<span class='w3-small'>Rp</span>" . number_format(500 - $diskon_value, 0, ',', '.') . "<span class='w3-small'>rb</span>";
+                            } else echo "-";
+                            ?>
+                        </div>
+                        <div class="w3-small w3-opacity">Nilai Tebus</div>
+                    </div>
                 </div>
 
                 <!-- Divider -->
