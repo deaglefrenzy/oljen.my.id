@@ -1,0 +1,208 @@
+.glass-card {
+    width: 90%;
+    max-width: 420px;
+    /* mobile-friendly */
+    margin: 16px auto;
+    padding: 20px 18px;
+
+    background: rgba(255, 255, 255, 0.08);
+    /* transparent */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 28px;
+    /* large curve */
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.25);
+
+    color: #ffffff;
+}
+
+.glass-card-header {
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-card-footer {
+    padding-top: 12px;
+    margin-top: 16px;
+
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-card-body {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.glass-card.standby {
+    background: rgba(255, 200, 100, 0.25);
+    border-color: rgba(255, 200, 100, 0.6);
+}
+
+.glass-card.oncourt {
+    background: rgba(0, 200, 180, 0.25);
+    border-color: rgba(0, 200, 180, 0.6);
+}
+
+.pill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    /* center pills */
+}
+
+.pill {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    border-radius: 999px;
+    /* pill shape */
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    color: #ffffff;
+    white-space: nowrap;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+.pill.bronze {
+    background: linear-gradient(135deg,
+            rgba(205, 127, 50, 0.45),
+            rgba(205, 127, 50, 0.25));
+    border-color: rgba(205, 127, 50, 0.6);
+    box-shadow: 0 0 10px rgba(205, 127, 50, 0.35);
+}
+
+.pill.silver {
+    background: linear-gradient(135deg,
+            rgba(220, 220, 220, 0.45),
+            rgba(192, 192, 192, 0.25));
+    border-color: rgba(192, 192, 192, 0.6);
+    box-shadow: 0 0 10px rgba(192, 192, 192, 0.35);
+}
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.popup-box {
+    background: #fff;
+    padding: 20px 22px;
+    border-radius: 10px;
+    max-width: 360px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .25);
+}
+
+.popup-box p {
+    margin-bottom: 16px;
+    font-size: 15px;
+    color: #333;
+}
+
+.popup-box button {
+    border: none;
+    background: #2563eb;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.filter-row {
+    display: flex;
+    /* Align children in a row */
+    flex-wrap: nowrap;
+    /* Keep them on one line */
+    justify-content: center;
+    /* Center the whole group */
+    gap: 10px;
+    /* Space between the selectors */
+    margin: 20px auto;
+    /* Spacing above/below the row */
+    width: 100%;
+}
+
+.glass-select-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.glass-select {
+    width: 100%;
+    padding: 8px 32px 8px 12px;
+    font-size: 14px;
+    color: #f5f5f5;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.35),
+        inset 0 0 12px rgba(255, 255, 255, 0.08);
+
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.glass-select:hover {
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+.glass-select:focus {
+    outline: none;
+    border-color: #ffe678;
+    box-shadow:
+        0 0 0 2px rgba(255, 230, 120, 0.35),
+        0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* dropdown arrow */
+.glass-select-wrap::after {
+    content: "▾";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.65);
+    pointer-events: none;
+}
+
+/* option styling (limited by browser) */
+.glass-select option {
+    background: #fff;
+    color: #222;
+}

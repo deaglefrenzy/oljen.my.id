@@ -1,0 +1,147 @@
+:root {
+    --c1: #ff4757;
+    --c2: #1e90ff;
+    --c3: #2ed573;
+    --c4: #ffa502;
+    --c5: #a55eea;
+    --c6: #153f33;
+}
+
+/* text colors */
+.font1 {
+    color: var(--c1);
+}
+
+.font2 {
+    color: var(--c2);
+}
+
+.font3 {
+    color: var(--c3);
+}
+
+.font4 {
+    color: var(--c4);
+}
+
+.font5 {
+    color: var(--c5);
+}
+
+.font5 {
+    color: var(--c6);
+}
+
+/* background colors */
+.bg1 {
+    background-color: var(--c1);
+}
+
+.bg2 {
+    background-color: var(--c2);
+}
+
+.bg3 {
+    background-color: var(--c3);
+}
+
+.bg4 {
+    background-color: var(--c4);
+}
+
+.bg5 {
+    background-color: var(--c5);
+}
+
+.bg5 {
+    background-color: var(--c6);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+    background: url('../images/main_bg.png') center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.reddit {
+    font-family: 'Reddit Sans Condensed', sans-serif;
+}
+
+.monospace {
+    font-family: "Inconsolata", monospace;
+}
+
+.montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.disabled-link {
+    pointer-events: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.row-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.row-left {
+    display: flex;
+    justify-content: left;
+    align-items: start;
+    width: 100%;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .match {
+        min-width: 150px;
+    }
+}
+
+.metal-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    /* Metallic White/Silver Gradient Effect */
+    background: linear-gradient(to bottom,
+            #ffffff 0%,
+            /* Pure White highlight */
+            #e0e0e0 45%,
+            /* Light Silver */
+            #bebebe 55%,
+            /* Medium Silver for depth */
+            #f5f5f5 100%
+            /* Soft white base */
+        );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Sharper shadow for the lighter text */
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
+}

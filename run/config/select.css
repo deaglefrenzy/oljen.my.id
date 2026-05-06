@@ -1,0 +1,535 @@
+/* Styling for Select Element */
+select {
+  appearance: none;
+  /* Remove default browser styling */
+  -webkit-appearance: none;
+  /* For Safari */
+  -moz-appearance: none;
+  /* For Firefox */
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  width: 250px;
+  /* Adjust width as needed */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  transition: border-color 0.3s ease;
+}
+
+select:hover,
+select:focus {
+  border-color: #007bff;
+  /* Change border color on hover/focus */
+  outline: none;
+  /* Remove default focus outline */
+}
+
+/* Styling for Textarea Element */
+textarea {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  color: #333;
+  width: 350px;
+  /* Adjust width as needed */
+  height: 100px;
+  /* Adjust height as needed */
+  resize: vertical;
+  /* Allow vertical resizing */
+  line-height: 1.6;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Open Sans Condensed', sans-serif;
+  /* or your preferred font */
+}
+
+textarea:hover,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Styling for Input Element */
+input {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  color: #333;
+  width: 90%;
+  /* Adjust width as needed */
+  height: 40px;
+  /* Adjust height as needed */
+  line-height: 1.6;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Open Sans Condensed', sans-serif;
+  /* or your preferred font */
+}
+
+textarea:hover,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+.cool-button {
+  display: inline-block;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  /* Gradient background */
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* Smooth transitions */
+  cursor: pointer;
+  position: relative;
+  /* For pseudo-element positioning */
+  overflow: hidden;
+  /* Clip the pseudo-element */
+}
+
+.cool-button2 {
+  display: inline-block;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  /* Gradient background */
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* Smooth transitions */
+  cursor: pointer;
+  position: relative;
+  /* For pseudo-element positioning */
+  overflow: hidden;
+  /* Clip the pseudo-element */
+}
+
+.cool-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0));
+  /* Light streak effect */
+  transition: left 0.4s ease;
+}
+
+.cool-button:hover::before {
+  left: 100%;
+  /* Move the streak across the button */
+}
+
+.cool-button:active {
+  transform: translateY(1px);
+  /* Push the button down slightly */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Reduced shadow on active */
+}
+
+.thumbnail {
+  width: 300px;
+  height: auto;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  margin: 15% auto;
+  /* margin-left: 10%;
+  margin: auto; */
+  display: block;
+  width: 80%;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0)
+  }
+
+  to {
+    transform: scale(1)
+  }
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0e6cc4;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/*waves****************************/
+
+
+.box {
+  position: fixed;
+  top: 0;
+  transform: rotate(80deg);
+  left: -200px;
+}
+
+.wave {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: .4;
+  position: absolute;
+  top: 3%;
+  left: 10%;
+  background: #0af;
+  width: 1500px;
+  height: 1300px;
+  margin-left: -150px;
+  margin-top: -250px;
+  transform-origin: 50% 48%;
+  border-radius: 43%;
+  animation: drift 17000ms infinite linear;
+}
+
+.wave.-three {
+  animation: drift 17500ms infinite linear;
+  position: fixed;
+  background-color: #77daff;
+}
+
+.wave.-two {
+  animation: drift 13000ms infinite linear;
+  opacity: .1;
+  background: black;
+  position: fixed;
+}
+
+.box:after {
+  content: '';
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes drift {
+  from {
+    transform: rotate(0deg);
+  }
+
+  from {
+    transform: rotate(360deg);
+  }
+}
+
+/*LOADING SPACE*/
+
+.contain {
+  animation-delay: 4s;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  background: #25a7d7;
+  background: -webkit-linear-gradient(#25a7d7, #2962FF);
+  background: linear-gradient(#25a7d7, #25a7d7);
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 5px;
+}
+
+/*Animation*/
+.icon:nth-child(2) img {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s
+}
+
+.icon:nth-child(3) img {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s
+}
+
+.icon:nth-child(4) img {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s
+}
+
+.icon img {
+  -webkit-animation: anim 2s ease infinite;
+  animation: anim 2s ease infinite;
+  -webkit-transform: scale(0, 0) rotateZ(180deg);
+  transform: scale(0, 0) rotateZ(180deg);
+}
+
+@-webkit-keyframes anim {
+  0% {
+    -webkit-transform: scale(0, 0) rotateZ(-90deg);
+    transform: scale(0, 0) rotateZ(-90deg);
+    opacity: 0
+  }
+
+  30% {
+    -webkit-transform: scale(1, 1) rotateZ(0deg);
+    transform: scale(1, 1) rotateZ(0deg);
+    opacity: 1
+  }
+
+  50% {
+    -webkit-transform: scale(1, 1) rotateZ(0deg);
+    transform: scale(1, 1) rotateZ(0deg);
+    opacity: 1
+  }
+
+  80% {
+    -webkit-transform: scale(0, 0) rotateZ(90deg);
+    transform: scale(0, 0) rotateZ(90deg);
+    opacity: 0
+  }
+}
+
+@keyframes anim {
+  0% {
+    -webkit-transform: scale(0, 0) rotateZ(-90deg);
+    transform: scale(0, 0) rotateZ(-90deg);
+    opacity: 0
+  }
+
+  30% {
+    -webkit-transform: scale(1, 1) rotateZ(0deg);
+    transform: scale(1, 1) rotateZ(0deg);
+    opacity: 1
+  }
+
+  50% {
+    -webkit-transform: scale(1, 1) rotateZ(0deg);
+    transform: scale(1, 1) rotateZ(0deg);
+    opacity: 1
+  }
+
+  80% {
+    -webkit-transform: scale(0, 0) rotateZ(90deg);
+    transform: scale(0, 0) rotateZ(90deg);
+    opacity: 0
+  }
+}
+
+.entry {
+  display: inline-block;
+  padding: 14px 14px;
+  font-size: 16px;
+  text-align: left;
+  text-decoration: none;
+
+  /* Dark text like poster */
+  color: #1b1b1b;
+
+  /* Cream paper-like gradient */
+  background: linear-gradient(135deg, #f4efe6, #e9e1d2);
+
+  border: 1px solid rgba(0, 0, 0, 0.15);
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+  border-radius: 8px;
+
+  transition: all 0.2s ease;
+}
+
+.entry:hover {
+  background: linear-gradient(135deg, #e9e1d2, #ddd3c0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.finish {
+  display: inline-block;
+  padding: 14px 14px;
+  font-size: 16px;
+  text-align: left;
+  text-decoration: none;
+
+  /* White text like poster contrast */
+  color: #ffffff;
+
+  /* Strong orange gradient */
+  background: linear-gradient(135deg, #ff7a00, #ff5a00);
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+
+  border-radius: 8px;
+
+  transition: all 0.2s ease;
+}
+
+.finish:hover {
+  background: linear-gradient(135deg, #ff8c1a, #ff6a00);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+/* Focus stays clean */
+.entry:focus,
+.finish:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+button.entry:focus {
+  color: #1b1b1b !important;
+}
+
+button.finish:focus {
+  color: #ffffff !important;
+}
+
+.entry,
+.finish {
+  position: relative;
+  overflow: hidden;
+  /* keep texture inside rounded corners */
+}
+
+/* Paper grain overlay */
+.entry::before,
+.finish::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-size: 3px 3px, 4px 4px;
+  background-position: 0 0, 1px 1px;
+
+  opacity: 0.4;
+  /* keep it subtle */
+  pointer-events: none;
+}
+
+/* Optional: slightly different feel per button */
+.finish::before {
+  opacity: 0.25;
+  /* less visible on strong orange */
+}
+
+.progress-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Orange fill */
+.progress-fill {
+  transform: scaleX(calc(var(--progress) / 100));
+  transform-origin: left;
+  will-change: transform;
+}
+
+/* Make text readable on both sides */
+.progress-btn .w3-row {
+  position: relative;
+  z-index: 2;
+}
+
+/* Optional: blend effect so it looks integrated */
+.progress-fill {
+  opacity: 0.85;
+  box-shadow: inset -10px 0 15px rgba(0, 0, 0, 0.15);
+  will-change: transform;
+}
+
+dialog {
+  /* Common styles */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Optional shadow */
+  z-index: 9999;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent black */
+  backdrop-filter: blur(5px);
+  /* Optional blur effect */
+}
+
+dialog {
+  position: fixed;
+  /* Or absolute, depending on your needs */
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Center the dialog */
+}
