@@ -398,7 +398,7 @@ body {
   /* Cream paper-like gradient */
   background: linear-gradient(135deg, #f4efe6, #e9e1d2);
 
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.75);
 
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 
@@ -487,24 +487,20 @@ button.finish:focus {
   overflow: hidden;
 }
 
-/* Orange fill */
+/* progress layer */
 .progress-fill {
-  transform: scaleX(calc(var(--progress) / 100));
-  transform-origin: left;
-  will-change: transform;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--progress);
+  height: 100%;
+  background: orange;
 }
 
-/* Make text readable on both sides */
+/* content above fill */
 .progress-btn .w3-row {
   position: relative;
   z-index: 2;
-}
-
-/* Optional: blend effect so it looks integrated */
-.progress-fill {
-  opacity: 0.85;
-  box-shadow: inset -10px 0 15px rgba(0, 0, 0, 0.15);
-  will-change: transform;
 }
 
 dialog {

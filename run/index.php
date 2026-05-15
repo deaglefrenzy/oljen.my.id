@@ -67,8 +67,8 @@ $category = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 1;
     $page = $_GET['page'] ?? 'home';
 
     $currentDate = date('Y-m-d');
-    $startDate = '2026-04-12';
-    $endDate = '2026-04-26';
+    $startDate = '2026-05-15';
+    $endDate = '2026-05-24';
 
     $is_available = ($currentDate >= $startDate && $currentDate <= $endDate);
 

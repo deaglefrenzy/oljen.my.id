@@ -42,7 +42,8 @@ foreach ($entries as $qq) {
     $idorang = $qq['id'];
     $count++;
     $space = "&nbsp;";
-    if ($count < 10) $space = "&nbsp;&nbsp;";
+    if ($count < 10)
+        $space = "&nbsp;&nbsp;";
     $progress = round(($total / 1000) * 100);
     $sisa = 1000 - $total;
     $jumlahRide = $qq['ride_count'];
@@ -51,20 +52,18 @@ foreach ($entries as $qq) {
     $rataRata = ($qq['ride_count'] > 0) ? ($qq['total_distance'] / $qq['ride_count']) : 0;
     if ($total < 500) {
         $menujuDiskon = 500 - $total;
-        $diskon = "<span class='w3-text-red w3-opacity'>-" . $menujuDiskon . "<span class='w3-small'>km</span></span>";
+        $diskon = "<span class='w3-text-red w3-opacity'>-" . $menujuDiskon . "<span class='w3-small w3-opacity'>km</span></span>";
     } else {
         $calc_dist = min($total, 1000);
         $diskon_value = floor($calc_dist - 500);
-        $diskon = "<span class='w3-small'>Rp</span>" . number_format($diskon_value, 0, ',', '.') . "<span class='w3-small'>rb</span>";
+        $diskon = "<span class='w3-small w3-opacity'>Rp</span>" . number_format($diskon_value, 0, ',', '.') . "<span class='w3-small w3-opacity'>rb</span>";
     }
-?>
+    ?>
     <div class="w3-card w3-round" id="<?= "row" . $count ?>">
 
         <div id="<?php echo $idorang; ?>"></div>
 
-        <button
-            onclick="myFunction('Demo<?php echo $idorang; ?>')"
-            class="w3-button w3-block w3-left-align w3-padding
+        <button onclick="myFunction('Demo<?php echo $idorang; ?>')" class="w3-button w3-block w3-left-align w3-padding
         <?php
         if ($total < 1000) {
             echo "entry";
@@ -86,7 +85,7 @@ foreach ($entries as $qq) {
                 <!-- Right: Distance -->
                 <div class="w3-col s4 w3-right-align">
                     <div class="w3-xlarge monospace">
-                        <?= $total ?><span class="w3-small">km</span>
+                        <?= $total ?><span class="w3-small w3-opacity">km</span>
                     </div>
                 </div>
 
@@ -99,7 +98,8 @@ foreach ($entries as $qq) {
 
         </button>
     </div>
-    <div id="Demo<?php echo $idorang; ?>" class="w3-hide w3-container w3-padding-16 w3-white w3-card" style="margin-top: -10px; margin-bottom: 10px;">
+    <div id="Demo<?php echo $idorang; ?>" class="w3-hide w3-container w3-padding-16 w3-white w3-card"
+        style="margin-top: -10px; margin-bottom: 10px;">
         <div class="w3-padding-small">
             <div class="w3-padding">
 
@@ -107,7 +107,8 @@ foreach ($entries as $qq) {
                 <div class="w3-row w3-margin-bottom" style="align-items:center;">
 
                     <div class="w3-col s9 font2" style="font-size:20px; font-weight:600;">
-                        <img src="images/olo full.png" style="height:20px; margin-right:6px; margin-top:-3px; vertical-align:middle;">
+                        <img src="images/olo full.png"
+                            style="height:20px; margin-right:6px; margin-top:-3px; vertical-align:middle;">
                         <?= $name ?>
                     </div>
 
@@ -132,7 +133,7 @@ foreach ($entries as $qq) {
                     </div> -->
 
                     <div class="w3-col s4">
-                        <div class="w3-xlarge monospace"><?= $total ?><span class="w3-small">km</span></div>
+                        <div class="w3-xlarge monospace"><?= $total ?><span class="w3-small w3-opacity">km</span></div>
                         <div class="w3-small w3-opacity">Ditempuh</div>
                     </div>
 
@@ -146,8 +147,9 @@ foreach ($entries as $qq) {
                         <div class="w3-xlarge monospace w3-text-green">
                             <?php
                             if ($total >= 500) {
-                                echo "<span class='w3-small'>Rp</span>" . number_format(500 - $diskon_value, 0, ',', '.') . "<span class='w3-small'>rb</span>";
-                            } else echo "-";
+                                echo "<span class='w3-small w3-opacity'>Rp</span>" . number_format(500 - $diskon_value, 0, ',', '.') . "<span class='w3-small w3-opacity'>rb</span>";
+                            } else
+                                echo "-";
                             ?>
                         </div>
                         <div class="w3-small w3-opacity">Nilai Tebus</div>
@@ -161,17 +163,20 @@ foreach ($entries as $qq) {
                 <div class="w3-row w3-center">
 
                     <div class="w3-col s4">
-                        <div class="w3-large monospace"><?= $furthestDistance ?><span class="w3-small">km</span></div>
+                        <div class="w3-large monospace"><?= $furthestDistance ?><span class="w3-small w3-opacity">km</span>
+                        </div>
                         <div class="w3-small w3-opacity">Terjauh</div>
                     </div>
 
                     <div class="w3-col s4">
-                        <div class="w3-large monospace"><?= $shortestDistance ?><span class="w3-small">km</span></div>
+                        <div class="w3-large monospace"><?= $shortestDistance ?><span class="w3-small w3-opacity">km</span>
+                        </div>
                         <div class="w3-small w3-opacity">Terdekat</div>
                     </div>
 
                     <div class="w3-col s4">
-                        <div class="w3-large monospace"><?= round($rataRata) ?><span class="w3-small">km</span></div>
+                        <div class="w3-large monospace"><?= round($rataRata) ?><span class="w3-small w3-opacity">km</span>
+                        </div>
                         <div class="w3-small w3-opacity">Rata-Rata</div>
                     </div>
 
@@ -195,7 +200,7 @@ foreach ($entries as $qq) {
                     $rcounts = str_pad($rcount, 2, "0", STR_PAD_LEFT);
 
                     $hari = ["", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
-                ?>
+                    ?>
 
                     <tr class="w3-border-bottom">
 
@@ -222,7 +227,7 @@ foreach ($entries as $qq) {
                                 </div>
                             <?php } else { ?>
                                 <span class="w3-large monospace"><?= $rr['distance'] ?></span>
-                                <span class="w3-small">km</span>
+                                <span class="w3-small w3-opacity">km</span>
                             <?php } ?>
                         </td>
 
@@ -241,3 +246,4 @@ foreach ($entries as $qq) {
         </div>
     </div>
 <?php } ?>
+
