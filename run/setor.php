@@ -2,12 +2,12 @@
 include_once 'setor_data.php';
 ?>
 <div class="w3-content w3-center" style="width: 90%; max-width: 480px; text-align: center;">
+    <h3 class="w3-center w3-margin-bottom font3 w3-xxlarge" style="font-weight:600;">
+        <img src="images/runkmc.png" style="width:50px; margin-top:-10px;" alt="RUNKMC Logo"> Setor Run
+    </h3>
     <div class="w3-card w3-white w3-padding-large w3-round-large"
         style="max-width:500px; margin:auto; margin-top:30px;">
         <form method="post" onsubmit="return confirm('Setor run ini?');">
-            <h3 class="w3-center w3-margin-bottom font4 w3-xxlarge" style="font-weight:600;">
-                <i class="fa-solid fa-person-running"></i> Setor Run
-            </h3>
             <!-- Runner -->
             <div class="w3-margin-bottom">
                 <select name="orang_id" class="w3-select w3-border w3-round-large w3-padding w3-margin-top w3-large"
@@ -51,7 +51,7 @@ include_once 'setor_data.php';
                 <?php else: ?>
                     <button type="button" class="w3-button w3-grey w3-round-large w3-xlarge w3-padding-large"
                         style="width:100%;" disabled>
-                        <i class="fa-solid fa-lock"></i> CLOSED
+                        <i class="fa-solid fa-lock"></i> TUTUP
                     </button>
                     <p class="w3-small w3-text-grey w3-margin-top">
                         Penyetoran dibuka 15 - 24 Mei 2026
@@ -76,25 +76,33 @@ include_once 'setor_data.php';
     <div class="w3-white w3-border w3-round">
         <?php
         if (mysqli_num_rows($result) == 0) {
-            echo "<div class='w3-padding w3-text-grey'>Belum ada runs yang disetor.</div>";
+            echo "<div class='w3-padding w3-text-grey'>Belum ada runs yang disetor</div>";
         } else {
-            echo "<ul class='w3-ul w3-small'>";
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<li style='padding:8px 12px;'>";
-                // Single compact line
-                echo "<div class='w3-left-align'>";
-                echo "<strong>{$row['name']}</strong>";
-                echo " <span class='w3-text-grey' style='font-size:11px;'>";
-                echo date('d M H:i', strtotime($row['input_time']));
-                echo "</span>";
-                echo "<br>";
-                echo "<a href=\"{$row['link']}\" target=\"_blank\" class='w3-text-blue' style='text-decoration:none; font-size:12px;'>";
-                echo "<i class='fa-brands fa-strava'></i> {$row['link']}";
-                echo "</a>";
-                echo "</div>";
-                echo "</li>";
-            }
-            echo "</ul>";
+            ?>
+            <ul class='w3-ul w3-small'>
+                <?php
+                while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <li style='padding:8px 12px;'>
+                        <div class='w3-left-align'>
+                            <strong>
+                                <?= $row['name'] ?>
+                            </strong>
+                            <span class='w3-text-grey' style='font-size:11px;'>
+                                <?php echo date('d M H:i', strtotime($row['input_time'])); ?>
+                            </span>
+                            <br>
+                            <a href="<?php echo $row['link']; ?>" target="_blank" class="w3-text-blue"
+                                style="text-decoration:none; font-size:12px;">
+                                <i class="fa-brands fa-strava"></i> <?php echo $row['link']; ?>
+                            </a>
+                        </div>
+                    </li>
+                    <?php
+                }
+                ?>
+            </ul>
+            <?php
         }
         ?>
     </div>

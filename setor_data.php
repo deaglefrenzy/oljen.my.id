@@ -3,7 +3,8 @@ $action = $_POST['action'] ?? '';
 if ($action == "setor ride") {
     $orang_id = $_POST['orang_id'];
     $raw = $_POST['link'];
-    preg_match('/https?:\/\/\S+/', $raw, $matches);
+
+    preg_match('/https?:\/\/\S*(strava|garmin)\S*/i', $raw, $matches);
     $link = $matches[0] ?? null;
 
     if ($link) {
