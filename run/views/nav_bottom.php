@@ -60,13 +60,27 @@ $current_page = basename($_SERVER['PHP_SELF']);
       $is_active = false;
 
       if (strpos($href, '?') !== false) {
+
         // handle query-based links like ?page=klasemen
         parse_str(parse_url($href, PHP_URL_QUERY), $query);
-        $is_active = isset($query['page']) && ($_GET['page'] ?? '') === $query['page'];
+
+        $is_active = isset($query['page']) &&
+          ($_GET['page'] ?? '') === $query['page'];
+
       } else {
-        // handle normal links
-        $is_active = basename($href) === basename($_SERVER['PHP_SELF']);
+
+        // current path
+        $current_path = rtrim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+
+        // href path
+        $href_path = rtrim($href, '/');
+
+        // only active if path matches AND no ?page=
+        $is_active =
+          $current_path === $href_path &&
+          empty($_GET['page']);
       }
+
       ?>
       <li>
         <a href="<?= htmlspecialchars($href) ?>" <?= $is_active ? 'class="is-active" aria-current="page"' : '' ?>
@@ -76,7 +90,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
             <i class="<?= htmlspecialchars($item['icon']) ?> font3"></i>
           </span>
 
-          <span class="font4"><?= htmlspecialchars($item['label']) ?></span>
+          <span><?= htmlspecialchars($item['label']) ?></span>
         </a>
       </li>
     <?php endforeach; ?>
@@ -110,7 +124,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 4px solid rgba(255, 152, 0, 0.50);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
     /* subtle depth instead of blur */
@@ -167,7 +181,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
   }
 
   #bottom-nav a.is-active {
-    color: var(--nav-accent);
+    color: orange;
   }
 
   #bottom-nav a:active {

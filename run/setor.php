@@ -3,7 +3,7 @@ include_once 'setor_data.php';
 ?>
 <div class="w3-content w3-center" style="width: 90%; max-width: 480px; text-align: center;">
     <h3 class="w3-center w3-margin-bottom font3 w3-xxlarge" style="font-weight:600;">
-        <img src="images/runkmc.png" style="width:50px; margin-top:-10px;" alt="RUNKMC Logo"> Setor Run
+        <img src="images/runkmc.png" style="width:100px; margin-top:-10px;" alt="RUNKMC Logo">
     </h3>
     <div class="w3-card w3-white w3-padding-large w3-round-large"
         style="max-width:500px; margin:auto; margin-top:30px;">
@@ -31,7 +31,7 @@ include_once 'setor_data.php';
                     class="w3-input w3-border w3-round-large w3-padding" style="font-size:16px;" required
                     autocomplete="off">
                 <div class="w3-right w3-small w3-text-grey">
-                    <i class="fa-brands fa-strava"></i> Link Run
+                    <i class="fa-solid fa-link"></i> Link Run
                 </div>
             </div>
             <br>
@@ -41,7 +41,7 @@ include_once 'setor_data.php';
                     <button type="submit" name="action" value="setor run"
                         class="w3-button w3-round-large w3-xlarge w3-padding-large w3-hover-shadow" style="
                         width:100%;
-                        background: linear-gradient(135deg, #4CAF50, #2e7d32);
+                        background: linear-gradient(135deg, #ff9800, #f57c00);
                         color:white;
                         font-weight:600;
                         letter-spacing:0.5px;
@@ -92,9 +92,9 @@ include_once 'setor_data.php';
                                 <?php echo date('d M H:i', strtotime($row['input_time'])); ?>
                             </span>
                             <br>
-                            <a href="<?php echo $row['link']; ?>" target="_blank" class="w3-text-blue"
+                            <a href="<?php echo $row['link']; ?>" target="_blank" class="w3-text-orange"
                                 style="text-decoration:none; font-size:12px;">
-                                <i class="fa-brands fa-strava"></i> <?php echo $row['link']; ?>
+                                <i class="fa-solid fa-link"></i> <?php echo $row['link']; ?>
                             </a>
                         </div>
                     </li>
