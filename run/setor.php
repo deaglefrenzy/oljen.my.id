@@ -30,8 +30,9 @@ include_once 'setor_data.php';
                 <input type="text" name="link" placeholder="https://strava.app.link/xxxx"
                     class="w3-input w3-border w3-round-large w3-padding" style="font-size:16px;" required
                     autocomplete="off">
-                <div class="w3-right w3-small w3-text-grey">
-                    <i class="fa-solid fa-link"></i> Link Run
+                <div class="w3-right w3-small w3-opacity">
+                    <i class="fa-solid fa-link"></i> Link Run <img src="images/strava.svg" style="height:16px;"><img
+                        src="images/garmin-connect.webp" style="height:16px;">
                 </div>
             </div>
             <br>

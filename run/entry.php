@@ -209,9 +209,9 @@ foreach ($entries as $qq) {
                         <!-- Day + Date -->
                         <td style="width:140px;">
                             <div class="w3-small">
-                                <?= $hari[date("N", strtotime($time))] ?>,
-                                <span class="w3-text-grey">
-                                    <?= date("d M Y", strtotime($time)) ?>
+                                <?= tulistgl($time, $bulan3char) ?>
+                                <span class="w3-text-grey w3-tiny">
+                                    <?= $hari[date("N", strtotime($time))] ?>
                                 </span>
                             </div>
                         </td>
@@ -220,18 +220,25 @@ foreach ($entries as $qq) {
                         <td class="w3-right-align" style="width:80px;">
                             <?php if ($rr['distance'] == 0) { ?>
                                 <div class="w3-text-grey w3-small">
-                                    <i class='fa-solid fa-circle-pause'></i> review
+                                    <i class='fa-solid fa-circle-pause'></i> on review
                                 </div>
                             <?php } else { ?>
-                                <span class="w3-large monospace"><?= $rr['distance'] ?></span>
-                                <span class="w3-small w3-opacity">km</span>
+                                <span class="w3-large monospace"><?= number_format($rr['distance'], 1, ',', '.') ?></span><span
+                                    class="w3-tiny w3-opacity">km</span>
                             <?php } ?>
                         </td>
 
                         <!-- Link -->
+                        <?php
+                        $link = strtolower($rr['link']);
+
+                        $icon =
+                            strpos($link, 'strava') !== false ? 'strava.svg' :
+                            (strpos($link, 'garmin') !== false ? 'garmin-connect.webp' : '');
+                        ?>
                         <td style="width:30px;" class="w3-center">
                             <a href="<?= $rr['link'] ?>" target="_blank">
-                                <img src="images/strava.svg" style="width:16px;">
+                                <img src="images/<?= $icon ?>" style="width:16px;">
                             </a>
                         </td>
 

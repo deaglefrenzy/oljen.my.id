@@ -184,6 +184,10 @@ $current_page = basename($_SERVER['PHP_SELF']);
     color: orange;
   }
 
+  #bottom-nav a.is-active .nav-icon i {
+    color: orange;
+  }
+
   #bottom-nav a:active {
     transform: scale(0.9);
   }

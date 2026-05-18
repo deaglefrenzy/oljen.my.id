@@ -2,18 +2,16 @@
 include_once 'setor_data.php';
 ?>
 <div class="w3-content w3-center" style="width: 90%; max-width: 480px; text-align: center; margin-top:10px;">
-    <div class="w3-card w3-white w3-padding-large w3-round-large" style="max-width:500px; margin:auto; margin-top:30px;">
+    <div class="w3-card w3-white w3-padding-large w3-round-large"
+        style="max-width:500px; margin:auto; margin-top:30px;">
         <form method="post" onsubmit="return confirm('Setor ride ini?');">
             <h3 class="w3-center w3-margin-bottom" style="font-weight:600;">
                 <i class="fa-solid fa-bicycle"></i> Setor Ride
             </h3>
             <!-- Rider -->
             <div class="w3-margin-bottom">
-                <select
-                    name="orang_id"
-                    class="w3-select w3-border w3-round-large w3-padding w3-margin-top w3-large"
-                    style="background-color:#fff;"
-                    required>
+                <select name="orang_id" class="w3-select w3-border w3-round-large w3-padding w3-margin-top w3-large"
+                    style="background-color:#fff;" required>
                     <option value="" disabled <?= empty($orang_id) ? 'selected' : '' ?>>
                         -- 👤 Pilih Oljener --
                     </option>
@@ -29,13 +27,8 @@ include_once 'setor_data.php';
             </div>
             <!-- Strava Link -->
             <div class="w3-margin-bottom">
-                <input
-                    type="text"
-                    name="link"
-                    placeholder="https://strava.app.link/xxxx"
-                    class="w3-input w3-border w3-round-large w3-padding"
-                    style="font-size:16px;"
-                    required
+                <input type="text" name="link" placeholder="https://strava.app.link/xxxx"
+                    class="w3-input w3-border w3-round-large w3-padding" style="font-size:16px;" required
                     autocomplete="off">
                 <div class="w3-right w3-small w3-text-grey">
                     <i class="fa-brands fa-strava"></i> Link Ride
@@ -45,12 +38,8 @@ include_once 'setor_data.php';
             <!-- Action -->
             <div class="w3-center w3-margin-top">
                 <?php if ($is_available): ?>
-                    <button
-                        type="submit"
-                        name="action"
-                        value="setor ride"
-                        class="w3-button w3-round-large w3-xlarge w3-padding-large w3-hover-shadow"
-                        style="
+                    <button type="submit" name="action" value="setor ride"
+                        class="w3-button w3-round-large w3-xlarge w3-padding-large w3-hover-shadow" style="
                         width:100%;
                         background: linear-gradient(135deg, #4CAF50, #2e7d32);
                         color:white;
@@ -60,11 +49,8 @@ include_once 'setor_data.php';
                         <i class="fa-solid fa-check-circle"></i> SETOR RIDE
                     </button>
                 <?php else: ?>
-                    <button
-                        type="button"
-                        class="w3-button w3-grey w3-round-large w3-xlarge w3-padding-large"
-                        style="width:100%;"
-                        disabled>
+                    <button type="button" class="w3-button w3-grey w3-round-large w3-xlarge w3-padding-large"
+                        style="width:100%;" disabled>
                         <i class="fa-solid fa-lock"></i> CLOSED
                     </button>
                     <p class="w3-small w3-text-grey w3-margin-top">
