@@ -1,46 +1,22 @@
 <?php
-$bulan3char = array("", "Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des");
-$bulanfullchar = array("", "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
-$harifullchar = array("", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu");
-date_default_timezone_set('Asia/Makassar');
-function tulistgl($t, $bulan3char)
-{
-    $tg = substr($t, 8, 2);
-    $bl = substr($t, 5, 2);
-    $th = substr($t, 0, 4);
-    if (substr($bl, 0, 1) == "0")
-        $bl = substr($bl, 1, 1);
-    $bln = $bulan3char[$bl];
-    return "$tg $bln $th";
-}
-
-function tulistglhari($tgl, $bulanfullchar, $harifullchar)
-{
-    $ha = $harifullchar[date("N", strtotime($tgl))];
-    $tg = date("d", strtotime($tgl));
-    $bl = $bulanfullchar[date("n", strtotime($tgl))];
-    $th = date("Y", strtotime($tgl));
-    $tanggal = "$ha, $tg $bl $th";
-    return $tanggal;
-}
-
+include "time_functions.php";
 function pergi($tujuan)
 {
-?>
+    ?>
     <meta http-equiv="refresh" content="0; url='<?php echo $tujuan; ?>'">
-<?php
+    <?php
 }
 
 function pesan($isi)
 {
-?>
+    ?>
     <div class="popup-overlay">
         <div class="popup-box">
             <p><?= htmlspecialchars($isi) ?></p>
             <button onclick="this.closest('.popup-overlay').remove()">OK</button>
         </div>
     </div>
-<?php
+    <?php
 }
 
 
@@ -92,10 +68,21 @@ function ribuan($nilai)
     return $hasil;
 }
 
+function desimal($nilai, $angka = 0)
+{
+    $hasil = number_format($nilai, $angka, ",", ".");
+    return $hasil;
+}
+
 function ganti($n)
 {
     $hasil = str_replace('.', '', $n);
     return $hasil;
+}
+
+function unit($unit, $size = "tiny")
+{
+    return "<span class='w3-" . $size . " w3-opacity' style='margin-left:1px;'>$unit</span>";
 }
 
 function terbilang($satuan)

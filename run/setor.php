@@ -90,7 +90,7 @@ include_once 'setor_data.php';
                                 <?= $row['name'] ?>
                             </strong>
                             <span class='w3-text-grey' style='font-size:11px;'>
-                                <?php echo date('d M H:i', strtotime($row['input_time'])); ?>
+                                <?= tglRelatif($row['input_time']) ?>
                             </span>
                             <br>
                             <a href="<?php echo $row['link']; ?>" target="_blank" class="w3-text-orange"

@@ -56,7 +56,7 @@ foreach ($entries as $qq) {
     } else {
         $calc_dist = min($total, 1000);
         $diskon_value = floor($calc_dist - 500);
-        $diskon = "<span class='w3-small w3-opacity'>Rp</span>" . number_format($diskon_value, 0, ',', '.') . "<span class='w3-small w3-opacity'>rb</span>";
+        $diskon = "<span class='w3-small w3-opacity'>Rp</span>" . ribuan($diskon_value) . "<span class='w3-small w3-opacity'>rb</span>";
     }
     ?>
     <div class="w3-card w3-round" id="<?= "row" . $count ?>">
@@ -147,7 +147,7 @@ foreach ($entries as $qq) {
                         <div class="w3-xlarge monospace w3-text-green">
                             <?php
                             if ($total >= 500) {
-                                echo "<span class='w3-small w3-opacity'>Rp</span>" . number_format(500 - $diskon_value, 0, ',', '.') . "<span class='w3-small w3-opacity'>rb</span>";
+                                echo "<span class='w3-small w3-opacity'>Rp</span>" . ribuan(500 - $diskon_value) . "<span class='w3-small w3-opacity'>rb</span>";
                             } else
                                 echo "-";
                             ?>

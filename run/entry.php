@@ -52,11 +52,11 @@ foreach ($entries as $qq) {
     $rataRata = ($qq['ride_count'] > 0) ? round(($qq['total_distance'] / $qq['ride_count']), 1) : 0;
     if ($total < 50) {
         $menujuDiskon = 50 - $total;
-        $diskon = "<span class='w3-text-red w3-opacity'>-" . $menujuDiskon . "<span class='w3-small w3-opacity'>km</span></span>";
+        $diskon = "-" . desimal($menujuDiskon, 1) . unit('km');
     } else {
         $calc_dist = min($total, 100);
         $diskon_value = floor($calc_dist - 50) * 2;
-        $diskon = "<span class='w3-small w3-opacity'>Rp</span>" . number_format($diskon_value, 0, ',', '.') . "<span class='w3-small w3-opacity'>rb</span>";
+        $diskon = unit('Rp') . ribuan($diskon_value) . unit('rb');
     }
     ?>
     <div class="w3-card w3-round" id="<?= "row" . $count ?>">
@@ -81,7 +81,7 @@ foreach ($entries as $qq) {
                 <!-- Right: Distance -->
                 <div class="w3-col s4 w3-right-align">
                     <div class="w3-xlarge monospace">
-                        <?= number_format($total, 1, ',', '.') ?><span class="w3-small w3-opacity">km</span>
+                        <?= desimal($total, 1) . unit('km', 'small') ?>
                     </div>
                 </div>
 
@@ -129,8 +129,7 @@ foreach ($entries as $qq) {
                     </div> -->
 
                     <div class="w3-col s4">
-                        <div class="w3-xlarge monospace"><?= number_format($total, 1, ',', '.') ?><span
-                                class="w3-small w3-opacity">km</span></div>
+                        <div class="w3-xlarge monospace"><?= desimal($total, 1) . unit('km', 'small') ?></div>
                         <div class="w3-small w3-opacity">Ditempuh</div>
                     </div>
 
@@ -140,11 +139,10 @@ foreach ($entries as $qq) {
                     </div>
 
                     <div class="w3-col s4">
-
                         <div class="w3-xlarge monospace w3-text-green">
                             <?php
                             if ($total >= 50) {
-                                echo "<span class='w3-small w3-opacity'>Rp</span>" . number_format(100 - $diskon_value, 0, ',', '.') . "<span class='w3-small w3-opacity'>rb</span>";
+                                echo unit('Rp', 'small') . ribuan(100 - $diskon_value) . unit('rb', 'small');
                             } else
                                 echo "-";
                             ?>
@@ -160,20 +158,17 @@ foreach ($entries as $qq) {
                 <div class="w3-row w3-center">
 
                     <div class="w3-col s4">
-                        <div class="w3-large monospace"><?= number_format($furthestDistance, 1, ',', '.') ?><span
-                                class="w3-small w3-opacity">km</span></div>
+                        <div class="w3-large monospace"><?= desimal($furthestDistance, 1) . unit('km', 'small') ?></div>
                         <div class="w3-small w3-opacity">Terjauh</div>
                     </div>
 
                     <div class="w3-col s4">
-                        <div class="w3-large monospace"><?= number_format($shortestDistance, 1, ',', '.') ?><span
-                                class="w3-small w3-opacity">km</span></div>
+                        <div class="w3-large monospace"><?= desimal($shortestDistance, 1) . unit('km', 'small') ?></div>
                         <div class="w3-small w3-opacity">Terdekat</div>
                     </div>
 
                     <div class="w3-col s4">
-                        <div class="w3-large monospace"><?= number_format($rataRata, 1, ',', '.') ?><span
-                                class="w3-small w3-opacity">km</span></div>
+                        <div class="w3-large monospace"><?= desimal($rataRata, 1) . unit('km', 'small') ?></div>
                         <div class="w3-small w3-opacity">Rata-Rata</div>
                     </div>
 
@@ -209,7 +204,7 @@ foreach ($entries as $qq) {
                         <!-- Day + Date -->
                         <td style="width:140px;">
                             <div class="w3-small">
-                                <?= tulistgl($time, $bulan3char) ?>
+                                <?= tgl($time) ?>
                                 <span class="w3-text-grey w3-tiny">
                                     <?= $hari[date("N", strtotime($time))] ?>
                                 </span>
@@ -223,8 +218,7 @@ foreach ($entries as $qq) {
                                     <i class='fa-solid fa-circle-pause'></i> on review
                                 </div>
                             <?php } else { ?>
-                                <span class="w3-large monospace"><?= number_format($rr['distance'], 1, ',', '.') ?></span><span
-                                    class="w3-tiny w3-opacity">km</span>
+                                <span class="w3-large monospace"><?= desimal($rr['distance']) ?></span><?= unit("km") ?>
                             <?php } ?>
                         </td>
 
@@ -245,6 +239,7 @@ foreach ($entries as $qq) {
                     </tr>
 
                 <?php } ?>
+
 
             </table>
         </div>
