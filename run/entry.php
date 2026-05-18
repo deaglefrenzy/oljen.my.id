@@ -218,7 +218,7 @@ foreach ($entries as $qq) {
                                     <i class='fa-solid fa-circle-pause'></i> on review
                                 </div>
                             <?php } else { ?>
-                                <span class="w3-large monospace"><?= desimal($rr['distance']) ?></span><?= unit("km") ?>
+                                <span class="w3-large monospace"><?= desimal($rr['distance'], 1) ?></span><?= unit("km") ?>
                             <?php } ?>
                         </td>
 
