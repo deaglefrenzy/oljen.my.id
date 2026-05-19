@@ -102,6 +102,9 @@ function formatTanggal($date, $options = [])
  */
 function waktuLalu($timestamp)
 {
+    if (!is_numeric($timestamp)) {
+        $timestamp = strtotime($timestamp);
+    }
     $selisih = time() - $timestamp;
 
     if ($selisih < 60)

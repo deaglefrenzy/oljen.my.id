@@ -86,16 +86,16 @@ include_once 'setor_data.php';
                     ?>
                     <li style='padding:8px 12px;'>
                         <div class='w3-left-align'>
-                            <strong>
-                                <?= $row['name'] ?>
+                            <strong style="margin-left:2px;">
+                                <i class="fa-solid fa-user"></i> &nbsp;&nbsp;<?= $row['name'] ?>
                             </strong>
-                            <span class='w3-text-grey' style='font-size:11px;'>
-                                <?= tglRelatif($row['input_time']) ?>
+                            <span class='w3-text-grey w3-tiny'>
+                                &nbsp;<?= tglRelatif($row['input_time']) ?>
                             </span>
                             <br>
-                            <a href="<?php echo $row['link']; ?>" target="_blank" class="w3-text-orange"
-                                style="text-decoration:none; font-size:12px;">
-                                <i class="fa-solid fa-link"></i> <?php echo $row['link']; ?>
+                            <i class="fa-solid fa-link"></i>&nbsp;
+                            <a href="<?php echo $row['link']; ?>" target="_blank" class="w3-text-orange w3-small">
+                                <?php echo $row['link']; ?>
                             </a>
                         </div>
                     </li>

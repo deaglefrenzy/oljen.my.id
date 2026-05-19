@@ -11,7 +11,8 @@ if ($action == "setor run") {
         $query = "SELECT * FROM runs WHERE orang_id='$orang_id' AND link='$link'";
         $result = mysqli_query($conn, $query);
         if (mysqli_num_rows($result) == 0) {
-            $query = "INSERT INTO runs (orang_id, input_time, link, `raw`) VALUES ('$orang_id', NOW(), '$link', '$raw')";
+            $now = date('Y-m-d H:i:s');
+            $query = "INSERT INTO runs (orang_id, input_time, link, `raw`) VALUES ('$orang_id', '$now', '$link', '$raw')";
             mysqli_query($conn, $query) or die(mysqli_error($conn));
             pesan("Run berhasil disetor!");
         } else {
