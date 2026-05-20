@@ -73,14 +73,13 @@ foreach ($entries as $qq) {
                 <!-- Left: Rank + Name -->
                 <div class="w3-col s7">
                     <div class="w3-medium reddit" style="padding-top:5px;">
-                        <span class="monospace"><?= $count . $space; ?></span>
-                        <?= $name ?>
+                        <?= $count . ". " . $space . "&nbsp;" . $name; ?>
                     </div>
                 </div>
 
                 <!-- Right: Distance -->
                 <div class="w3-col s4 w3-right-align">
-                    <div class="w3-xlarge monospace">
+                    <div class="w3-xlarge">
                         <?= desimal($total, 1) . unit('km', 'small') ?>
                     </div>
                 </div>
@@ -122,24 +121,24 @@ foreach ($entries as $qq) {
                 <div class="w3-row w3-center w3-margin-bottom">
 
                     <!-- <div class="w3-col s4">
-                        <div class="w3-xlarge monospace"><?= $jumlahRide ?></div>
+                        <div class="w3-xlarge"><?= $jumlahRide ?></div>
                         <div class="w3-small w3-opacity">
                             Ride<?= ($jumlahRide > 1) ? "s" : "" ?>
                         </div>
                     </div> -->
 
                     <div class="w3-col s4">
-                        <div class="w3-xlarge monospace"><?= desimal($total, 1) . unit('km', 'small') ?></div>
+                        <div class="w3-xlarge"><?= desimal($total, 1) . unit('km', 'small') ?></div>
                         <div class="w3-small w3-opacity">Ditempuh</div>
                     </div>
 
                     <div class="w3-col s4">
-                        <div class="w3-xlarge monospace w3-text-red"><?= $diskon ?></div>
+                        <div class="w3-xlarge w3-text-red"><?= $diskon ?></div>
                         <div class="w3-small w3-opacity">Diskon</div>
                     </div>
 
                     <div class="w3-col s4">
-                        <div class="w3-xlarge monospace w3-text-green">
+                        <div class="w3-xlarge w3-text-green">
                             <?php
                             if ($total >= 50) {
                                 echo unit('Rp', 'small') . ribuan(100 - $diskon_value) . unit('rb', 'small');
@@ -158,17 +157,17 @@ foreach ($entries as $qq) {
                 <div class="w3-row w3-center">
 
                     <div class="w3-col s4">
-                        <div class="w3-large monospace"><?= desimal($furthestDistance, 1) . unit('km', 'small') ?></div>
+                        <div class="w3-large"><?= desimal($furthestDistance, 1) . unit('km', 'small') ?></div>
                         <div class="w3-small w3-opacity">Terjauh</div>
                     </div>
 
                     <div class="w3-col s4">
-                        <div class="w3-large monospace"><?= desimal($shortestDistance, 1) . unit('km', 'small') ?></div>
+                        <div class="w3-large"><?= desimal($shortestDistance, 1) . unit('km', 'small') ?></div>
                         <div class="w3-small w3-opacity">Terdekat</div>
                     </div>
 
                     <div class="w3-col s4">
-                        <div class="w3-large monospace"><?= desimal($rataRata, 1) . unit('km', 'small') ?></div>
+                        <div class="w3-large"><?= desimal($rataRata, 1) . unit('km', 'small') ?></div>
                         <div class="w3-small w3-opacity">Rata-Rata</div>
                     </div>
 
@@ -197,7 +196,7 @@ foreach ($entries as $qq) {
                     <tr class="w3-border-bottom">
 
                         <!-- No -->
-                        <td class="monospace" style="width:35px;">
+                        <td style="width:35px;">
                             <?= $rcounts ?>
                         </td>
 
@@ -214,11 +213,11 @@ foreach ($entries as $qq) {
                         <!-- Distance -->
                         <td class="w3-right-align" style="width:80px;">
                             <?php if ($rr['distance'] == 0) { ?>
-                                <div class="w3-text-grey w3-small">
-                                    <i class='fa-solid fa-circle-pause'></i> on review
+                                <div class="w3-text-grey w3-tiny">
+                                    <i class='fa-solid fa-circle-pause w3-small'></i> on review
                                 </div>
                             <?php } else { ?>
-                                <span class="w3-large monospace"><?= desimal($rr['distance'], 1) ?></span><?= unit("km") ?>
+                                <span class="w3-large"><?= desimal($rr['distance'], 1) ?></span><?= unit("km") ?>
                             <?php } ?>
                         </td>
 

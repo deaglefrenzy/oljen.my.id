@@ -31,8 +31,11 @@ include_once 'setor_data.php';
                     class="w3-input w3-border w3-round-large w3-padding" style="font-size:16px;" required
                     autocomplete="off">
                 <div class="w3-right w3-small w3-opacity">
-                    <i class="fa-solid fa-link"></i> Link Run <img src="images/strava.svg" style="height:16px;"><img
-                        src="images/garmin-connect.webp" style="height:16px;">
+                    <div class="row">
+                        Link Ride&nbsp;
+                        <img src="images/strava.svg" style="height:16px;">&nbsp;
+                        <img src="images/garmin-connect.webp" style="height:16px;">
+                    </div>
                 </div>
             </div>
             <br>
@@ -47,7 +50,7 @@ include_once 'setor_data.php';
                         font-weight:600;
                         letter-spacing:0.5px;
                     ">
-                        <i class="fa-solid fa-check-circle"></i> SETOR RUN
+                        <i class="fa-solid fa-file-arrow-down"></i> SETOR RUN
                     </button>
                 <?php else: ?>
                     <button type="button" class="w3-button w3-grey w3-round-large w3-xlarge w3-padding-large"
@@ -68,13 +71,13 @@ include_once 'setor_data.php';
     FROM runs r
     JOIN orang o ON r.orang_id = o.id
     WHERE deleted_at IS NULL
-    ORDER BY r.id DESC, r.input_time DESC LIMIT 15";
+    ORDER BY r.input_time DESC, r.id DESC LIMIT 15";
     $result = mysqli_query($conn, $query);
     ?>
-    <div class="w3-large w3-margin-bottom w3-text-white" style="font-weight:600;">
+    <!-- <div class="w3-large w3-margin-bottom w3-text-white" style="font-weight:600;">
         <i class="fa-solid fa-clock-rotate-left"></i> Setoran Terakhir
-    </div>
-    <div class="w3-white w3-border w3-round">
+    </div> -->
+    <div class="w3-white w3-border w3-round-large">
         <?php
         if (mysqli_num_rows($result) == 0) {
             echo "<div class='w3-padding w3-text-grey'>Belum ada runs yang disetor</div>";
@@ -84,7 +87,7 @@ include_once 'setor_data.php';
                 <?php
                 while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                    <li style='padding:8px 12px;'>
+                    <li style='padding:8px 12px; color:#333;'>
                         <div class='w3-left-align'>
                             <strong style="margin-left:2px;">
                                 <i class="fa-solid fa-user"></i> &nbsp;&nbsp;<?= $row['name'] ?>

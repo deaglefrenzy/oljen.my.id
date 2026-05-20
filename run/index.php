@@ -32,7 +32,9 @@ $category = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 1;
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="stylesheet" href="config/main.css?v=<?= filemtime('config/main.css') ?>">
+    <link rel="stylesheet" href="config/base.css?v=<?= filemtime('config/base.css') ?>">
+    <link rel="stylesheet" href="config/layout.css?v=<?= filemtime('config/layout.css') ?>">
+    <link rel="stylesheet" href="config/components.css?v=<?= filemtime('config/components.css') ?>">
     <link rel="stylesheet" href="config/select.css?v=<?= filemtime('config/select.css') ?>">
 
     <style>

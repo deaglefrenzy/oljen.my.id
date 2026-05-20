@@ -7,8 +7,9 @@
         padding: 14px;
 
         border-radius: 18px;
+        border: 1px solid rgba(0, 0, 0, 0.25);
 
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
     }
 
     .hero-logo {
@@ -32,7 +33,9 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 
         padding-bottom: 6px;
-        padding-left: 20px;
+
+        padding-left: 0;
+        margin-right: 10px;
     }
 
     .info-item:last-child {
@@ -47,7 +50,6 @@
 
     .info-value {
         font-size: 20px;
-        font-weight: bold;
         color: #111;
     }
 </style>
