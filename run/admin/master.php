@@ -39,6 +39,7 @@ $error = @$_GET['error'];
             <ul class="nav-links">
                 <a href="?page=runs">🏃RUNS</a>
                 <a href="?page=orang">👤ORANG</a>
+                <a href="?page=setor">⬇️SETOR</a>
                 <a href="logout.php">🗝️LOGOUT</a>
             </ul>
         </nav>
@@ -49,6 +50,9 @@ $error = @$_GET['error'];
                 switch (@$_GET['page']) {
                     case 'orang':
                         include("orang.php");
+                        break;
+                    case 'setor':
+                        include("setor.php");
                         break;
                     default:
                         include("runs.php");

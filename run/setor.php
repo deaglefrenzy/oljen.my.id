@@ -40,7 +40,7 @@ include_once 'setor_data.php';
             </div>
             <br>
             <!-- Action -->
-            <div class="w3-center w3-margin-top">
+            <div class="w3-center">
                 <?php if ($is_available): ?>
                     <button type="submit" name="action" value="setor run"
                         class="w3-button w3-round-large w3-xlarge w3-padding-large w3-hover-shadow" style="
@@ -57,10 +57,10 @@ include_once 'setor_data.php';
                         style="width:100%;" disabled>
                         <i class="fa-solid fa-lock"></i> TUTUP
                     </button>
-                    <p class="w3-small w3-text-grey w3-margin-top">
-                        Penyetoran dibuka 15 - 24 Mei 2026
-                    </p>
                 <?php endif; ?>
+                <p class="w3-small w3-text-grey w3-margin-top">
+                    Penyetoran dibuka 15 - 24 Mei 2026
+                </p>
             </div>
         </form>
     </div>
@@ -74,9 +74,6 @@ include_once 'setor_data.php';
     ORDER BY r.input_time DESC, r.id DESC LIMIT 15";
     $result = mysqli_query($conn, $query);
     ?>
-    <!-- <div class="w3-large w3-margin-bottom w3-text-white" style="font-weight:600;">
-        <i class="fa-solid fa-clock-rotate-left"></i> Setoran Terakhir
-    </div> -->
     <div class="w3-white w3-border w3-round-large">
         <?php
         if (mysqli_num_rows($result) == 0) {
@@ -97,9 +94,15 @@ include_once 'setor_data.php';
                             </span>
                             <br>
                             <i class="fa-solid fa-link"></i>&nbsp;
-                            <a href="<?php echo $row['link']; ?>" target="_blank" class="w3-text-orange w3-small">
-                                <?php echo $row['link']; ?>
-                            </a>
+                            <?php if ($row['link']): ?>
+                                <a href="<?php echo $row['link']; ?>" target="_blank" class="w3-text-orange w3-small">
+                                    <?= $row['link'] ?>
+                                </a>
+                            <?php else: ?>
+                                <span class="w3-text-red w3-small">
+                                    <?= $row['raw'] ?>
+                                </span>
+                            <?php endif; ?>
                         </div>
                     </li>
                     <?php

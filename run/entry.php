@@ -196,14 +196,19 @@ foreach ($entries as $qq) {
                     <tr class="w3-border-bottom">
 
                         <!-- No -->
-                        <td style="width:35px;">
-                            <?= $rcounts ?>
+                        <td style="width:35px; vertical-align: middle;">
+                            <div style="display:flex; align-items:center; height:100%;">
+                                <?= $rcounts ?>
+                            </div>
                         </td>
 
                         <!-- Day + Date -->
-                        <td style="width:140px;">
-                            <div class="w3-small">
-                                <?= tgl($time) ?>
+                        <td style="vertical-align: middle;">
+                            <div style="display:flex; align-items:center; gap:6px;">
+                                <span class="w3-small">
+                                    <?= tgl($time) ?>
+                                </span>
+
                                 <span class="w3-text-grey w3-tiny">
                                     <?= $hari[date("N", strtotime($time))] ?>
                                 </span>
@@ -211,13 +216,16 @@ foreach ($entries as $qq) {
                         </td>
 
                         <!-- Distance -->
-                        <td class="w3-right-align" style="width:80px;">
+                        <td align="right" style="width:80px; vertical-align: middle;">
                             <?php if ($rr['distance'] == 0) { ?>
                                 <div class="w3-text-grey w3-tiny">
                                     <i class='fa-solid fa-circle-pause w3-small'></i> on review
                                 </div>
                             <?php } else { ?>
-                                <span class="w3-large"><?= desimal($rr['distance'], 1) ?></span><?= unit("km") ?>
+                                <div style="display:flex; justify-content:flex-end; align-items:baseline; gap:2px;">
+                                    <span class="w3-large"><?= desimal($rr['distance'], 1) ?></span>
+                                    <?= unit("km") ?>
+                                </div>
                             <?php } ?>
                         </td>
 
@@ -229,10 +237,17 @@ foreach ($entries as $qq) {
                             strpos($link, 'strava') !== false ? 'strava.svg' :
                             (strpos($link, 'garmin') !== false ? 'garmin-connect.webp' : '');
                         ?>
-                        <td style="width:30px;" class="w3-center">
-                            <a href="<?= $rr['link'] ?>" target="_blank">
-                                <img src="images/<?= $icon ?>" style="width:16px;">
-                            </a>
+
+                        <td style="width:30px; vertical-align: middle;">
+                            <div style="display:flex; justify-content:center; align-items:center;">
+                                <?php if (!empty($rr['link'])): ?>
+                                    <a href="<?= $rr['link'] ?>" target="_blank">
+                                        <img src="images/<?= $icon ?>" style="width:16px;">
+                                    </a>
+                                <?php else: ?>
+                                    🩸
+                                <?php endif; ?>
+                            </div>
                         </td>
 
                     </tr>
