@@ -206,3 +206,35 @@
     background: #fff;
     color: #222;
 }
+
+.tooltip-trigger {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: gray;
+}
+
+.tooltip-box {
+    display: none;
+
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #222;
+    color: white;
+
+    padding: 8px 10px;
+    border-radius: 8px;
+
+    font-size: 12px;
+    white-space: nowrap;
+
+    z-index: 1000;
+}
+
+.tooltip-trigger:active .tooltip-box,
+.tooltip-trigger:hover .tooltip-box {
+    display: block;
+}

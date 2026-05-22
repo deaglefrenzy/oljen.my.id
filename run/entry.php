@@ -245,7 +245,14 @@ foreach ($entries as $qq) {
                                         <img src="images/<?= $icon ?>" style="width:16px;">
                                     </a>
                                 <?php else: ?>
-                                    🩸
+                                    <span class="tooltip-trigger">
+                                        🩸
+                                        <span class="tooltip-box">
+                                            Bonus<br>
+                                            Donor Darah<br>
+                                        </span>
+                                    </span>
+
                                 <?php endif; ?>
                             </div>
                         </td>
