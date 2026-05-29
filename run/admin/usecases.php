@@ -62,7 +62,7 @@ if ($action == "activate orang") {
 if ($action == "setor donor") {
     $orang_id = $_POST['orang_id'];
     $now = date('Y-m-d H:i:s');
-    $raw = "Testing Bonus Donor Darah";
-    $query = "INSERT INTO runs (orang_id, input_time, `raw`, distance, link) VALUES ('$orang_id', '$now', '$raw', '10', null)";
+    $raw = "Bonus Donor Darah";
+    $query = "INSERT INTO runs (orang_id, input_time, `raw`, distance) VALUES ('$orang_id', '$now', '$raw', '10')";
     mysqli_query($conn, $query) or die(mysqli_error($conn));
 }
