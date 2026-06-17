@@ -1,0 +1,273 @@
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.form-row label {
+    width: 120px;
+    font-weight: 600;
+}
+
+.form-row input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+
+/* horizontal compact pills */
+.pill-select {
+    display: flex;
+    gap: 6px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    white-space: nowrap;
+
+    padding-bottom: 4px;
+    margin-bottom: 12px;
+
+    scrollbar-width: thin;
+}
+
+.pill-select input[type="radio"] {
+    display: none;
+}
+
+.pill-select label {
+    flex: 0 0 auto;
+
+    padding: 5px 10px;
+
+    border-radius: 8px;
+
+    border: 1px solid #d0d0d0;
+
+    background: #f7f7f7;
+    color: #444;
+
+    cursor: pointer;
+
+    transition: 0.15s ease;
+
+    font-size: 12px;
+    line-height: 1.2;
+
+    user-select: none;
+}
+
+.pill-select label:hover {
+    background: #ececec;
+    border-color: #bbb;
+}
+
+.pill-select input[type="radio"]:checked+label {
+    background: #333;
+    color: #fff;
+
+    border-color: #333;
+}
+
+.button {
+    width: 100%;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 13px 18px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: #3b82f6;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 10px rgba(59, 130, 246, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease,
+        opacity 0.18s ease;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.button i {
+    font-size: 15px;
+}
+
+.button:hover {
+    background: #60a5fa;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(59, 130, 246, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.button:active {
+    transform: translateY(0) scale(0.98);
+
+    box-shadow:
+        0 3px 8px rgba(59, 130, 246, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* DANGER VERSION */
+.button.danger {
+    background: #e53935;
+
+    box-shadow:
+        0 4px 10px rgba(229, 57, 53, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.button.danger:hover {
+    background: #c62828;
+
+    box-shadow:
+        0 8px 18px rgba(229, 57, 53, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.button.danger:active {
+    box-shadow:
+        0 3px 8px rgba(229, 57, 53, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.tooltip-trigger {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: gray;
+}
+
+.tooltip-box {
+    display: none;
+
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #222;
+    color: white;
+
+    padding: 8px 10px;
+    border-radius: 8px;
+
+    font-size: 12px;
+    white-space: nowrap;
+
+    z-index: 1000;
+}
+
+.tooltip-trigger:active .tooltip-box,
+.tooltip-trigger:hover .tooltip-box {
+    display: block;
+}
+
+.toggle-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    cursor: pointer;
+    user-select: none;
+
+    font-size: 14px;
+}
+
+.toggle-check input {
+    display: none;
+}
+
+.toggle-check:not(:last-child) {
+    margin-right: 20px;
+}
+
+.toggle-slider {
+    position: relative;
+
+    width: 42px;
+    height: 24px;
+
+    background: #ddd;
+    border-radius: 999px;
+
+    transition: 0.2s;
+}
+
+.toggle-slider::before {
+    content: "";
+
+    position: absolute;
+    top: 3px;
+    left: 3px;
+
+    width: 18px;
+    height: 18px;
+
+    background: white;
+    border-radius: 50%;
+
+    transition: 0.2s;
+}
+
+.toggle-check input:checked+.toggle-slider {
+    background: #4CAF50;
+}
+
+.toggle-check input:checked+.toggle-slider::before {
+    transform: translateX(18px);
+}
+
+.toggle-label {
+    color: #444;
+    margin-left: -6px;
+    padding-bottom: 3px;
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 2px 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+    margin-bottom: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-row input[type="checkbox"] {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+}
+
+.checkbox-row:hover {
+    background: #fafafa;
+}
