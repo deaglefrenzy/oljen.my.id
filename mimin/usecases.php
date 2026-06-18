@@ -137,34 +137,13 @@ if ($action == "add iuran") {
     $inserted = true;
 }
 
-if ($action == "edit tipe iuran") {
-    $tarif = $_POST['tarif'];
+if ($action == "lunas order") {
+    $id = $_POST['id'];
 
-    foreach ($tarif as $key => $value) {
-        $query = "UPDATE bulanan SET tarif = '$value' WHERE id = '$key'";
-        mysqli_query($conn, $query) or die(mysqli_error($conn));
-    }
-
-    pesan(
-        "Tipe iuran berhasil diperbarui"
-    );
-}
-
-if ($action == 'upload photo' && !empty($_FILES['foto']['name'])) {
-
-    $member_id = (int) $_POST['member_id'];
-
-    $ext = strtolower(pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION));
-    $filename = 'member_' . $member_id . '_' . time() . '.' . $ext;
-
-    move_uploaded_file(
-        $_FILES['foto']['tmp_name'],
-        'foto/' . $filename
-    );
-
-    mysqli_query(
-        $conn,
-        "UPDATE member SET foto='$filename' WHERE idmember='$member_id'"
-    );
-
+    $query = "
+    UPDATE orders
+    SET status = 1 - status
+    WHERE id = '$id'
+";
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
 }

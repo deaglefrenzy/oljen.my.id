@@ -11,6 +11,18 @@ while ($row = mysqli_fetch_assoc($q)) {
     $members[$row['id']] = $row;
 }
 
+$q = mysqli_query($conn, "SELECT member_id, related_id FROM members_link");
+$related_ids = [];
+
+while ($row = mysqli_fetch_assoc($q)) {
+
+    $a = $row['member_id'];
+    $b = $row['related_id'];
+
+    $related_ids[$a][] = $b;
+    $related_ids[$b][] = $a;
+}
+
 $materials = [
     "DRYFIT",
     "PRO"
@@ -43,8 +55,8 @@ $variants = [
 ];
 
 $available = false;
-$start_date = '2026-06-17';
-$end_date = '2026-06-22';
+$start_date = $events[$event_id]['start_date'];
+$end_date = $events[$event_id]['end_date'];
 if (date('Y-m-d') >= $start_date && date('Y-m-d') <= $end_date) {
     $available = true;
 }

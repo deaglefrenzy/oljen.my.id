@@ -48,20 +48,8 @@ if ($can_add_order && $available):
             <div class="jersey-entry">
 
                 <div class="page-title">
-                    PESANAN BARU (<?= count($orders) < 2 ? 'MEMBER' : 'FAMILY' ?>)
+                    PESANAN BARU (<?= count($orders) < count($related_ids[$member_id]) + 1 ? 'MEMBER' : 'FAMILY' ?>)
                 </div>
-
-                <a href="#" class="size-chart-link" onclick="toggleSizeChart(this); return false;">
-                    📏 Lihat Size Chart
-                </a>
-
-                <div class="size-chart">
-                    <a href="images/<?= $events[$event_id]['size_chart'] ?>" target="_blank">
-                        <img class="image" src="images/<?= $events[$event_id]['size_chart'] ?>">
-                    </a>
-                </div>
-
-                <div style="height:10px;"></div>
 
                 <div class="grid">
 
@@ -86,6 +74,18 @@ if ($can_add_order && $available):
                                 </option>
                             <?php endforeach; ?>
                         </select>
+                        <div class="w3-small w3-text-gray">
+                            Ada biaya tambahan untuk ukuran 3XL.<br>
+                            <a href="#" class="size-chart-link" onclick="toggleSizeChart(this); return false;">
+                                <i class="fa-solid fa-square-caret-down"></i> Lihat Size Chart
+                            </a>
+
+                            <div class="size-chart">
+                                <a href="images/<?= $events[$event_id]['size_chart'] ?>" target="_blank">
+                                    <img class="image" src="images/<?= $events[$event_id]['size_chart'] ?>">
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                     <div>
@@ -104,6 +104,9 @@ if ($can_add_order && $available):
                                 </option>
                             <?php endforeach; ?>
                         </select>
+                        <div class="w3-small w3-text-gray">
+                            Ada biaya tambahan untuk lengan panjang.
+                        </div>
                     </div>
 
                     <div>
@@ -115,6 +118,12 @@ if ($can_add_order && $available):
                                 </option>
                             <?php endforeach; ?>
                         </select>
+                        <div class="w3-small w3-text-gray">
+                            <b>DRYFIT</b> : Light weight fabric 100% polyester, high quality dryfit wicking.
+                            <div style="height: 5px;"></div>
+                            <b>PRO</b> : Super light weight fabric microfiber spandex, high quality dryfit wicking, anti
+                            bacteria, anti UV protection SPF50.
+                        </div>
                     </div>
 
                 </div>
@@ -124,6 +133,10 @@ if ($can_add_order && $available):
             <button class="add-btn">
                 <i class="fa-solid fa-circle-plus"></i> Tambah Pesanan
             </button>
+            <div class="w3-small w3-text-gray w3-center">
+                <i class=" fa-solid fa-circle-info"></i> Pesanan dapat diubah sampai
+                <?= date('d/m/Y', strtotime($end_date)) ?>.
+            </div>
         </form>
     </div>
 <?php endif; ?>
@@ -134,10 +147,10 @@ if ($can_add_order && $available):
 
         if (chart.style.display === 'block') {
             chart.style.display = 'none';
-            el.innerHTML = '📏 Lihat Size Chart';
+            el.innerHTML = '<i class="fa-solid fa-square-caret-down"></i> Lihat Size Chart';
         } else {
             chart.style.display = 'block';
-            el.innerHTML = '✕ Tutup Size Chart';
+            el.innerHTML = '<i class="fa-solid fa-square-xmark"></i> Tutup Size Chart';
         }
     }
 </script>

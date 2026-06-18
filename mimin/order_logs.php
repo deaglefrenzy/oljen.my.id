@@ -48,14 +48,15 @@
                         <?= date('d M Y H:i', strtotime($r['created_at'])) ?>
                     </span>
                 </td>
-                <td align="right" rowspan="2" class="w3-medium deleted-amount">
-                    <?php if (!$r['deleted_at']): ?>
-                        <a href="kwitansi.php?idiuran=<?= $r['id'] ?>" target="_blank" class="w3-text-indigo"
-                            style="margin-left:4px;">
-                            <?= shortNominal($r['payment']) ?>
-                            <i class="fa-solid fa-angle-right"></i>
-                        </a>
-                    <?php endif; ?>
+                <td align="right" rowspan="2" class="w3-medium">
+                    <form method="post">
+                        <input type="hidden" name="action" value="lunas order">
+                        <input type="hidden" name="id" value="<?= $r['id'] ?>">
+                        <button type="submit" class="topbar-btn <?= $r['status'] ? 'w3-text-green' : 'w3-text-red' ?>">
+                            <?= shortNominal($r['payment']) ?>&nbsp;
+                            <?= $r['status'] ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-xmark"></i>' ?>
+                        </button>
+                    </form>
                 </td>
             </tr>
             <tr class="<?= $rowClass ?>">

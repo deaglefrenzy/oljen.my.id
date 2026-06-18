@@ -31,17 +31,30 @@ if ($action == 'add jersey') {
     // Determine member/nonmember pricing
     // --------------------------------------------------
 
+    $member_ids = [$member_id];
+
+    if (!empty($related_ids[$member_id])) {
+        $member_ids = array_merge($member_ids, $related_ids[$member_id]);
+    }
+
+    $member_ids = array_unique($member_ids);
+
+    $ids = implode(',', array_map('intval', $member_ids));
+
     $query = "
-        SELECT id
-        FROM orders
-        WHERE member_id='$member_id'
-        AND event_id='$event_id'
-        LIMIT 1
-    ";
+    SELECT COUNT(*) AS total
+    FROM orders
+    WHERE event_id = '$event_id'
+    AND member_id IN ($ids)
+";
 
     $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+    $row = mysqli_fetch_assoc($result);
 
-    $is_member = (mysqli_num_rows($result) == 0);
+    $order_count = $row['total'];
+    $member_count = count($member_ids);
+
+    $is_member = ($order_count < $member_count);
 
     $total = $is_member
         ? $events[$event_id]['base']
@@ -53,10 +66,16 @@ if ($action == 'add jersey') {
 
     if ($size == '3XL') {
         $total += $events[$event_id]['oversize'];
+        if ($material == $materials[0]) {
+            $total -= 15000;
+        }
     }
 
     if ($variant == $variants[1]) {
         $total += $events[$event_id]['longsleeves'];
+        if ($material == $materials[0]) {
+            $total -= 20000;
+        }
     }
 
     if ($material == $materials[1]) {

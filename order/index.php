@@ -15,8 +15,8 @@ include 'usecases.php';
     <meta property="og:description" content="Form pemesanan jersey Event OLJEN" />
     <meta property="og:url" content="https://oljen.my.id/order/" />
     <meta property="og:type" content="website" />
-
     <link rel="stylesheet" href="../run/config/components.css?v=<?= filemtime('config/components.css') ?>">
+    <link rel="stylesheet" href="../run/config/w3v4.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
         * {
@@ -267,9 +267,7 @@ include 'usecases.php';
 
         .member-card {
             display: inline-block;
-
             padding: 12px 24px;
-
             background: #f5f5f5;
             border: 2px solid #ddd;
             border-radius: 12px;
@@ -296,7 +294,6 @@ include 'usecases.php';
         }
     </style>
 </head>
-
 <?php
 $token = $_GET['token'];
 if (empty($token)) {
@@ -306,7 +303,6 @@ if (empty($token)) {
 $q = mysqli_query($conn, "SELECT * FROM members WHERE token = '$token'");
 $member_id = $q->num_rows > 0 ? $q->fetch_assoc()['id'] : 0;
 $event_id = $_GET['event_id'] ?? 0;
-
 $orders = [];
 if ($member_id > 0 && $event_id > 0) {
     $query = "SELECT * FROM orders WHERE member_id='$member_id' AND event_id='$event_id' ORDER BY id ASC";
@@ -318,30 +314,31 @@ if ($member_id > 0 && $event_id > 0) {
 ?>
 
 <body>
-
     <div class="container">
-
         <div class="card">
             <img src="../images/logo1.png" class="logo">
             <div class="member-header">
-
                 <div class="page-title">
                     SISTEM PEMESANAN JERSEY OLJEN
                 </div>
-
                 <div class="member-card">
                     <div class="member-label">
                         Member
                     </div>
-
                     <div class="member-name">
                         <?= $members[$member_id]['name'] ?>
                     </div>
+                    <?php
+                    foreach ($related_ids[$member_id] as $related_id) {
+                        ?>
+                        <div class="member-name w3-medium">
+                            <?= $members[$related_id]['name'] ?>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
-
             </div>
-
-
             <label>Event</label>
             <form method="get">
                 <input type="hidden" name="token" value="<?= $token ?>">
@@ -359,153 +356,17 @@ if ($member_id > 0 && $event_id > 0) {
                 </select>
             </form>
         </div>
-
         <?php
         if ($event_id > 0):
-
+            $start_date = $events[$event_id]['start_date'];
+            $end_date = $events[$event_id]['end_date'];
+            if (date('Y-m-d') >= $start_date && date('Y-m-d') <= $end_date) {
+                $available = true;
+            }
             if (count($orders) > 0):
-                ?>
-                <div class="card summary">
-                    <div class="page-title">
-                        PESANAN
-                    </div>
-                    <?php
-                    $count = 0;
-                    $total = 0;
-                    foreach ($orders as $i => $order): ?>
-
-                        <?php
-                        $count++;
-                        $is_member = ($count == 1);
-
-                        $event = $events[$order['event_id']];
-
-                        $base = ($is_member)
-                            ? $event['base']
-                            : $event['nonmember'];
-
-                        $oversize = ($order['size'] == "3XL")
-                            ? $event['oversize']
-                            : 0;
-
-                        $long = ($order['variant'] == "Lengan Panjang")
-                            ? $event['longsleeves']
-                            : 0;
-
-                        $upgrade = ($order['material'] == "PRO")
-                            ? $event['upgrade']
-                            : 0;
-
-                        $subtotal = $base + $oversize + $long + $upgrade;
-                        $total += $subtotal;
-                        ?>
-
-                        <div class="order-summary">
-
-                            <div class="order-header">
-                                <div>
-                                    <b>
-                                        <?= $is_member ? "<i class='fa-solid fa-circle-user'></i> Member" : "<i class='fa-solid fa-house-user'></i> Family" ?>
-                                    </b>
-
-                                    <div class="w3-small w3-text-gray">
-                                        <?= $order['type'] ?>
-                                        · <?= $order['category'] ?>
-                                        · <?= $order['size'] ?>
-                                    </div>
-                                </div>
-
-                                <form method="post" onsubmit="return confirm('Hapus jersey ini dari pemesanan?')">
-                                    <input type="hidden" name="action" value="remove order">
-                                    <input type="hidden" name="id" value="<?= $i ?>">
-
-                                    <button class="remove-btn" type="submit" <?= $available ? '' : 'disabled' ?>>
-                                        <i class="fa-solid fa-xmark"></i>
-                                    </button>
-                                </form>
-                            </div>
-
-                            <div class="price-row main-price">
-                                <span>Jersey</span>
-                                <span>Rp <?= number_format($base) ?></span>
-                            </div>
-
-                            <?php if ($oversize): ?>
-                                <div class="price-row extra">
-                                    <span>+ Oversize <?= $order['size'] ?></span>
-                                    <span>Rp <?= number_format($oversize) ?></span>
-                                </div>
-                            <?php endif; ?>
-
-                            <?php if ($long): ?>
-                                <div class="price-row extra">
-                                    <span>+ Lengan Panjang</span>
-                                    <span>Rp <?= number_format($long) ?></span>
-                                </div>
-                            <?php endif; ?>
-
-                            <?php if ($upgrade): ?>
-                                <div class="price-row extra">
-                                    <span>+ Material PRO</span>
-                                    <span>Rp <?= number_format($upgrade) ?></span>
-                                </div>
-                            <?php endif; ?>
-
-                            <div class="price-row subtotal">
-                                <span>Subtotal</span>
-                                <span>Rp <?= number_format($subtotal) ?></span>
-                            </div>
-
-                        </div>
-
-                    <?php endforeach; ?>
-
-                    <div class="payment-summary">
-
-                        <div class="payment-total">
-                            <div class="label">Total Pembayaran</div>
-
-                            <div class="amount">
-                                Rp <?= number_format($total) ?>
-                            </div>
-                        </div>
-
-                        <hr>
-
-                        <div class="transfer-info">
-
-                            <h3>Informasi Transfer</h3>
-
-                            <table class="transfer-table">
-                                <tr>
-                                    <td>Bank</td>
-                                    <td>: BCA</td>
-                                </tr>
-                                <tr>
-                                    <td>No. Rekening</td>
-                                    <td>: 7970148480</td>
-                                </tr>
-                                <tr>
-                                    <td>Atas Nama</td>
-                                    <td>: Suryo Sucianto</td>
-                                </tr>
-                            </table>
-
-                            <div class="note">
-                                Silakan transfer sesuai nominal di atas dan kirim bukti pembayaran ke
-                                <a href="
-                                https://wa.me/6282187257433?text=Bukti%20pembayaran
-                                ">
-                                    Admin Oljen
-                                </a>.
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            <?php endif; ?>
+                include "order.php";
+            endif;
+            ?>
             <div class="jersey">
                 <a href="images/<?= $events[$event_id]['jersey'] ?>" target="_blank">
                     <img class="image" src="images/<?= $events[$event_id]['jersey'] ?>">
@@ -513,11 +374,8 @@ if ($member_id > 0 && $event_id > 0) {
             </div>
             <div style="height:10px;"></div>
             <?php include "form.php"; ?>
-
         <?php endif; ?>
-
     </div>
-
 </body>
 
 </html>
