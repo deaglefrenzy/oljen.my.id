@@ -1,9 +1,9 @@
 <?php
 require_once "auth/auth.php";
 require_once "config/utils.php";
+require_once "config/functions.php";
 
 $page = $_GET['page'] ?? 'members';
-$now = date('Y-m-d H:i:s');
 $inserted = false;
 
 $admin_id = $_SESSION['admin_id'];

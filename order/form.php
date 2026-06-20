@@ -48,7 +48,7 @@ if ($can_add_order && $available):
             <div class="jersey-entry">
 
                 <div class="page-title">
-                    PESANAN BARU (<?= count($orders) < count($related_ids[$member_id]) + 1 ? 'MEMBER' : 'FAMILY' ?>)
+                    PESANAN BARU
                 </div>
 
                 <div class="grid">

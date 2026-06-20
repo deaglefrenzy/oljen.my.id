@@ -147,3 +147,28 @@ if ($action == "lunas order") {
 ";
     mysqli_query($conn, $query) or die(mysqli_error($conn));
 }
+
+if ($action == "edit order") {
+    $order_id = $_POST['order_id'];
+    $category = $_POST['category'];
+    $size = $_POST['size'];
+    $variant = $_POST['variant'];
+    $material = $_POST['material'];
+    $payment = $_POST['payment'];
+
+    $query = "
+    UPDATE orders
+    SET category = '$category', size = '$size', variant = '$variant', material = '$material', payment = '$payment'
+    WHERE id = '$order_id'
+";
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
+}
+
+if ($action == "remove order") {
+    $order_id = $_POST['order_id'];
+    $query = "DELETE FROM orders WHERE id='$order_id'";
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
+    pesan(
+        "Jersey dihapus"
+    );
+}

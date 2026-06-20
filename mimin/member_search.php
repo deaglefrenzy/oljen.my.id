@@ -9,7 +9,9 @@
         </form>
     </div>
 </div>
-
+<?php
+$members = getData('members', 'active = 1', 'name ASC');
+?>
 <script>
     const members = <?= json_encode(array_values($members)) ?>;
 
@@ -19,6 +21,6 @@
         data: members,
         searchField: "name",
         idField: "id",
-        paramName: "idmember"
+        paramName: "member_id"
     });
 </script>

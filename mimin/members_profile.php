@@ -165,10 +165,13 @@
         opacity: .9;
     }
 </style>
+<?php
+$member = getRow('members', 'id = ' . $memberID);
+?>
 <div class="profile-card">
     <div class="profile-header">
         <?php
-        $photo = $members[$memberID]['foto'] ?? '';
+        $photo = $member['foto'] ?? '';
         $hasPhoto = !empty($photo) && file_exists("foto/$photo");
         ?>
         <form method="post" enctype="multipart/form-data" id="photoForm">
@@ -194,9 +197,10 @@
         </form>
         <div class="profile-info">
             <h2>
-                <?= htmlspecialchars($members[$memberID]['name']) ?>
+                <?= htmlspecialchars($member['name']) ?>
             </h2>
-            <button class="button" onclick="openModal('editMemberModal',<?= $memberID ?>)">
+            <button type="button" class="copy-btn w3-margin-top"
+                onclick="openModal('editMemberModal',<?= $memberID ?>)">
                 <i class="fa-solid fa-pen-to-square"></i>
                 Edit Profil
             </button>
@@ -207,18 +211,18 @@
             <tr>
                 <td>Nama</td>
                 <td>:</td>
-                <td><?= htmlspecialchars($members[$memberID]['name']) ?></td>
+                <td><?= htmlspecialchars($member['name']) ?></td>
             </tr>
             <tr>
                 <td>Lahir</td>
                 <td>:</td>
                 <td>
                     <?php
-                    if (!empty($members[$memberID]['dob'])) {
-                        $lahir = new DateTime($members[$memberID]['dob']);
+                    if (!empty($member['dob'])) {
+                        $lahir = new DateTime($member['dob']);
                         $umur = $lahir->diff(new DateTime());
 
-                        echo date('d M Y', strtotime($members[$memberID]['dob']));
+                        echo date('d M Y', strtotime($member['dob']));
                         echo " • {$umur->y} thn {$umur->m} bln";
                     } else {
                         echo '-';
@@ -234,17 +238,17 @@
                     <div class="order-link-box">
 
                         <?php
-                        $link = "https://oljen.my.id/order/?token=" . $members[$memberID]['token'];
+                        $link = "https://oljen.my.id/order/?token=" . $member['token'];
                         ?>
 
                         <a href="<?= $link ?>" target="_blank" id="order-link">
                             <?= $link ?>
                         </a>
 
-                            <br><br>
- 
-                              <but ton type="button" class="copy-btn" onclick="copyOrderLink()">
-                                📋 Copy Link
+                        <br><br>
+
+                        <button type="button" class="copy-btn" onclick="copyOrderLink()">
+                            📋 Copy Link
                         </button>
 
                     </div>
@@ -287,13 +291,13 @@ include("order_logs.php");
 <script>
     function copyOrderLink() {
 
-        const text = `Halo <?= $members[$memberID]['name'] ?>!
+        const text = `Halo <?= $member['name'] ?>!
 Pemesanan jersey event OLJEN dapat dilakukan melalui link berikut:
 
 <?= $link ?>
 
 
-Link ini bersifat unik dan terhubung hanya dengan data member <?= $members[$memberID]['name'] ?>,
+Link ini bersifat unik dan terhubung hanya dengan data member <?= $member['name'] ?>,
 jadi harap jangan sebarkan link ini kepada member/orang lain.
 Pakai link ini juga untuk pemesanan jersey event-event OLJEN berikutnya.
 

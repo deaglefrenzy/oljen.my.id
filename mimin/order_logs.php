@@ -23,19 +23,13 @@
             </tr>
             <tr class="<?= $rowClass ?>">
                 <td rowspan="2" align="center" width="50px">
-                    <?php
-                    if (!$r['deleted_at']) {
-                        ?>
-                        <form method="post" onsubmit="return confirm('Batalkan iuran?')">
-                            <input type="hidden" name="action" value="delete iuran log">
-                            <input type="hidden" name="id" value="<?= $r['id'] ?>">
-                            <button type="submit" class="topbar-btn w3-text-red">
-                                <i class="fa-solid fa-trash w3-medium"></i>
-                            </button>
-                        </form>
-                        <?php
-                    }
-                    ?>
+                    <form method="post" onsubmit="return confirm('Hapus Pesanan?')">
+                        <input type="hidden" name="order_id" value="<?= $r['id'] ?>">
+                        <input type="hidden" name="action" value="remove order">
+                        <button type="submit" class="topbar-btn w3-text-red">
+                            <i class="fa-solid fa-trash w3-medium"></i>
+                        </button>
+                    </form>
                 </td>
                 <td colspan="2" class="w3-tiny">
                     <?php if ($r['deleted_at']): ?>
@@ -58,10 +52,13 @@
                         </button>
                     </form>
                 </td>
+                <td align="right" rowspan="2" class="w3-medium" style="padding-left: 15px;">
+                    <a href="?page=orders&order_id=<?= $r['id'] ?>"><i class="fa-solid fa-chevron-right"></i></a>
+                </td>
             </tr>
             <tr class="<?= $rowClass ?>">
                 <td style="line-height: 12px;">
-                    <a href="?page=members&idmember=<?= $r['member_id'] ?>">
+                    <a href="?page=members&member_id=<?= $r['member_id'] ?>">
                         <?= $r['member_name'] ?> <i class="fa-solid fa-angle-right w3-opacity w3-tiny"></i>
                     </a>
                 </td>

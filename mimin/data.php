@@ -1,14 +1,36 @@
 <?php
 include 'config/website.php';
 
-$members = [];
-$query = "
-SELECT * FROM members WHERE active = 1 ORDER BY name ASC
-";
-$q = mysqli_query($conn, $query) or die(mysqli_error($conn));
-while ($row = mysqli_fetch_assoc($q)) {
-    $members[$row['id']] = $row;
-}
+$materials = [
+    "DRYFIT",
+    "PRO"
+];
+
+$categories = [
+    "Men",
+    "Women",
+    "Kids"
+];
+
+$sizes = [
+    "3XS",
+    "2XS",
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL"
+];
+
+$variants = [
+    "Lengan Pendek",
+    "Lengan Panjang",
+    "Singlet",
+    "Kerah Polo",
+    "Muscle Tee"
+];
 
 $menu_items = [
     'members' => [
@@ -30,7 +52,5 @@ $menu_items = [
         'icon' => 'fa-solid fa-user-gear',
     ],
 ];
-
 $top_items = [
-
 ];

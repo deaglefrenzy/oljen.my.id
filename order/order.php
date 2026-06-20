@@ -1,3 +1,126 @@
+<style>
+    .summary {
+        background: #f0f8ff;
+    }
+
+    .order-summary {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .order-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 10px;
+    }
+
+    .price-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 4px 0;
+    }
+
+    .main-price {
+        font-size: 1.05em;
+    }
+
+    .extra {
+        color: #666;
+        padding-left: 15px;
+        font-size: .9em;
+    }
+
+    .subtotal {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid #ddd;
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+
+    .remove-btn {
+        border: 0;
+        background: #f44336;
+        color: white;
+        border-radius: 6px;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+    }
+
+    .remove-btn:hover {
+        opacity: .9;
+    }
+
+    .total {
+        font-size: 22px;
+        font-weight: bold;
+        border-top: 1px solid #ccc;
+        padding-top: 10px;
+        margin-top: 10px;
+    }
+
+    @media (max-width: 700px) {
+        .grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 500px) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .payment-summary {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .payment-total {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .payment-total .label {
+        color: #777;
+        font-size: 14px;
+    }
+
+    .payment-total .amount {
+        font-size: 32px;
+        font-weight: bold;
+        color: #2e7d32;
+        margin-top: 8px;
+    }
+
+    .transfer-info {
+        margin-top: 20px;
+    }
+
+    .transfer-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .transfer-table td {
+        padding: 6px 0;
+    }
+
+    .note {
+        margin-top: 12px;
+        padding: 10px;
+        background: #fff8e1;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+</style>
 <div class="card summary">
     <div class="page-title">
         PESANAN
@@ -8,11 +131,6 @@
     foreach ($orders as $i => $order): ?>
         <?php
         $count++;
-        $is_member = ($count <= count($related_ids[$order['member_id']]) + 1);
-        $event = $events[$order['event_id']];
-        $base = ($is_member)
-            ? $event['base']
-            : $event['nonmember'];
         $oversize = ($order['size'] == "3XL")
             ? (($order['material'] == "DRYFIT")
                 ? $event['oversize'] - 15000
@@ -26,16 +144,23 @@
         $upgrade = ($order['material'] == "PRO")
             ? $event['upgrade']
             : 0;
+        $base = $order['payment'] - $oversize - $long - $upgrade;
         $subtotal = $base + $oversize + $long + $upgrade;
         $total += $subtotal;
         ?>
         <div class="order-summary">
             <div class="order-header">
                 <div>
-                    <b>
-                        <?= $is_member ? "<i class='fa-solid fa-circle-user'></i> Member" : "<i class='fa-solid fa-house-user'></i> Family" ?>
+                    <?php $isMemberPrice = ($base == $event['base']); ?>
+
+                    <span class="w3-tag w3-round <?= $isMemberPrice ? 'w3-green' : 'w3-blue' ?>">
                         #<?= $count ?>
-                    </b>
+                    </span>
+
+                    <span class="w3-tag w3-round <?= $isMemberPrice ? 'w3-pale-green' : 'w3-pale-blue' ?>">
+                        <i class="fa-solid <?= $isMemberPrice ? 'fa-circle-user' : 'fa-house-user' ?>"></i>
+                        <?= $isMemberPrice ? 'Member' : 'Family' ?>
+                    </span>
                     <div class="w3-small w3-text-gray">
                         <?= $order['type'] ?>
                         ·
@@ -44,16 +169,18 @@
                         <?= $order['size'] ?>
                     </div>
                 </div>
-                <form method="post" onsubmit="return confirm('Hapus jersey ini dari pemesanan?')">
-                    <input type="hidden" name="action" value="remove order">
-                    <input type="hidden" name="id" value="<?= $i ?>">
-                    <button class="remove-btn" type="submit" <?= $available ? '' : 'disabled' ?>>
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </form>
+                <?php if ($order['status'] == 0): ?>
+                    <form method="post" onsubmit="return confirm('Hapus jersey ini dari pemesanan?')">
+                        <input type="hidden" name="action" value="remove order">
+                        <input type="hidden" name="id" value="<?= $i ?>">
+                        <button class="remove-btn" type="submit" <?= $available ? '' : 'disabled' ?>>
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </form>
+                <?php endif; ?>
             </div>
             <div class="price-row main-price">
-                <span>Jersey</span>
+                <span>Jersey <?= $order['material'] ?></span>
                 <span>Rp
                     <?= number_format($base) ?>
                 </span>
@@ -90,6 +217,11 @@
                     <?= number_format($subtotal) ?>
                 </span>
             </div>
+            <?php if ($order['status'] == 1): ?>
+                <div class="w3-pale-green w3-border-green w3-center">
+                    <b class="w3-text-green"><i class="fa-solid fa-circle-check"></i> LUNAS</b>
+                </div>
+            <?php endif; ?>
         </div>
     <?php endforeach; ?>
     <div class="payment-summary">

@@ -1,11 +1,12 @@
 <?php
-$memberID = isset($_GET['idmember']) ? (int) $_GET['idmember'] : null;
+$memberID = isset($_GET['member_id']) ? (int) $_GET['member_id'] : null;
 
 // SEARCH
 include("member_search.php");
 if (!empty($memberID)) {
     include("members_profile.php");
 } else {
+    $members = getData('members', 'active = 1', 'name ASC');
     ?>
     <div class="card">
         <?php if (!isset($members)): ?>
@@ -18,7 +19,7 @@ if (!empty($memberID)) {
                     foreach ($members as $r):
                         $count++;
                         ?>
-                        <tr onclick="location.href='?page=members&idmember=<?= $r['id'] ?>'" style="cursor:pointer;">
+                        <tr onclick="location.href='?page=members&member_id=<?= $r['id'] ?>'" style="cursor:pointer;">
                             <td width="30" class="w3-opacity">
                                 <?= $count ?>
                             </td>

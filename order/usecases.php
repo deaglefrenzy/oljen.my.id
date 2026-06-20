@@ -33,8 +33,14 @@ if ($action == 'add jersey') {
 
     $member_ids = [$member_id];
 
-    if (!empty($related_ids[$member_id])) {
-        $member_ids = array_merge($member_ids, $related_ids[$member_id]);
+    foreach ($related_ids as $main_id => $related) {
+        if (
+            $main_id == $member_id ||
+            in_array($member_id, $related)
+        ) {
+            $member_ids[] = $main_id;
+            $member_ids = array_merge($member_ids, $related);
+        }
     }
 
     $member_ids = array_unique($member_ids);
@@ -111,7 +117,7 @@ if ($action == 'add jersey') {
     if ($valid) {
         mysqli_query($conn, $query) or die(mysqli_error($conn));
 
-        pesan("Jersey $category $size berhasil ditambahkan");
+        pesan("Jersey $category $size berhasil ditambahkan", "?token=$token&event=$event_id");
     }
 }
 
@@ -120,6 +126,6 @@ if ($action == "remove order") {
     $query = "DELETE FROM orders WHERE id='$id'";
     mysqli_query($conn, $query) or die(mysqli_error($conn));
     pesan(
-        "Jersey dihapus"
+        "Pesanan terhapus",
     );
 }
