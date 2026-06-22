@@ -1,6 +1,34 @@
 <?php
 $current_page = $_GET['page'] ?? 'iuran';
 $count = 0;
+
+$menu_items = [
+    'members' => [
+        'label' => 'MEMBERS',
+        'color' => 'blue',
+        'href' => '?page=members',
+        'icon' => 'fa-solid fa-children',
+    ],
+    'orders' => [
+        'label' => 'ORDERS',
+        'color' => 'green',
+        'href' => '?page=orders',
+        'icon' => 'fa-solid fa-hand-holding-dollar',
+    ],
+    'report' => [
+        'label' => 'REPORT',
+        'color' => 'yellow',
+        'href' => 'report.php',
+        'icon' => 'fa-solid fa-chart-line',
+        'blank' => true,
+    ],
+    'user' => [
+        'label' => $login_name,
+        'color' => 'red',
+        'href' => '?page=user',
+        'icon' => 'fa-solid fa-user-gear',
+    ],
+];
 ?>
 <div class="bottom-nav">
     <?php foreach ($menu_items as $item): ?>
@@ -10,7 +38,8 @@ $count = 0;
             break;
         parse_str(parse_url($item['href'], PHP_URL_QUERY), $params);
         $is_active = ($current_page ?? '') == ($params['page'] ?? '');
-        ?> <a href="<?= $item['href'] ?>" class="<?= $item['color'] ?> <?= $is_active ? 'active' : '' ?>">
+        ?>
+        <a href="<?= $item['href'] ?>" class="<?= $item['color'] ?> <?= $is_active ? 'active' : '' ?>" <?= ($item['blank'] ?? false) ? 'target="_blank" rel="noopener noreferrer"' : '' ?>>
             <i class="<?= $item['icon'] ?>"></i>
             <span class="reddit">
                 <?= $item['label'] ?>

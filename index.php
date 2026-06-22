@@ -37,12 +37,24 @@ $category = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 1;
 
     <style>
         :root {
-            --c1: <?= $color1 ?>;
-            --c2: <?= $color2 ?>;
-            --c3: <?= $color3 ?>;
-            --c4: <?= $color4 ?>;
-            --c5: <?= $color5 ?>;
-            --c6: <?= $color6 ?>;
+            --c1:
+                <?= $color1 ?>
+            ;
+            --c2:
+                <?= $color2 ?>
+            ;
+            --c3:
+                <?= $color3 ?>
+            ;
+            --c4:
+                <?= $color4 ?>
+            ;
+            --c5:
+                <?= $color5 ?>
+            ;
+            --c6:
+                <?= $color6 ?>
+            ;
         }
     </style>
 </head>
@@ -56,7 +68,7 @@ $category = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 1;
 
     $currentDate = date('Y-m-d');
     $startDate = '2026-04-12';
-    $endDate   = '2026-04-26';
+    $endDate = '2026-04-26';
 
     $is_available = ($currentDate >= $startDate && $currentDate <= $endDate);
 
@@ -92,9 +104,9 @@ $category = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 1;
 
     <script>
         // Store scroll position before form submission
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const form = document.querySelector('form');
-            form.addEventListener('submit', function() {
+            form.addEventListener('submit', function () {
                 localStorage.setItem('scrollPos', window.scrollY);
             });
 

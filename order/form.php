@@ -25,6 +25,25 @@
     .jersey {
         margin-top: 10px;
     }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
+
+    @media (max-width: 700px) {
+        .grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+    }
+
+    @media (max-width: 500px) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
 <?php
 $can_add_order =

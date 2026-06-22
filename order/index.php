@@ -77,12 +77,6 @@ include 'usecases.php';
             text-align: center;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-        }
-
         .remove-btn {
             background: #e74c3c;
             color: white;
