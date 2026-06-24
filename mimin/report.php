@@ -39,11 +39,30 @@ $size_order = [
     '3XL'
 ];
 $report = [];
+$memberReport = [];
+
 while ($row = mysqli_fetch_assoc($result)) {
+
     $category = $row['category'];
     $variant = $row['variant'];
     $size = $row['size'];
-    $report[$category][$variant][$size][] = $row['member_name'];
+    $material = $row['material'];
+    $member = $row['member_name'];
+
+    $variantShort = str_replace(
+        ['Lengan Pendek', 'Lengan Panjang'],
+        ['Pendek', 'Panjang'],
+        $variant
+    );
+
+    // Existing report
+    $report[$category][$variantShort][$size][] = $member;
+
+    // Member report
+    // $memberReport[$member][] = [
+    //     'category' => $category,
+    //     'text' => "{$category} {$variantShort} {$material} {$size}"
+    // ];
 }
 
 foreach ($report as $category => $variants) {
@@ -145,7 +164,7 @@ foreach ($report as $category => $variants) {
                 </tr>
             </table>
         </div>
-        <div class="page-break w3-margin top"></div>
+        <div class="w3-margin-top"></div>
         <div class="w3-card w3-white">
             <header class="w3-container w3-light-grey">
                 <h3>Details</h3>
@@ -180,6 +199,65 @@ foreach ($report as $category => $variants) {
                 <?php endforeach; ?>
             </table>
         </div>
+
+        <?php if (count($memberReport) > 0): ?>
+            <div class="page-break"></div>
+
+            <div class="w3-card w3-white w3-margin-top">
+                <header class="w3-container w3-light-grey w3-margin-bottom">
+                    <h3>Orders By Member</h3>
+                </header>
+
+                <div class="w3-row-padding" style="font-size:11px;">
+
+                    <?php ksort($memberReport); ?>
+
+                    <?php foreach ($memberReport as $member => $items): ?>
+                        <div class="w3-third w3-margin-bottom">
+
+                            <div class="w3-border w3-round" style="padding:6px;">
+
+                                <div style="
+                        font-weight:bold;
+                        font-size:12px;
+                        border-bottom:1px solid #ddd;
+                        padding-bottom:2px;
+                        margin-bottom:4px;
+                        white-space:nowrap;
+                        overflow:hidden;
+                        text-overflow:ellipsis;
+                    ">
+                                    <?= htmlspecialchars($member) ?>
+                                </div>
+
+                                <div style="
+                        display:flex;
+                        flex-wrap:wrap;
+                        gap:2px;
+                        line-height:1.2;
+                    ">
+                                    <?php foreach ($items as $item): ?>
+                                        <span class="<?= $categoryClass[$item['category']] ?>" style="
+              display:inline-block;
+              padding:1px 4px;
+              margin:1px;
+              border-radius:3px;
+              font-size:10px;
+              white-space:nowrap;
+          ">
+                                            <?= htmlspecialchars($item['text']) ?>
+                                        </span>
+                                    <?php endforeach; ?>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    <?php endforeach; ?>
+
+                </div>
+            </div>
+        <?php endif; ?>
     </div>
 </body>
 
